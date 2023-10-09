@@ -7,7 +7,19 @@ import orangeFill from "../assets/images/orange_fill.png"
 import orangeOutline from "../assets/images/orange_outline.png"
 import purpleFill from "../assets/images/purple_fill.png"
 import purpleOutline from "../assets/images/purple_outline.png"
+// Use Regex to check the password and confirm password and email. Learn about type file input, turn input green when valid and red when invalid
+//CONFIRM WITH DESIGNER
+//IMP- CHANGE TYPE TO PASSWORD AND STYLE PASSWORD ACCORDINGLY
+//LEARN HOW TO CONNECT API END POINTS
 export default function SignUp(){
+  const [formValues,setFormValues] = React.useState({
+    name: "",
+    email: "",
+    confirmEmail: "",
+    password:"",
+    confirmPassword:"",
+    employeeID:""
+  })  
     const formData = [
         { name: "email",
           topText: "Email",
@@ -24,20 +36,27 @@ export default function SignUp(){
         { name: "employeeID",
           topText: "Employee ID",
         placeholder: "Enter ID"},
-        {name: '',
+        {name: 'noname',
           topText: "Signature Photo",
         placeholder: "Upload Signature Photo",
         image:true
       }
     ]
-    const [formValues,setFormValues] = React.useState({
-      name: "",
-      email: "",
-      confirmEmail: "",
-      password:"",
-      confirmPassword:"",
-      employeeID:"",
-    })
+    function handleChange(event){
+      console.log('name:',formValues.name,'email:',formValues.email,'confirm email: ', formValues.confirmEmail, 'password: ',formValues.password,'confirm password', formValues.confirmPassword, 'employeeID: ',formValues.employeeID)
+      setFormValues((prevValues) => {
+       return {...prevValues, [event.target.name]:event.target.value}
+      })
+      
+    }
+    function submitForm(){
+      if(formValues.confirmEmail !== formValues.email ){
+        console.log('Your confirm email  is incorrect')
+      } else if(formValues.password !== formValues.confirmPassword)
+      {
+        console.log('Your confirm password is incorrect')
+      }
+    }
     const renderForm = formData.map((item)=>{
         return(
             <div className="info-input-container">
@@ -50,10 +69,10 @@ export default function SignUp(){
                     <span className = "label-text">{item.placeholder}</span>
                     <span className = "label-text-2">Upload</span>
                   </label>
-                  <input type = "file"className="info-input-image" id = "signature" name = {item.name} /> 
+                  <input type = "file"className="info-input-image" id = "signature" name = {item.name}  /> 
                 </div>
                 :
-                <input className="info-input" placeholder={item.placeholder} name = {item.name} />
+                <input className="info-input" placeholder={item.placeholder} name = {item.name} onChange = {handleChange}/>
               }   
 
             </div>
@@ -65,7 +84,7 @@ export default function SignUp(){
           <p className="header"> SIGN UP </p>
           <div className="name-container">
             <p className="top-text">Name</p>
-            <input className="name-input" placeholder="Enter Name" name = "name" />
+            <input className="name-input" placeholder="Enter Name" name = "name" onChange = {handleChange} />
           </div>
           <div className = "same-input-grid">
             {renderForm}
@@ -77,7 +96,7 @@ export default function SignUp(){
                   </label>
                   <input type = "file" className="info-input-image" id = "signature" /> 
               </div>
-              <button className="get-started-button"> <div className="button-inside-div"> Get Started <div className="arrow"> <img className="arrow-image" src={Vector} /></div> </div></button>      
+              <button className="get-started-button"  onClick = {submitForm}> <div className="button-inside-div"> Get Started <div className="arrow"> <img className="arrow-image" src={Vector}/></div> </div></button>      
           </div>       
         </div>
         <div className="other-container">
