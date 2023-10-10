@@ -21,38 +21,38 @@ export default function SignUp() {
     SignaturePhoto: "",
   });
   const [emailBorderToggle, setEmailBorderToggle] = React.useState(false);
-  const [confirmEmailBorderToggle, setConfirmEmailBorderToggle] = React.useState(false);
-  const [passwordInputColorToggle, setPasswordInputColorToggle] = React.useState(false);
+  const [confirmEmailBorderToggle, setConfirmEmailBorderToggle] =
+    React.useState(false);
+  const [passwordInputColorToggle, setPasswordInputColorToggle] =
+    React.useState(false);
   React.useEffect(() => {
-    const fetchData = async () => { // Define the fetchData function
+    const fetchData = async () => {
+      // Define the fetchData function
       const requestData = {
         email: "admin@example.com",
         password: "admin123",
       };
       try {
-        let url = "http://localhost:8000/api/user/token"; // Added "http://" to the URL
+        let url = "http://localhost:8000/api/user/token/"; // Added "http://" to the URL
         const response = await fetch(url, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(requestData),
         });
-        console.log(response)
+        console.log(response);
         if (!response.ok) {
-          throw new Error('Authentication failed');
+          throw new Error("Authentication failed");
         }
         const data = await response.json();
         console.log(data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
     fetchData(); // Call the fetchData function
   }, []);
-  
-
-
 
   const formData = [
     {
@@ -67,21 +67,21 @@ export default function SignUp() {
       topText: "Confirm Email",
       placeholder: "!",
       value: formValues.confirmEmail,
-      changeColor: confirmEmailBorderToggle
+      changeColor: confirmEmailBorderToggle,
     },
     {
       name: "password",
       topText: "Password",
       placeholder: "Enter Password",
       value: formValues.password,
-      changeColor: passwordInputColorToggle
+      changeColor: passwordInputColorToggle,
     },
     {
       name: "confirmPassword",
       topText: "Confirm Password",
       placeholder: "!",
       value: formValues.confirmPassword,
-      changeColor: passwordInputColorToggle
+      changeColor: passwordInputColorToggle,
     },
     {
       name: "employeeID",
@@ -106,16 +106,21 @@ export default function SignUp() {
   function changeInputBorder(event) {
     const value = event.target.value;
     if (value == "") {
-      return
+      return;
     }
     if (event.target.name === "email") {
-      value.match(regex) ? setEmailBorderToggle(true) : setEmailBorderToggle(false);
-    } else if(event.target.name === "confirmEmail")
-    {
-      value === formValues.email ? setConfirmEmailBorderToggle(true) : setConfirmEmailBorderToggle(false)
-      console.log("ran")
-    } else if (event.target.name === "confirmPassword"){
-      value === formValues.password ? setPasswordInputColorToggle(true) : setPasswordInputColorToggle(false)
+      value.match(regex)
+        ? setEmailBorderToggle(true)
+        : setEmailBorderToggle(false);
+    } else if (event.target.name === "confirmEmail") {
+      value === formValues.email
+        ? setConfirmEmailBorderToggle(true)
+        : setConfirmEmailBorderToggle(false);
+      console.log("ran");
+    } else if (event.target.name === "confirmPassword") {
+      value === formValues.password
+        ? setPasswordInputColorToggle(true)
+        : setPasswordInputColorToggle(false);
     }
   }
   function submitForm() {
@@ -125,7 +130,7 @@ export default function SignUp() {
       console.log("Your confirm password is incorrect");
     }
   }
-  const renderForm = formData.map((item,index) => {
+  const renderForm = formData.map((item, index) => {
     return (
       <div className="info-input-container" key={item.name}>
         <p className="top-text">{item.topText}</p>
@@ -137,7 +142,7 @@ export default function SignUp() {
               <span className="label-text-2">Upload</span>
             </label>
             <input
-              key = {index}
+              key={index}
               type="file"
               className="info-input-image"
               id="signature"
@@ -148,7 +153,7 @@ export default function SignUp() {
           </div>
         ) : (
           <input
-            key = {index}
+            key={index}
             type="text"
             className={item.changeColor ? "info-input-green" : "info-input"}
             placeholder={item.placeholder}
