@@ -144,6 +144,19 @@ p{
     border-radius:12px;
     color:white;
   }
+  .info-input-green{
+    width:100%;
+    background:none;
+    border:solid 1px green;
+    padding:10px 10px;
+    margin-top:10px;
+    border-radius:12px;
+    color:white;
+  }
+  .info-input-green:focus{
+    outline: none;     
+    box-shadow: 0 0 0 0.5px green; 
+  }
   .bar{
     z-index:3;
     margin-top:60px;
