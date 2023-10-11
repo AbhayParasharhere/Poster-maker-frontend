@@ -60,7 +60,7 @@
         type: "password",
         name: "password",
         topText: "Password",
-        placeholder: "Pasword (>8 characters)",
+        placeholder: "Pasword",
         value: formValues.password,
         changeColor: passwordInputColorToggle,
       },
@@ -72,7 +72,23 @@
         placeholder: "!",
         value: formValues.confirmPassword,
         changeColor: passwordConfirmInputColorToggle,
+      }
+      ,
+            {mandatory: true,
+        type: "text",
+        name: "contactNumber",
+        topText: "Contact Number",
+        placeholder: "Enter Contact No.",
+        value: formValues.contactNumber,
       },
+      {mandatory: false,
+        type: "text",
+        name: "designation",
+        topText: "Designation",
+        placeholder: "Enter Designation",
+        value: formValues.designation,
+      },
+
       {
         mandatory: false,
         type: "text",
@@ -88,21 +104,7 @@
         image: true,
         value: formValues.SignaturePhoto,
       }
-      ,
-      {mandatory: false,
-        type: "text",
-        name: "designation",
-        topText: "Designation",
-        placeholder: "Enter Designation",
-        value: formValues.designation,
-      },
-      {mandatory: true,
-        type: "text",
-        name: "contactNumber",
-        topText: "Contact Number",
-        placeholder: "Enter Contact No.",
-        value: formValues.contactNumber,
-      }
+      
     ];
     function handleChange(event) {
       console.log('name:',event.target.name,'prevoius',formValues.backgroundImage)
@@ -331,7 +333,9 @@
         <div className="sign-up-container">
           <p className="header"> SIGN UP </p>
           <div className="name-container">
-            <p className="top-text">Full Name<span className = "mandatory-feild-true"> *</span></p>
+            <p className="top-text">Full Name
+            <span className = "mandatory-feild-true"> *</span>
+            </p>
             <input
               className="name-input"
               placeholder="Enter Full Name"
@@ -340,28 +344,37 @@
               value={formValues.name}
             />
           </div>
-          <div className="same-input-grid">{renderForm}</div>
-          <div className="bar">
-            <div className="siganture-container">
-              <label htmlFor="photo" className={changePhotoInputColor ? "face-image-label-green" : "face-image-label"}>
-                <img className="signature-image-icon" src={uploadIcon} />
-                Upload Photo
-              </label>
-              <input 
-              name = "backgroundImage" 
-              type="file" 
-              className="info-input-image" 
-              id="photo" 
-              onChange = {handleChange}/>
+          <div className="same-input-grid">
+            
+            {renderForm}
+            <div>
+              
             </div>
-            <button className="get-started-button" onClick={() => {submitForm(formValues)}}>
-              <div className="button-inside-div">
-                Get Started
-                <div className="arrow">
-                  <img className="arrow-image" src={Vector} />
-                </div>
+            <div>
+
+            </div>
+          </div>
+          <div className="bar">
+            <div>
+                  <label htmlFor="photo" className={changePhotoInputColor ? "face-image-label-green" : "face-image-label"}>
+                    <img className="signature-image-icon" src={uploadIcon} />
+                    Upload Photo
+                  </label>
+                  <input 
+                  name = "backgroundImage" 
+                  type="file" 
+                  className="info-input-image" 
+                  id="photo" 
+                  onChange = {handleChange}/>
               </div>
-            </button>
+              <button className="get-started-button" onClick={() => {submitForm(formValues)}}>
+                <div className="button-inside-div">
+                  Get Started
+                  <div className="arrow">
+                    <img className="arrow-image" src={Vector} />
+                  </div>
+                </div>
+              </button>
           </div>
         </div>
         <div className="other-container">
