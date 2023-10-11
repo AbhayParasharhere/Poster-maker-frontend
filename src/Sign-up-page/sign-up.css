@@ -130,6 +130,19 @@ p{
     margin-top:10px;
     border-radius:12px;
   }
+  .signature-label-green{
+    font-family: Inter;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    color:rgba(193, 186, 186, 1);
+    width:100%;
+    background:none;
+    border:solid 1px green;
+    padding:6px 10px;
+    margin-top:10px;
+    border-radius:12px;
+  }
   .signature-image-icon{
     height: 25px;
   }
@@ -189,6 +202,18 @@ p{
     width:140%;
     background:none;
     border:solid 1px gray;
+    padding:7px 10px;
+    border-radius:12px; 
+  }
+  .face-image-label-green{
+    font-family: Inter;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    color:rgba(193, 186, 186, 1);
+    width:140%;
+    background:none;
+    border:solid 1px green;
     padding:7px 10px;
     border-radius:12px; 
   }
@@ -257,6 +282,9 @@ p{
   .signature-label{
     font-size: 12px;
   }
+  .signature-label-green{
+    font-size: 12px;
+  }
  }
 
  @media((min-width:1000px) and (max-width:1225px)){
@@ -264,6 +292,9 @@ p{
       display: none;
     }
     .signature-label{
+      font-size: 16px;
+    }
+    .signature-label-green{
       font-size: 16px;
     }
     .label-text-2{
@@ -293,6 +324,9 @@ p{
     .signature-label{
       font-size: 12px;
     }
+    .signature-label-green{
+      font-size: 12px;
+    }
   }
   @media((min-width:0px)and (max-width: 640px))
   {
@@ -300,6 +334,9 @@ p{
       display: none;
     }
     .signature-label{
+      font-size: 16px;
+    }
+    .signature-label-green{
       font-size: 16px;
     }
     .label-text-2{

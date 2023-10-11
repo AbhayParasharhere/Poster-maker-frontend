@@ -7,7 +7,9 @@
   import orangeOutline from "../assets/images/orange_outline.png";
   import purpleFill from "../assets/images/purple_fill.png";
   import purpleOutline from "../assets/images/purple_outline.png";
-
+  //Things to Add:
+  //Display Error message, ask designer where to display it
+  //When submitted redriect to next page
   export default function SignUp() {
     const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/g;
 
@@ -26,9 +28,13 @@
     const [emailBorderToggle, setEmailBorderToggle] = React.useState(false);
     const [confirmEmailBorderToggle, setConfirmEmailBorderToggle] =
       React.useState(false);
-    const [passwordInputColorToggle, setPasswordInputColorToggle] =
+      const [passwordInputColorToggle, setPasswordInputColorToggle] =
       React.useState(false);
-      
+    const [passwordConfirmInputColorToggle, setPasswordConfirmInputColorToggle] =
+      React.useState(false);
+    
+    const [changeSignatureInputColor, setChangeSignatureInputColor] = React.useState(false)
+    const [changePhotoInputColor, setChangePhotoInputColor] = React.useState(false)
 
     const staticFormData = [
       {
@@ -54,7 +60,7 @@
         type: "password",
         name: "password",
         topText: "Password",
-        placeholder: "Enter Password",
+        placeholder: "Pasword (>8 characters)",
         value: formValues.password,
         changeColor: passwordInputColorToggle,
       },
@@ -65,7 +71,7 @@
         topText: "Confirm Password",
         placeholder: "!",
         value: formValues.confirmPassword,
-        changeColor: passwordInputColorToggle,
+        changeColor: passwordConfirmInputColorToggle,
       },
       {
         mandatory: false,
@@ -122,11 +128,32 @@
         console.log("ran");
       } else if (event.target.name === "confirmPassword") {
         value === formValues.password
-          ? setPasswordInputColorToggle(true)
-          : setPasswordInputColorToggle(false);
+          ? setPasswordConfirmInputColorToggle(true)
+          : setPasswordConfirmInputColorToggle(false);
+      } else if(event.target.name === "password"){
+        (value.length) > 8 ? setPasswordInputColorToggle(true): setPasswordInputColorToggle(false)
+      } else if (event.target.name === "SignaturePhoto"){
+        value !== '' ? setChangeSignatureInputColor(true) : setChangeSignatureInputColor(false)
+      }
+      else if (event.target.name === "backgroundImage"){
+        value !== '' ? setChangePhotoInputColor(true) : setChangePhotoInputColor(false)
       }
     }
+
     function submitForm(formValues) {
+      if(formValues.name === ''||formValues.email === '' || formValues.confirmEmail === '' || formValues.password === '' || formValues.confirmPassword === '' || formValues.contactNumber === ''){
+        console.log('Fill the Requirements')
+        return
+      } else if((formValues.password.length) < 9 ){
+        console.log('password length is less than 9')
+        return
+      } else if(!formValues.email.match(regex)){
+        console.log('email not valid')
+        return
+      } else if ((formValues.email !== formValues.confirmEmail) || (formValues.password !== formValues.confirmPassword)){
+        console.log('your email or password are not same')
+        return
+      }
       const fetchData = async () => {
         try {
           //Create a User
@@ -271,7 +298,7 @@
           </p>
           {item.image ? (
             <div className="siganture-container">
-              <label htmlFor="signature" className="signature-label">
+              <label htmlFor="signature" className={changeSignatureInputColor ? "signature-label-green" : "signature-label"}>
                 <img className="signature-image-icon" src={uploadIcon} />
                 <span className="label-text">{item.placeholder}</span>
                 <span className="label-text-2">Upload</span>
@@ -316,7 +343,7 @@
           <div className="same-input-grid">{renderForm}</div>
           <div className="bar">
             <div className="siganture-container">
-              <label htmlFor="photo" className="face-image-label">
+              <label htmlFor="photo" className={changePhotoInputColor ? "face-image-label-green" : "face-image-label"}>
                 <img className="signature-image-icon" src={uploadIcon} />
                 Upload Photo
               </label>
@@ -325,7 +352,6 @@
               type="file" 
               className="info-input-image" 
               id="photo" 
-              
               onChange = {handleChange}/>
             </div>
             <button className="get-started-button" onClick={() => {submitForm(formValues)}}>
