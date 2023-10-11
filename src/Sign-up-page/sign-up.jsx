@@ -19,86 +19,21 @@
       confirmPassword: "",
       employeeID: "",
       SignaturePhoto: "",
+      backgroundImage: "",
+      designation: "",
+      contactNumber: ""
     }));
     const [emailBorderToggle, setEmailBorderToggle] = React.useState(false);
     const [confirmEmailBorderToggle, setConfirmEmailBorderToggle] =
       React.useState(false);
     const [passwordInputColorToggle, setPasswordInputColorToggle] =
       React.useState(false);
-
-      React.useEffect(() => {
-        const fetchData = async () => {
-          try {
-            // Fetch the token
-            const tokenResponse = await fetchToken();
-            console.log(tokenResponse)
-            // Once you have the token, use it to make authenticated API requests
-            if (tokenResponse) {
-              await postBackgroundImage(tokenResponse.token);
-            }
-          } catch (error) {
-            console.error("Error:", error);
-          }
-        };
-      
-        const fetchToken = async () => {
-          const requestData = {
-            email: "admin@example.com",
-            password: "admin123",
-          };
-      
-          try {
-            let url = "http://localhost:8000/api/user/token/";
-            const response = await fetch(url, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(requestData),
-            });
-      
-            if (!response.ok) {
-              throw new Error("Authentication failed");
-            }
-      
-            const data = await response.json();
-            return data; // Return the token response
-          } catch (error) {
-            console.error("Error fetching token:", error);
-          }
-        };
-      
-        const postBackgroundImage = async (token) => {
-          const uploadData = new FormData();
-          uploadData.append("background_image", formValues.SignaturePhoto);
-      
-          try {
-            let url = "http://localhost:8000/api/user/background-image/";
-            const response = await fetch(url, {
-              method: "POST",
-              headers: {
-                "Authorization": `Token ${token}`,
-              },
-              body: uploadData,
-            });
-      
-            if (!response.ok) {
-              throw new Error("Background image upload failed");
-            }
-      
-            const data = await response.json();
-            console.log(data);
-          } catch (error) {
-            console.error("Error uploading background image:", error);
-          }
-        };
-      
-        fetchData(); // Call the fetchData function
-      }, [formValues]);
       
 
-    const formData = [
+    const staticFormData = [
       {
+        mandatory: true,
+        type: "text",
         name: "email",
         topText: "Email",
         placeholder: "Enter Email",
@@ -106,6 +41,8 @@
         changeColor: emailBorderToggle,
       },
       {
+        mandatory: true,
+        type: "text",
         name: "confirmEmail",
         topText: "Confirm Email",
         placeholder: "!",
@@ -113,6 +50,8 @@
         changeColor: confirmEmailBorderToggle,
       },
       {
+        mandatory: true,
+        type: "password",
         name: "password",
         topText: "Password",
         placeholder: "Enter Password",
@@ -120,6 +59,8 @@
         changeColor: passwordInputColorToggle,
       },
       {
+        mandatory: true,
+        type: "password",
         name: "confirmPassword",
         topText: "Confirm Password",
         placeholder: "!",
@@ -127,25 +68,43 @@
         changeColor: passwordInputColorToggle,
       },
       {
+        mandatory: false,
+        type: "text",
         name: "employeeID",
         topText: "Employee ID",
         placeholder: "Enter ID",
         value: formValues.employeeID,
       },
-      {
+      {mandatory: false,
         name: "SignaturePhoto",
         topText: "Signature Photo",
         placeholder: "Upload Signature Photo",
         image: true,
         value: formValues.SignaturePhoto,
+      }
+      ,
+      {mandatory: false,
+        type: "text",
+        name: "designation",
+        topText: "Designation",
+        placeholder: "Enter Designation",
+        value: formValues.designation,
       },
+      {mandatory: true,
+        type: "text",
+        name: "contactNumber",
+        topText: "Contact Number",
+        placeholder: "Enter Contact No.",
+        value: formValues.contactNumber,
+      }
     ];
     function handleChange(event) {
+      console.log('name:',event.target.name,'prevoius',formValues.backgroundImage)
       setFormValues((prevValues) => {
         return { ...prevValues, [event.target.name]: event.target.type === "file" ? event.target.files[0]:event.target.value };
       });
       changeInputBorder(event);
-      console.log(formValues.SignaturePhoto)
+      console.log(console.log('after',formValues.backgroundImage))
     }
     function changeInputBorder(event) {
       const value = event.target.value;
@@ -167,17 +126,149 @@
           : setPasswordInputColorToggle(false);
       }
     }
-    function submitForm() {
-      if (formValues.confirmEmail !== formValues.email) {
-        console.log("Your confirm email  is incorrect");
-      } else if (formValues.password !== formValues.confirmPassword) {
-        console.log("Your confirm password is incorrect");
+    function submitForm(formValues) {
+      const fetchData = async () => {
+        try {
+          //Create a User
+  
+          const createUserStatus = await postData(formValues);
+          let tokenResponse;
+          if(createUserStatus === 201){
+             // Fetch the token
+             tokenResponse = await fetchToken();
+            console.log('response:',tokenResponse)
+          } else{
+            console.log('user not created')
+          }
+          console.log(tokenResponse)
+          // Once you have the token, use it to make authenticated API requests
+          if (tokenResponse) {
+            await postBackgroundImage(tokenResponse.token);
+            await postSignatureImage(tokenResponse.token);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      };
+    
+      const fetchToken = async () => {
+        const requestData = {
+          email: formValues.email,
+          password: formValues.password,
+        };
+    
+        try {
+          let url = "http://localhost:8000/api/user/token/";
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(requestData),
+          });
+    
+          if (!response.ok) {
+            throw new Error("Authentication failed");
+          }
+    
+          const data = await response.json();
+          return data; // Return the token response
+        } catch (error) {
+          console.error("Error fetching token:", error);
+        }
+      };
+    
+      const postBackgroundImage = async (token) => {
+        const uploadData = new FormData();
+        uploadData.append("background_image", formValues.backgroundImage);
+        console.log(formValues.backgroundImage)
+    
+        try {
+          let url = "http://localhost:8000/api/user/background-image/";
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Authorization": `Token ${token}`,
+            },
+            body: uploadData,
+          });
+    
+          if (!response.ok) {
+            throw new Error("Background image upload failed");
+          }
+    
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error("Error uploading background image:", error);
+        }
+      };
+      const postSignatureImage = async (token) => {
+        const uploadData = new FormData();
+        uploadData.append("signature_image", formValues.SignaturePhoto);
+    
+        try {
+          let url = "http://localhost:8000/api/user/signature-image/";
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Authorization": `Token ${token}`,
+            },
+            body: uploadData,
+          });
+    
+          if (!response.ok) {
+            throw new Error("Background image upload failed");
+          }
+    
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error("Error uploading background image:", error);
+        }
+      };
+      
+      const postData = async (formValues) => {
+        const userData = {
+          name: formValues.name,
+          password: formValues.password,
+          email: formValues.email,
+          designation: formValues.designation,
+          contact_number: formValues.contactNumber,
+          employee_id: formValues.employeeID,
+        };
+        console.log('data:',userData)
+        try {
+          let url = "http://localhost:8000/api/user/sign-up/";
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userData),
+          });
+    
+          if (!response.ok) {
+            throw new Error("Could not make the user");
+          }
+    
+          const data = await response.json();
+          const status = response.status
+          console.log(status)
+          return status;
+        } catch (error) {
+          console.error("Error making the user", error);
+        }
       }
+      fetchData(); // Call the fetchData function
     }
-    const renderForm = formData.map((item, index) => {
+    const renderForm = staticFormData.map((item, index) => {
       return (
         <div className="info-input-container" key={item.name}>
-          <p className="top-text">{item.topText}</p>
+          <p className="top-text">
+            {item.topText}
+            <span className={item.mandatory? "mandatory-feild-true":"mandatory-feild-false"}> *</span>
+          </p>
           {item.image ? (
             <div className="siganture-container">
               <label htmlFor="signature" className="signature-label">
@@ -197,7 +288,7 @@
           ) : (
             <input
               key={index}
-              type="text"
+              type={item.type}
               className={item.changeColor ? "info-input-green" : "info-input"}
               placeholder={item.placeholder}
               name={item.name}
@@ -213,10 +304,10 @@
         <div className="sign-up-container">
           <p className="header"> SIGN UP </p>
           <div className="name-container">
-            <p className="top-text">Name</p>
+            <p className="top-text">Full Name<span className = "mandatory-feild-true"> *</span></p>
             <input
               className="name-input"
-              placeholder="Enter Name"
+              placeholder="Enter Full Name"
               name="name"
               onChange={handleChange}
               value={formValues.name}
@@ -225,13 +316,19 @@
           <div className="same-input-grid">{renderForm}</div>
           <div className="bar">
             <div className="siganture-container">
-              <label htmlFor="signature" className="face-image-label">
+              <label htmlFor="photo" className="face-image-label">
                 <img className="signature-image-icon" src={uploadIcon} />
                 Upload Photo
               </label>
-              <input type="file" className="info-input-image" id="signature" />
+              <input 
+              name = "backgroundImage" 
+              type="file" 
+              className="info-input-image" 
+              id="photo" 
+              
+              onChange = {handleChange}/>
             </div>
-            <button className="get-started-button" onClick={submitForm}>
+            <button className="get-started-button" onClick={() => {submitForm(formValues)}}>
               <div className="button-inside-div">
                 Get Started
                 <div className="arrow">

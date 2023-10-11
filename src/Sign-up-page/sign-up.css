@@ -118,6 +118,7 @@ p{
   }
 
   .signature-label{
+    font-family: Inter;
     display: flex;
     align-items: center;
     gap:10px;
@@ -180,6 +181,7 @@ p{
     height: 100%;
   }
   .face-image-label{
+    font-family: Inter;
     display: flex;
     align-items: center;
     gap:10px;
@@ -245,7 +247,12 @@ p{
   grid-row-gap: 20px;
  }
 
-
+.mandatory-feild-true{
+  color:red;
+}
+.mandatory-feild-false{
+  display: none;
+}
  @media((min-width:1225px) and (max-width:1350px)){
   .signature-label{
     font-size: 12px;
