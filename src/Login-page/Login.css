@@ -1,0 +1,149 @@
+p{
+    margin: 0px;
+  }
+  body{
+    background-color:rgba(234, 234, 234, 1);
+
+  }
+  .main-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .left-container{
+    display:flex;
+    flex:1;
+    position: relative;
+    justify-content:right;
+    align-items: center;
+   
+  }
+  .blue-fill{
+    position:absolute;
+    width:400px;
+    height:300px;
+    top:0px;
+    left:0px;
+  }
+  .blue-outline{
+    position: absolute;
+    width:450px;
+    height:300px;
+    top:0px;
+    left:120px;
+  }
+  .purple-fill{
+    position:absolute;
+    bottom:0px;
+    height:240px;
+    width:240px;
+    left:0px;
+  }
+  .purple-outline{
+    position:absolute;
+    bottom:0px;
+    height:280px;
+    width:280px;
+    left:0px;      
+  }
+  .orange-fill{
+    position:absolute;
+    bottom:0px;
+    left:400px;
+    height:200px;
+    width:250px;
+  }
+  .right-container{
+    display:flex;
+    width:700px;
+    height: 85vh;
+    justify-content:center;
+    padding-top:70px;
+  }
+  .log-in-container{
+    display:flex;
+    flex-direction:column;
+    height:82%;
+    width:70%;
+    background-color:rgba(0,0,0,1);
+    justify-content: start;
+    align-items:center;
+    padding-top:60px;
+    box-shadow: -10px 10px 8px rgba(0,0,0,0.4);
+  }
+  .main-header-container{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .header-container{
+    flex-direction:row;
+    color:white;
+    flex: 1;
+    margin-bottom:40px;
+  }
+  .header-paragraph{
+    font-family: Lalezar;
+    font-size: 50px;
+    font-weight: 400;
+    text-align: left;
+
+  }
+  .input-container{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .email-label-text{
+    color:white;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .email-input-container{
+   display:flex;
+   margin-bottom:30px;
+  }
+  .password-label-text{
+    color:white;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+
+  }
+  .text-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .welcome-container{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    flex-shrink:0px;
+  }
+  .welcome-back-text{
+    display: flex;
+    font-family: Inter;
+    font-size: 60px;
+    margin-bottom:15px;
+    font-weight: 800;
+    text-align: left;
+  }
+  .tagline-text{
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: left;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    text-align: left;
+    
+  }
+  @media((min-width:0px) and (max-width:1000px)){
+    .left-container{
+        display: none
+    }
+  }
