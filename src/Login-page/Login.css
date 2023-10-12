@@ -3,6 +3,7 @@ p{
   }
   body{
     background-color:rgba(234, 234, 234, 1);
+    position: relative;
 
   }
   .main-container{
@@ -13,7 +14,7 @@ p{
   .left-container{
     display:flex;
     flex:1;
-    position: relative;
+    z-index:1;
     justify-content:right;
     align-items: center;
    
@@ -21,44 +22,86 @@ p{
   .blue-fill{
     position:absolute;
     width:400px;
-    height:300px;
+    height:220px;
     top:0px;
     left:0px;
   }
   .blue-outline{
     position: absolute;
     width:450px;
-    height:300px;
+    height:220px;
+    z-index: 0;
     top:0px;
     left:120px;
   }
   .purple-fill{
     position:absolute;
+    z-index: 0;
     bottom:0px;
-    height:240px;
+    height:160px;
     width:240px;
     left:0px;
   }
   .purple-outline{
     position:absolute;
+    z-index: 0;
     bottom:0px;
-    height:280px;
+    height:200px;
     width:280px;
     left:0px;      
   }
+
   .orange-fill{
     position:absolute;
     bottom:0px;
     left:400px;
+    height:150px;
+    width:250px;
+  }
+  .orange-outline{
+    position:absolute;
+    bottom:0px;
+    left:350px;
     height:200px;
     width:250px;
   }
+
+
   .right-container{
     display:flex;
     width:700px;
+    z-index: 1;
     height: 85vh;
     justify-content:center;
     padding-top:70px;
+  }
+  .orange-fill-2{
+    position:absolute;
+    right:100px;
+    height:140px;
+    width:280px;
+    top:0px;
+  }
+  .orange-outline-2{
+    position:absolute;
+    right:200px;
+    top:0px;
+    height:90px;
+    width:300px;
+  }
+  .purple-fill-2{
+    position:absolute;
+    width:200px;
+    height:200px;
+    bottom:0px;
+    right:0px;
+  }
+  .purple-outline-2{
+    position:absolute;
+    width:200px;
+    height:250px;
+    bottom:0px;
+    right:0px;
   }
   .log-in-container{
     display:flex;
@@ -94,24 +137,25 @@ p{
     flex-direction:column;
     gap:16px;
   }
-  .email-label-text{
+  .main-inputs{
+    width: 220px;
+    background: none;
+    border: solid 1px gray;
+    padding: 10px 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+  .label-text{
     color:white;
     font-family: Inter;
     font-size: 14px;
     font-weight: 600;
     text-align: left;
+    padding-left: 10px;
   }
   .email-input-container{
    display:flex;
    margin-bottom:30px;
-  }
-  .password-label-text{
-    color:white;
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: left;
-
   }
   .text-container{
     display:flex;
@@ -123,11 +167,13 @@ p{
     flex-direction:column;
     flex-wrap:nowrap;
     flex-shrink:0px;
+    z-index: 1;
   }
   .welcome-back-text{
     display: flex;
     font-family: Inter;
     font-size: 60px;
+    z-index: 1;
     margin-bottom:15px;
     font-weight: 800;
     text-align: left;
@@ -138,12 +184,90 @@ p{
     font-weight: 800;
     text-align: left;
     line-height: 25px;
+    z-index: 1;
     letter-spacing: 0.1em;
     text-align: left;
-    
   }
-  @media((min-width:0px) and (max-width:1000px)){
+  .get-started-button{
+    border-radius: 18px;
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-left: 20px;
+    margin-top: 40px;
+   }
+   .button-text{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: left;
+
+   }
+   .arrow-image-container{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    background-color:rgba(240, 178, 125, 1);
+    height:35px;
+    border-radius:20px;
+    padding-left:9px;
+    padding-right:9px;
+   }
+   .arrow-image{
+    height:50%;
+   }
+
+
+
+   @media((min-width:1120px) and (max-width:1250px))
+   {
+    .tagline-text{
+        font-size: 15px;
+    }
+  }
+  @media((min-width:1000px) and (max-width:1170px))
+  {
+   .welcome-back-text{
+       font-size: 50px;
+   }
+ }
+ @media((min-width:1070px) and (max-width:1140px))
+ {
+  .tagline-text{
+      font-size: 13px;
+  }
+}
+@media((min-width:1050px) and (max-width:1090px))
+{
+ .tagline-text{
+     font-size: 10px;
+ }
+}
+@media((min-width:1000px) and (max-width:1100px))
+{
+ .welcome-back-text{
+     font-size: 40px;
+ }
+}
+@media((min-width:0px) and (max-width:890x))
+{
+
+ }
+  @media((min-width:0px) and (max-width:1050px)){
     .left-container{
         display: none
     }
+    .log-in-container{
+        z-index: 1;
+    }
+    .orange-fill-2{
+        z-index: 2;
+    }
+    .orange-outline-2{
+        z-index: 2;
+    }
   }
+

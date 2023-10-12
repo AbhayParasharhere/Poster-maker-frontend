@@ -345,8 +345,7 @@
             />
           </div>
           <div className="same-input-grid">
-            
-            {renderForm}
+              {renderForm}
             <div>
               
             </div>
