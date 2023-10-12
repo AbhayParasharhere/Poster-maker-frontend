@@ -240,28 +240,26 @@ p{
       font-size: 13px;
   }
 }
-@media((min-width:1050px) and (max-width:1090px))
-{
- .tagline-text{
-     font-size: 10px;
- }
-}
 @media((min-width:1000px) and (max-width:1100px))
 {
  .welcome-back-text{
      font-size: 40px;
  }
 }
-@media((min-width:0px) and (max-width:890x))
+@media((min-width:1050px) and (max-width:1090px))
 {
-
+ .tagline-text{
+     font-size: 10px;
  }
-  @media((min-width:0px) and (max-width:1050px)){
+}
+
+  @media((min-width:710px) and (max-width:1050px)){
     .left-container{
         display: none
     }
     .log-in-container{
         z-index: 1;
+ 
     }
     .orange-fill-2{
         z-index: 2;
@@ -269,5 +267,32 @@ p{
     .orange-outline-2{
         z-index: 2;
     }
+
   }
 
+  @media( (min-width:0px) and (max-width:700px)){
+    .left-container{
+      display: none;
+    }
+    .right-container{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+    }
+    .log-in-container{
+      width: 100%;
+      height: 100%;
+      padding-bottom: 40px;
+      position: relative;
+    }
+    .purple-fill-2{
+      display: none;
+    }
+    .purple-outline-2{
+      display: none;
+    }
+    }
