@@ -10,9 +10,61 @@ import orangeOutline2 from "../assets/images/Login-page-images/orangeOutline-2.p
 import purpleFill2 from "../assets/images/Login-page-images/purpleFill-2.png"
 import purpleOutline2 from "../assets/images/Login-page-images/purpleOutline-2.png"
 import arrowIcon from "../assets/images/Login-page-images/arrowIcon.png"
-export default function Login(){
-    return(
+import Cookies from 'js-cookie';
+//Ask where to add the link for signup page
+//In selector page download button placement is not good
+//for help and profile, do we need other pages and if yes give design for each
+//For change profile there would be a dropdown or simply  a click on the profile image
+//Clarity on the resposive nature of the selector page(Prefer with mobile view also)
+//mobile view for all pages
 
+export default function Login(){
+  const [loginData, setLoginData] = React.useState({
+    loginEmail: "",
+    loginPassword: ""
+  })
+  function handleChange(event){
+    setLoginData((prevLoginData) => {return {...prevLoginData, [event.target.name] : event.target.value}})
+  }
+
+  function handleClick(){
+    const fetchData = async() => {
+      console.log("before",Cookies.get('token'));
+      const tokenProvided = await fetchToken();
+      Cookies.set('token', tokenProvided.token, { expires: 7, secure: true });
+      console.log('After',Cookies.get('token'));
+
+    }
+    const fetchToken = async () => {
+      const requestData = {
+        email: loginData.loginEmail,
+        password:loginData.loginPassword,
+      };
+  
+      try {
+        let url = "http://localhost:8000/api/user/token/";
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        });
+  
+        if (!response.ok) {
+          throw new Error("Authentication failed");
+        }
+  
+        const data = await response.json();
+        return data; // Return the token response
+      } catch (error) {
+        console.error("Error fetching token:", error);
+      }
+    };
+    fetchData()
+  }
+
+    return(
     <div className="main-container">
         <div className="left-container">
           <img className="blue-fill" src={blueFill} />
@@ -24,8 +76,8 @@ export default function Login(){
             </div>
           <img className="purple-fill" src={purpleFill}/>
           <img className="purple-outline" src={purpleOutline} />
-          <img class="orange-fill" src={orangeFill} />
-          <img class="orange-outline" src={orangeOutline} />
+          <img className="orange-fill" src={orangeFill} />
+          <img className="orange-outline" src={orangeOutline} />
 
         </div>
         <div className="right-container">
@@ -38,14 +90,14 @@ export default function Login(){
             <div className="input-container">
                 <div>
                     <p className="label-text">Email</p>
-                    <input className="main-inputs" placeholder="Enter email" />
+                    <input className="main-inputs" placeholder="Enter email" name = "loginEmail" value = {loginData.loginEmail} onChange = {handleChange} />
                 </div>
                 <div>
                     <p className="label-text">Password</p>
-                    <input className="main-inputs" placeholder="Enter password" />
+                    <input className="main-inputs" placeholder="Enter password" name = "loginPassword" value = {loginData.loginPassword} onChange = {handleChange}/>
                 </div>
             </div>
-                <button className="get-started-button">
+                <button className="get-started-button" onClick = {handleClick}>
                     <div className="button-text">Get Started 
                         <div className="arrow-image-container">
                             <img className="arrow-image" src={arrowIcon} />
@@ -53,8 +105,6 @@ export default function Login(){
                     </div>
                 </button>     
           </div>
-
-
             <img className="orange-fill-2" src={orangeFill2}/>
             <img className="orange-outline-2" src={orangeOutline2} />
             <img className="purple-fill-2" src={purpleFill2} />
