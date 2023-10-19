@@ -1,5 +1,6 @@
 import React from "react"
 import "./PosterDisplay.css"
+
 export default function PosterDisplay(){
     return(
         <div className = "main-poster-container">

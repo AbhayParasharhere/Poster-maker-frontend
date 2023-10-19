@@ -23,6 +23,12 @@
     background-color: white;
     height: 25vh;
     width: 25vw;
-    min-width: 200px;
+    min-width: 250px;
 }
-  
+.poster-preview{
+    width:100%;
+    height: 100%;
+}
+.poster-selected{
+    background-color: #F0B27D4D;
+}

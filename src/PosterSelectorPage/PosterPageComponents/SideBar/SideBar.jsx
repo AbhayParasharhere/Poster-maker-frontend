@@ -1,23 +1,29 @@
 import React from "react"
 import "./SideBar.css"
+import {NavLink} from "react-router-dom"
 export default function SideBar(){
     const previewPosterData = [{
-        img: "",
+        img: "src/assets/images/PosterPageImages/testPoster.png",
         pageLink: ""
-    }]
-    previewPosterData.map((preview) => {
-
-        <div class="poster-container">
-            <img className="poster-preview" src = {preview.img}/>
-        </div>
+    }
+    ,
+    {
+        img: "src/assets/images/PosterPageImages/testPoster2.png",
+        pageLink: "poster-2"
+    }
+]
+    const displayPreviewPoster = previewPosterData.map((preview,index) => {
+        return(
+            <NavLink to = {`${preview.pageLink}`} className = {({isActive}) => isActive ? "poster-selected" : null}>
+                <div className="poster-container" key = {index}>
+                    <img className="poster-preview" src = {preview.img}/>
+                </div>
+            </NavLink>
+        )
     })
     return(
         <div className = "main-sidebar-container">
-            
-            <div class="poster-container">Content 2</div>
-            <div class="poster-container">Content 3</div>
-            <div class="poster-container">Content 4</div>
-            <div class="poster-container">Content 5</div>       
+            {displayPreviewPoster}
         </div>
     )
 }

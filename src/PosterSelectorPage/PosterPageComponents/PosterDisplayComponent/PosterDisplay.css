@@ -55,7 +55,6 @@ body{
 .poster{
     min-width: 100%;
     min-height: 191px;
-    background-color: lightblue;
     padding: 0;
 }
 .poster--size-select-container{
@@ -68,15 +67,27 @@ body{
 }
 .size-select-sub-container{
     display: flex;
-    gap:60px
-}
+    gap:60px;
+    height: 100px;}
 .specific-size-select-container{
     display: flex;
     flex-direction: column;
     gap:16px;
     align-items: center;
     font-family: Inter;
-    font-size: 14px;
+    font-size: 14px;    
+    font-weight: 400;
+    text-align: left;
+    color:#D9D9D9;
+}
+.specific-size-select-container-selected{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    align-items: center;
+    background-color: #FEC89A4D;
+    font-family: Inter;
+    font-size: 14px;    
     font-weight: 400;
     text-align: left;
     color:#D9D9D9;
@@ -84,7 +95,7 @@ body{
 .instagram-select{
     background-color: #DFDFDF;
     width: 8vw;
-    height: 40px;
+    height: 4vh;
 }
 .facebook-select{
     background-color: #DFDFDF;
