@@ -11,8 +11,35 @@ export default function PosterPage(){
         "facebook":false,
         "twitter":false
     })  
-    console.log(posterSize)
+    let selectSize = "instagram"
+     for (const [key,value] of Object.entries(posterSize)) {
+        if(value){
+            selectSize = key
+        }
+    }
+    
+    const sizeStyles = {"twitter": {"width":"550px",
+                        "height":"290px",
+                        "containerType": "inline-size",
+                        "containerName": "changeRes"}, 
 
+                        "instagram": {
+                            "width":"300px",
+                            "height":"300px",
+                            "containerType": "inline-size",
+                            "containerName": "changeRes"},
+                        "facebook": {
+                            "width":"300px",
+                            "height":"300px",
+                            "containerType": "inline-size",
+                            "containerName": "changeRes"},
+                        "linkedIn": {
+                            "width":"350px",
+                            "height":"350px",
+                            "containerType": "inline-size",
+                            "containerName": "changeRes"}
+
+    }
     function handleSizeChange(platform)
     {
         setPosterSize((prevState) => { 
@@ -41,7 +68,7 @@ export default function PosterPage(){
                         </div>
                     </div>
                     <div className = "poster--display">
-                        <div className = "poster"><Outlet 
+                        <div className = "poster" style = {sizeStyles[selectSize]}><Outlet 
                             text = "123456"
                         /></div>
                     </div>

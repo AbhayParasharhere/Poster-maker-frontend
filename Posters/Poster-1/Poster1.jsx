@@ -1,38 +1,41 @@
-import React from "react"
-import calendar from "../../src/assets/images/Poster/calendar.png"
-import apple from "../../src/assets/images/Poster/apple.png"
-import businessman from "../../src/assets/images/Poster/businessman.png"
+import React from "react";
+import "./Poster1.css";
+// import OneGoalLogo from "../../src/assets/images/Poster/"
+import YellowFill from "../../src/assets/images/Poster/yellow-fill.png"
+import EmployeeImage from "../../src/assets/images/Poster/employee-img.png"
+import DottedShit from "../../src/assets/images/Poster/dotted-shit.png"
+import DottedShit2 from "../../src/assets/images/Poster/dotted-shit-2.png"
+import OneGoalLogo from "../../src/assets/images/Poster/oneGoalLogoW.png"
 
-import "./Poster1.css"
-export default function Poster1(props){
-        return(
-        <div className="poster-main-container">
-            <div className="poster-main-body-container">
-              <div className="poster-person-image-container">
-                <img className="poster-person-image" src={businessman} />
-              </div>
-              <div className="poster-main-text-container">
-                <p className="poster-title-text">MDRT 2023 NASHVILLE</p>
-                <div className="poster-description-container">
-                  <p className="poster-description-text-1">13 Million Dollar Round Table</p>
-                  <p className="poster-description-text-2">10 Years Top Of The World</p>
-               </div>
-                <p className="poster-cursive-text">Strong Community Strong Company</p>
-                <div className="poster-event-details-container">
-                  <div className="poster-date">
-                    <img className="poster-calender-image" src={calendar} />
-                    <p>June 26,27 & 28</p>
-                  </div>
-                  <div className="poster-number">
-                    <img className="poster-telephone-image" src={apple} />
-                    <p>12839475403</p>
-                  </div>
-                </div>
-                <p className="poster-name">Abhi Parashar</p>
-              </div>
-            </div>
-      
+
+export default function Poster1(props) {
+  return (
+      <div className="main-container--1">
+        <div className="left-container--1">
+          <img className="company-logo--1" src={OneGoalLogo} alt="Company Logo" />
+          <img className="yellow-fill--1" src={YellowFill} alt="Yellow Fill" />
+          <img className="employee-img--1" src={EmployeeImage} alt="Employee Image" id="employee-img" />
+          <img className="dotted-shit--1" src={DottedShit} alt="Dotted Shit" />
         </div>
-      
-        )
-    }
+        <div className="right-container--1">
+          <div className="text-container--1">
+            <img className="dotted-shit-2--1" src={DottedShit2} alt="Dotted Shit 2" />
+            <p className="tagline--1">
+              4 Months Free <br />
+              Life Insurance <br />
+              Premium
+            </p>
+            <p className="text-1--1" id="text-1">
+              Offer Extended Till November 31, 2023
+            </p>
+            <p className="text-2--1">3 Months Premium Free</p>
+            <div className="contact-info-container--1">
+              <p className="contact-info--1">Contact</p>
+              <p className="contact-details--1">Your Name</p>
+              <p className="contact-details--1">Contact Details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  );
+}

@@ -1,133 +1,173 @@
+p{
+  margin:0px;
+}
 
-
- .poster-main-container{
-  background-color:rgba(70, 73, 76, 1);
-  width:100%;  
-  height: 100%;  
- }
- .poster-year-image{
-  width: 100%;
+.main-container--1{
   height:100%;
- }
- .poster-year{
-  flex:2.5;
- }
- .poster-logo{
+  width:100%;
+  font-size: 1em;
+  display:flex;
+  border:solid 1px black;
+}
+.left-container--1{
+  display:flex;
   flex:1;
+  position: relative;
+}
+.company-logo--1{
+  position:absolute;
+  height:10%;
+  width:40%;
+  top:0.9em;
+  left:0.9em;  
+}
+.employee-img--1{
+  position:absolute;
+  height:70em;
+  width:25.625em;
+  bottom: 0;
+}
+
+.dotted-shit--1{
+  position:absolute;
+  height:7.875em;
+  width:12.5em;
+  bottom:0px;
+  right:-1.875em;
+}
+.right-container--1{
   display:flex;
-  align-items: center;
+  flex:1;
+  justify-content:center;
+  position: relative;  
+}
+.text-container--1{
+  display:flex;
+  flex-direction:column;
   justify-content: center;
- }
- .poster-logo-image{
-  height: auto;
-  width: auto;
-  max-width:70%;
-  max-height:70%; 
- }
- .poster-header{
-  display:flex;
- }
- .poster-main-body-container{
-  margin-top: 20px;
-  display:flex;
-  height:300px;
- }
- .poster-person-image-container{
-  flex:1.1;
-  background-color: rgba(221, 190, 168, 1);
-  padding-top: 10px;
-  align-items:flex-end;
-  justify-content:center;
-  display: flex;
-  border-top-left-radius:100px;
-  border-top-right-radius:100px;
-  margin-top:18px;
- }
- .poster-main-text-container{
-  flex:3;
-  
-  display:flex;
-  flex-direction:column;
-  
-  align-items:center;
- }
- .poster-person-image{
-  /* height: auto;
-  width: auto; */
-  max-width:100%;
-  max-height:100%;     
- }
- .poster-title-text{
-  color: white;
-  font-family: Koh Santepheap;
-  font-size: 45px;
+  margin-right: 1.75em;
+  gap: 2.8em;
+}
+.dotted-shit-2--1{
+  position:absolute;
+  height:5.625em;
+  width:11.875em;
+  top:0px;
+  right:0px;
+}
+.tagline--1{
+  color: #00104A;
+  text-align: center;
+  font-family: Kaisei HarunoUmi;
+  font-size: 4em;
+  font-style: normal;
   font-weight: 700;
-  text-align: left;
- }
- .poster-description-container{
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom:0.525em;
+}
+.text-1--1{
+ 
+  color: #000;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.4em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  
+}
+
+
+.text-2--1{
+  
+  color: #00104A;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.4em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  background-color:rgba(255, 216, 116, 1);
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+  margin-bottom:1em;
+}
+.contact-info-container--1{
   display:flex;
   flex-direction:column;
-  align-items:center;
-  margin-bottom:8px;
- }
- .poster-description-text-1{
-    color:white;
-    font-family: Mallanna;
-    font-size: 25px;
-    font-weight: 200;
-    text-align: left;
-
- }
- .poster-description-text-2{
-   color:white;
-   font-family: Mallanna;
-    font-size: 20px;
-    font-weight: 200;
-    text-align: center;
- }
- .poster-cursive-text{
-  font-family: Allura;
-  font-size: 35px;
-  font-weight: 400;
-  text-align: left;
-  color:white;
-  margin-bottom:8px;
- }
- .poster-event-details-container{
   justify-content:center;
   align-items:center;
-  display:flex;
-  background-color:rgba(221, 190, 168, 1);
-  width:370px;
-  height:50px;
-  gap:40px;
-  border-radius:25px;
- }
- .poster-date{
-  display:flex;
-  gap:10px;
- }
- .poster-number{
-  display:flex;
-  gap:10px;
- }
- .poster-calender-image{
-  height:18px;
- }
- .poster-telephone-image{
-  height:18px;
- }
- .poster-name{
-  font-family: Roboto;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: left;
-  color:white;
-  margin-top:8px;
+ 
+}
+.contact-info--1{
+  color: #FFF;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.875em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  background-color:rgba(0, 16, 74, 1);
+  width: 5.9em;
+  
+  flex-shrink: 0;
+  border-radius: 3.75em;
+  background: #00104A;
+  padding-top:0.25em;
+  padding-bottom:0.25em;
+  margin-bottom:1.125em;
+}
+.contact-details--1{
+  color: #000;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.375em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
 
- }
- .poster-form{
-  background-color: white;
-  position: absolute;
-  left:-10px
- }
+
+@container changeRes (max-width: 1200px) {
+  .main-container--1 {
+    font-size: 65%;
+  }
+}
+@container changeRes (max-width: 768px) {
+  .main-container--1 {
+    font-size: 55%;
+  }
+}
+@container changeRes (max-width: 620px) {
+  .main-container--1 {
+    font-size: 30%;
+  }
+  .employee-img--1{
+    height:90%;
+    width:40%;
+    bottom: 0;
+  }
+}
+@container changeRes (max-width: 480px) {
+  .main-container--1 {
+    font-size: 27%;
+  }
+  .employee-img--1{
+    height:90%;
+    width:70%;
+    bottom: 0;
+  }
+}
+
+@container changeRes (max-width: 290px) {
+  .main-container--1 {
+    font-size: 17%;
+  }
+}
+
+

@@ -53,9 +53,11 @@ body{
     padding-right: 20px;
     }
 .poster{
-    min-width: 100%;
-    min-height: 191px;
+    width: 300px;
+    height: 300px;
     padding: 0;
+    container-type: inline-size;
+    container-name: changeRes;
 }
 .poster--size-select-container{
     background: linear-gradient(0deg, #404040, #404040),
@@ -94,18 +96,18 @@ body{
 }
 .instagram-select{
     background-color: #DFDFDF;
-    width: 8vw;
-    height: 4vh;
+    width: 7vw;
+    height: 65px;
 }
 .facebook-select{
     background-color: #DFDFDF;
-    width: 10vw;
-    height: 50px;
+    width: 7vw;
+    height: 65px;
 }
 .linkedIn-select{
     background-color: #DFDFDF;
-    width: 10vw;
-    height: 40px;
+    width: 8vw;
+    height: 90px;
 }
 .twitter-select{
     background-color: #DFDFDF;
