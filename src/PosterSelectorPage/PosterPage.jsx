@@ -6,40 +6,44 @@ import { Outlet } from "react-router-dom"
 
 export default function PosterPage(){
     const [posterSize,setPosterSize] = React.useState({
-        "instagram": true,
-        "linkedIn": false,
-        "facebook":false,
-        "twitter":false
+        "Instagram": true,
+        "LinkedIn": false,
+        "Facebook":false,
+        "Twitter":false
     })  
-    let selectSize = "instagram"
+    let selectSize = "Instagram"
      for (const [key,value] of Object.entries(posterSize)) {
         if(value){
             selectSize = key
         }
     }
     
-    const sizeStyles = {"twitter": {"width":"550px",
+    const sizeStyles = {"Twitter": {"width":"550px",
                         "height":"290px",
                         "containerType": "inline-size",
                         "containerName": "changeRes"}, 
 
-                        "instagram": {
+                        "Instagram": {
                             "width":"300px",
                             "height":"300px",
                             "containerType": "inline-size",
                             "containerName": "changeRes"},
-                        "facebook": {
+                        "Facebook": {
                             "width":"300px",
                             "height":"300px",
                             "containerType": "inline-size",
                             "containerName": "changeRes"},
-                        "linkedIn": {
+                        "LinkedIn": {
                             "width":"350px",
                             "height":"350px",
                             "containerType": "inline-size",
                             "containerName": "changeRes"}
 
     }
+    const sizePixles = {"Instagram":"1080px x 1080px",
+                        "Facebook":"1080px x 1080px",
+                        "LinkedIn":"1200px x 1200px",
+                        "Twitter" : "1600px x 900px"}
     function handleSizeChange(platform)
     {
         setPosterSize((prevState) => { 
@@ -60,7 +64,7 @@ export default function PosterPage(){
                 <div className = "main-poster-container">
                     <div className = "poster--download-button-container">
                         <div className = "poster--size">
-                            <span className = "black-color">Size-Linkedin:</span> 1128 px x 191 px
+                            <span className = "black-color">Size-{selectSize}:</span> {sizePixles[selectSize]}
                         </div>
                         <div className = "main-button-container">
                             <button className = "download-button">Preview</button>
@@ -77,30 +81,30 @@ export default function PosterPage(){
                         <div className="size-select-sub-container">
 
                             <div 
-                            className = {posterSize["instagram"] ?"specific-size-select-container-selected" :"specific-size-select-container"} 
-                            onClick = {()=> {handleSizeChange("instagram")}}>
+                            className = {posterSize["Instagram"] ?"specific-size-select-container-selected" :"specific-size-select-container"} 
+                            onClick = {()=> {handleSizeChange("Instagram")}}>
 
                                 <div className = "instagram-select" >.</div>
                                 <span>Instagram</span>
                             </div>
 
-                            <div className =  {posterSize["facebook"]? "specific-size-select-container-selected" :"specific-size-select-container"} 
-                            onClick = {()=> {handleSizeChange("facebook")}}
+                            <div className =  {posterSize["Facebook"]? "specific-size-select-container-selected" :"specific-size-select-container"} 
+                            onClick = {()=> {handleSizeChange("Facebook")}}
                             >
                                 <div className = "facebook-select">.</div>
                                 <span>Facebook</span>
                             </div>
 
-                            <div className =  {posterSize["linkedIn"] ? "specific-size-select-container-selected" :"specific-size-select-container"} 
+                            <div className =  {posterSize["LinkedIn"] ? "specific-size-select-container-selected" :"specific-size-select-container"} 
                             
-                            onClick = {()=> {handleSizeChange("linkedIn")}}>
+                            onClick = {()=> {handleSizeChange("LinkedIn")}}>
                                 <div className = "linkedIn-select">.</div>
                                 <span>LinkedIn</span>
                             </div>
 
-                            <div className =  {posterSize["twitter"] ? "specific-size-select-container-selected" :"specific-size-select-container"} 
+                            <div className =  {posterSize["Twitter"] ? "specific-size-select-container-selected" :"specific-size-select-container"} 
 
-                             onClick = {()=> {handleSizeChange("twitter")}}>
+                             onClick = {()=> {handleSizeChange("Twitter")}}>
                                 <div className = "twitter-select">.</div>
                                 <span>Twitter</span>
                             </div>
