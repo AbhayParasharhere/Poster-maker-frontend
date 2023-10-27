@@ -154,24 +154,25 @@ p {
     width: 100%;
     gap: 2em;
   }
-  .main-poster-container--2 .text-info-container--2 {
+  .text-info-container--2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 2em;
-    font-size: 130%;
+    gap: 4em;
+    font-size: 110%;
     margin-top: 2.5em;
     margin-right: 4em;
   }
-  .main-poster-container--2 .poster-image-container--2 .insurance-container--2{
+ .insurance-container--2{
     width: 12em;
   }
-  .main-poster-container--2 .text-info-container--2 .contact-info-container--2 {
+ .contact-info-container--2 {
     height: 9.5em;
+    width: 34em;
     margin-top: 0;
     margin-bottom: 2em;
   }
-  .main-poster-container--2 .poster-image-container--2 {
+  .poster-image-container--2 {
   flex-basis: 50rem;
   }
 
@@ -180,23 +181,32 @@ p {
 
 @container changeRes (max-width: 480px) {
   .main-poster-container--2 {
-    font-size: 37%;
+    font-size: 35%;
   }
-  .main-poster-container--2 .text-info-container--2 .main-info-container--2 .contact-info-container--2 {
+  .contact-info-container--2 {
     width: 70em;
     height: 15em;
-    font-size: 0.6em;
+    font-size: 0.5em;
   }
 }
 
-@container changeRes (max-width: 300px) {
+@container changeRes (max-width: 301px) {
   .main-poster-container--2 {
-    font-size: 32%;
+    font-size: 30%;
     margin-bottom: 0px;
   }
-  .main-poster-container--2 .text-info-container--2 .main-info-container--2 .contact-info-container--2 {
+   .contact-info-container--2 {
     width: 70em;
     height: 15em;
-    font-size: 0.6em;
-  }
+    font-size: 0.5em;
+   }
+   .main-poster-tagline--2 {
+      font-size: 3em;
+   }
+   .poster-tagline-1--2, .poster-tagline-2--2 {
+    font-size: 2em;
+   }
+
+  
+
 }

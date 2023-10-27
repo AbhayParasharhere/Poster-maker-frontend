@@ -1,6 +1,5 @@
 import React from "react";
 import posterBackground from "../../src/assets/images/Poster/poster2-picture.png"
-
 import "./Poster2.css";
 
 export default function Poster2() {
