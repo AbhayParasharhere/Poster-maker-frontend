@@ -188,6 +188,14 @@ p {
     height: 15em;
     font-size: 0.5em;
   }
+
+  .contact-tagline--2 {
+    font-size: 9px;
+   }
+
+   .contact-info--2 {
+    font-size: 8px;
+   }
 }
 
 @container changeRes (max-width: 301px) {
@@ -205,6 +213,14 @@ p {
    }
    .poster-tagline-1--2, .poster-tagline-2--2 {
     font-size: 2em;
+   }
+
+   .contact-tagline--2 {
+    font-size: 8px;
+   }
+
+   .contact-info--2 {
+    font-size: 7px;
    }
 
   
