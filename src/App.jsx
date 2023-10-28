@@ -10,10 +10,10 @@ export default function App(){
   return(
       <BrowserRouter>
         <Routes>
-          <Route element = {<PosterPage />} to = "/">
+          <Route element = {<Login />} path = "/login"/>
+          <Route element = {<PosterPage />} path = "/">
             <Route index element = {<Poster1 />}/>
             <Route  path = "poster-2" element = {<Poster2 />}/>
-
           </Route>
         </Routes>
       </BrowserRouter>

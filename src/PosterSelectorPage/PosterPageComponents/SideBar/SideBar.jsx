@@ -8,13 +8,13 @@ export default function SideBar(){
     }
     ,
     {
-        img: "src/assets/images/PosterPageImages/testPoster2.png",
+        img: "src/assets/images/PosterPageImages/Life-Insurance-poster-2.png",
         pageLink: "poster-2"
     }
 ]
     const displayPreviewPoster = previewPosterData.map((preview,index) => {
         return(
-            <NavLink to = {`${preview.pageLink}`} className = {({isActive}) => isActive ? "poster-selected" : null}>
+            <NavLink to = {`${preview.pageLink}`} className = {({isActive}) => isActive ? "poster-selected" : "not-selected"}>
                 <div className="poster-container" key = {index}>
                     <img className="poster-preview" src = {preview.img}/>
                 </div>

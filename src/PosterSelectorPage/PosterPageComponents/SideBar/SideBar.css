@@ -3,7 +3,6 @@
     linear-gradient(0deg, #555555, #555555);
     display: grid;
     grid-template-columns: 1fr; 
-    grid-gap: 30px;
     padding: 25px;
     overflow-y: scroll;
     height: 84vh;
@@ -31,4 +30,8 @@
 }
 .poster-selected{
     background-color: #F0B27D4D;
+    height: 200px;
+}
+.not-selected{
+    height: 200px;
 }
