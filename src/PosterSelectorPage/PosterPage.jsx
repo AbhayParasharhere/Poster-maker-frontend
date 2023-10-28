@@ -2,8 +2,16 @@ import React from "react"
 import Header from "./PosterPageComponents/Header/Header"
 import SideBar from "./PosterPageComponents/SideBar/SideBar"
 import "./PosterPageComponents/PosterDisplayComponent/PosterDisplay.css"
-import { Outlet } from "react-router-dom"
-
+import { Outlet , redirect} from "react-router-dom"
+import Cookies from "js-cookie"
+export function loader(){
+    const token = Cookies.get("token")
+    if(!token){
+        throw redirect("/login")
+    } else{
+        return null
+    }
+}
 export default function PosterPage(){
     const [posterSize,setPosterSize] = React.useState({
         "Instagram": true,

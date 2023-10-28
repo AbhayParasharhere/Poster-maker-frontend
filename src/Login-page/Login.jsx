@@ -11,6 +11,8 @@ import purpleFill2 from "../assets/images/Login-page-images/purpleFill-2.png"
 import purpleOutline2 from "../assets/images/Login-page-images/purpleOutline-2.png"
 import arrowIcon from "../assets/images/Login-page-images/arrowIcon.png"
 import Cookies from 'js-cookie';
+import fetchToken from "../apis/fetchToken"
+import {Navigate} from "react-router-dom"
 //Ask where to add the link for signup page
 //In selector page download button placement is not good
 //for help and profile, do we need other pages and if yes give design for each
@@ -23,44 +25,23 @@ export default function Login(){
     loginEmail: "",
     loginPassword: ""
   })
+  const [successLogin,setSuccessLogin] = React.useState(Cookies.get("token")? true: false);
+  if(successLogin) 
+  {
+    console.log("navigating")
+    return <Navigate to = "/"/>
+  }
   function handleChange(event){
     setLoginData((prevLoginData) => {return {...prevLoginData, [event.target.name] : event.target.value}})
   }
 
   function handleClick(){
     const fetchData = async() => {
-      console.log("before",Cookies.get('token'));
-      const tokenProvided = await fetchToken();
+      const tokenProvided = await fetchToken({email:loginData.loginEmail,password:loginData.loginPassword});
       Cookies.set('token', tokenProvided.token, { expires: 7, secure: true });
-      console.log('After',Cookies.get('token'));
-
+      setSuccessLogin(true)
+      console.log(Cookies.get('token'))
     }
-    const fetchToken = async () => {
-      const requestData = {
-        email: loginData.loginEmail,
-        password:loginData.loginPassword,
-      };
-  
-      try {
-        let url = "http://localhost:8000/api/user/token/";
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        });
-  
-        if (!response.ok) {
-          throw new Error("Authentication failed");
-        }
-  
-        const data = await response.json();
-        return data; // Return the token response
-      } catch (error) {
-        console.error("Error fetching token:", error);
-      }
-    };
     fetchData()
   }
 
