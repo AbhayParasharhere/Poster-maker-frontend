@@ -1,8 +1,20 @@
 import React from "react";
 import posterBackground from "../../src/assets/images/Poster/poster2-picture.png"
-import "./Poster2.css";
+import { useLoaderData } from "react-router-dom";
+import Cookies from "js-cookie";
+import getData from "../../src/apis/getData"
 
+import "./Poster2.css";
+export async function loader(){
+  const token = Cookies.get("token")
+  if(token){
+    return getData(token)
+  }else{
+    throw redirect("/login")
+  }
+}
 export default function Poster2() {
+  const loaderData = useLoaderData()
   return (
     <div className="main-poster-container--2">
       <div className="poster-image-container--2">
@@ -16,8 +28,8 @@ export default function Poster2() {
         <div className="main-info-container--2">
           <div className="contact-info-container--2">
             <p className="contact-tagline--2">CONTACT INSURANCE ADVISOR</p>
-            <p className="contact-info--2" id="name">Your Name</p>
-            <p className="contact-info--2">Contact Details</p>
+            <p className="contact-info--2" id="name">{loaderData.textData.name}</p>
+            <p className="contact-info--2">{loaderData.textData.contact_number}</p>
           </div>
         </div>
       </div>

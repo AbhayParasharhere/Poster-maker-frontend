@@ -75,7 +75,6 @@ export default function PosterPage(){
                             <span className = "black-color">Size-{selectSize}:</span> {sizePixles[selectSize]}
                         </div>
                         <div className = "main-button-container">
-                            <button className = "download-button">Preview</button>
                             <button className = "download-button">Download</button>
                         </div>
                     </div>

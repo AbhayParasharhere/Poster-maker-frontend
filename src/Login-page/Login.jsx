@@ -12,7 +12,7 @@ import purpleOutline2 from "../assets/images/Login-page-images/purpleOutline-2.p
 import arrowIcon from "../assets/images/Login-page-images/arrowIcon.png"
 import Cookies from 'js-cookie';
 import fetchToken from "../apis/fetchToken"
-import {Navigate} from "react-router-dom"
+import {Navigate,Link} from "react-router-dom"
 //Ask where to add the link for signup page
 //In selector page download button placement is not good
 //for help and profile, do we need other pages and if yes give design for each
@@ -77,6 +77,9 @@ export default function Login(){
                     <p className="label-text">Password</p>
                     <input className="main-inputs" placeholder="Enter password" name = "loginPassword" value = {loginData.loginPassword} onChange = {handleChange}/>
                 </div>
+                <Link to = "/signup">
+                  <button>Sign up</button>
+                </Link>
             </div>
                 <button className="get-started-button" onClick = {handleClick}>
                     <div className="button-text">Get Started 

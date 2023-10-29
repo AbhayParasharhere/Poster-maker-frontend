@@ -12,7 +12,7 @@ import postBackgroundImage from "../apis/postBackgroundImage";
 import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
 import "./sign-up.css";
-import { redirect, Navigate } from "react-router-dom";
+import {Navigate, Link} from "react-router-dom";
 import Cookies from "js-cookie"
 // Things to Add:
 // Display Error message, ask designer where to display it
@@ -289,7 +289,11 @@ export default function SignUp() {
             </div>
           </button>
         </div>
+        <Link to = "/login">
+                  <button>Login</button>
+      </Link>
       </div>
+    
       <div className="other-container-s">
         <img className="blue-fill-s" src={blueFill} />
         <img className="blue-outline-s" src={blueOutline} />
