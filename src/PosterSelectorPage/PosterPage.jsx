@@ -30,7 +30,10 @@ export default function PosterPage() {
       selectSize = key;
     }
   }
-
+  const downloadSize = {"Instagram":{"width":1080, "height": 1080},
+  "Twitter":{"width":1600, "height": 900},
+  "LinkedIn":{"width":1200, "height": 1200},
+  "Facebook":{"width":1080, "height": 1080}}
   const sizeStyles = {
     Twitter: {
       width: "550px",
@@ -84,8 +87,8 @@ export default function PosterPage() {
 
     setDownload(true);
 
-    target.style.width = "1600px";
-    target.style.height = "900px";
+    target.style.width = `${downloadSize[selectSize]["width"]}px`;
+    target.style.height = `${downloadSize[selectSize]["height"]}px`;
     domtoimage
       .toPng(target)
       .then((dataUrl) => {
