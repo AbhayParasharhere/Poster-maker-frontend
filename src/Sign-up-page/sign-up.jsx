@@ -12,7 +12,7 @@ import postBackgroundImage from "../apis/postBackgroundImage";
 import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
 import "./sign-up.css";
-import {Navigate, Link} from "react-router-dom";
+import {Navigate, Link, useNavigate} from "react-router-dom";
 import Cookies from "js-cookie"
 // Things to Add:
 // Display Error message, ask designer where to display it
@@ -47,12 +47,7 @@ export default function SignUp() {
 
   const [changeSignatureInputColor, setChangeSignatureInputColor] = React.useState(false);
   const [changePhotoInputColor, setChangePhotoInputColor] = React.useState(false);
-  const [successSignup,setSuccessSignup] = React.useState(Cookies.get("token")? true: false);
-  if(successSignup) 
-  {
-    console.log("navigating")
-    return <Navigate to = "/"/>
-  }
+  const navigate = useNavigate()
   const staticFormData = [
     {
       mandatory: true,
@@ -194,7 +189,7 @@ export default function SignUp() {
           await postBackgroundImage(tokenResponse.token,formValues.backgroundImage);
           await postSignatureImage(tokenResponse.token,formValues.SignaturePhoto);
           Cookies.set('token', tokenResponse.token, { expires: 7, secure: true });
-          setSuccessSignup(true)
+          navigate("/",{replace:true})
         }
       } catch (error) {
         console.error("Error:", error);
@@ -289,9 +284,9 @@ export default function SignUp() {
             </div>
           </button>
         </div>
-        <Link to = "/login">
-                  <button>Login</button>
-      </Link>
+        <p className = "sign-log-text">Already have an account?
+            <Link to = "/login" className = "sign-link"> Log in</Link>
+        </p> 
       </div>
     
       <div className="other-container-s">

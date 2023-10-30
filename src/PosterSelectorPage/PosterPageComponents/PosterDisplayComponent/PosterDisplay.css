@@ -1,12 +1,13 @@
 body{
-    background-color: white;
+    background-color: #FEFEFE;
 }
 .main-poster-container{
     flex:3;
     display: flex;
     flex-direction: column;
+    background-color: #FEFEFE;
 }
-.poster--download-button-container{
+.poster--download-button-container{ 
     display: flex;
     justify-content: space-between;
     align-items: center;

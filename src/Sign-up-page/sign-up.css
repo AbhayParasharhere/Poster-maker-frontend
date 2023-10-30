@@ -4,7 +4,9 @@ p{
 .main-container-s{
   display:flex;
   width: 100%;
-  height:100%;      
+  height:100vh;   
+  background-color:rgba(234, 234, 234, 1);
+
 }
 .sign-up-container-s{
   z-index: 1;
@@ -238,6 +240,14 @@ p{
   text-align: center;
   color: rgba(0, 0, 0, 1);
 }
+.get-started-button-s:hover{
+  color:#F0B27D;
+ }
+ .get-started-button-s:active{
+  background-color: black;
+  color:white;
+  border: solid white 1px;
+ }
 .arrow-image-s{
   z-index: 3;
   height:50%;
@@ -274,6 +284,10 @@ p{
 .mandatory-feild-false-s{
   display: none;
 }
+.sign-link{
+  color: #CDB4DB;
+  text-decoration: none;
+ }
 @media((min-width:1225px) and (max-width:1350px)){
   .signature-label-s{
       font-size: 12px;

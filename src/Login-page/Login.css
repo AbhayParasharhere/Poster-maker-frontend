@@ -2,7 +2,6 @@ p{
     margin: 0px;
   }
   body{
-    background-color:rgba(234, 234, 234, 1);
     position: relative;
 
   }
@@ -10,6 +9,8 @@ p{
     display:flex;
     align-items: center;
     justify-content: center;
+    height:100vh;
+    background-color:rgba(234, 234, 234, 1);
   }
   .left-container{
     display:flex;
@@ -182,7 +183,7 @@ p{
   .tagline-text{
     font-family: Inter;
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 500;
     text-align: left;
     line-height: 25px;
     z-index: 1;
@@ -195,6 +196,14 @@ p{
     padding-bottom:3px;
     padding-left: 20px;
     margin-top: 40px;
+   }
+   .get-started-button:hover{
+    color:#F0B27D;
+   }
+   .get-started-button:active{
+    background-color: black;
+    color:white;
+    border: solid white 1px;
    }
    .button-text{
     display:flex;
@@ -220,8 +229,19 @@ p{
    .arrow-image{
     height:50%;
    }
+   .sign-log-text{
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: left;
+    color:white;
+    margin-top:10px
 
-
+   }
+   .sign-log-link{
+    color: #F0B27D;
+    text-decoration: none;
+   }
 
    @media((min-width:1120px) and (max-width:1250px))
    {

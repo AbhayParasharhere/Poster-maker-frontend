@@ -3,6 +3,7 @@ import HelpIcon from "../../../assets/images/PosterPageImages/HelpIcon.png"
 import ProfileIcon from "../../../assets/images/PosterPageImages/profileImage.png"
 import Cookies from "js-cookie"
 import { Navigate } from "react-router-dom"
+import logo from "../../../assets/images/PosterPageImages/logo.png"
 export default function Header(){
     const [loggedIn,setLoggedIn] = React.useState(Cookies.get("token")?true:false)
     if(!loggedIn){
@@ -15,10 +16,10 @@ export default function Header(){
     return(
         <div className = "header">
             <div>
-                Logo
-                <button onClick={logout}>Log out </button>
+                <img className = "header--logo-image" src = {logo}/>
             </div>
             <div className = "header--icon-container">
+                <button onClick={logout} className = "log-out-button">Log out </button>
                 <button className = "help-icon-button">
                     <img src = {HelpIcon} className = "help-icon-image"/>
                 </button>

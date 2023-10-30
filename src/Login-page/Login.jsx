@@ -12,7 +12,7 @@ import purpleOutline2 from "../assets/images/Login-page-images/purpleOutline-2.p
 import arrowIcon from "../assets/images/Login-page-images/arrowIcon.png"
 import Cookies from 'js-cookie';
 import fetchToken from "../apis/fetchToken"
-import {Navigate,Link} from "react-router-dom"
+import {Navigate,Link, useNavigate} from "react-router-dom"
 //Ask where to add the link for signup page
 //In selector page download button placement is not good
 //for help and profile, do we need other pages and if yes give design for each
@@ -25,12 +25,8 @@ export default function Login(){
     loginEmail: "",
     loginPassword: ""
   })
-  const [successLogin,setSuccessLogin] = React.useState(Cookies.get("token")? true: false);
-  if(successLogin) 
-  {
-    console.log("navigating")
-    return <Navigate to = "/"/>
-  }
+  const navigate = useNavigate()
+
   function handleChange(event){
     setLoginData((prevLoginData) => {return {...prevLoginData, [event.target.name] : event.target.value}})
   }
@@ -39,8 +35,7 @@ export default function Login(){
     const fetchData = async() => {
       const tokenProvided = await fetchToken({email:loginData.loginEmail,password:loginData.loginPassword});
       Cookies.set('token', tokenProvided.token, { expires: 7, secure: true });
-      setSuccessLogin(true)
-      console.log(Cookies.get('token'))
+      navigate("/",{replace:true})
     }
     fetchData()
   }
@@ -52,7 +47,7 @@ export default function Login(){
           <img className="blue-outline" src={blueOutline}/>
               <div className="welcome-container">
                 <p className="welcome-back-text">Welcome Back !</p>
-                <p className="tagline-text"> let's create your ideas to life and create stunning <br />
+                <p className="tagline-text"> Let's create your ideas to life and create stunning <br />
                 posters together.</p>
             </div>
           <img className="purple-fill" src={purpleFill}/>
@@ -77,9 +72,7 @@ export default function Login(){
                     <p className="label-text">Password</p>
                     <input className="main-inputs" placeholder="Enter password" name = "loginPassword" value = {loginData.loginPassword} onChange = {handleChange}/>
                 </div>
-                <Link to = "/signup">
-                  <button>Sign up</button>
-                </Link>
+
             </div>
                 <button className="get-started-button" onClick = {handleClick}>
                     <div className="button-text">Get Started 
@@ -87,7 +80,10 @@ export default function Login(){
                             <img className="arrow-image" src={arrowIcon} />
                         </div>
                     </div>
-                </button>     
+                </button> 
+                  <p className = "sign-log-text">Don't have an account?
+                    <Link to = "/signup" className = "sign-log-link"> Sign up</Link>
+                  </p> 
           </div>
             <img className="orange-fill-2" src={orangeFill2}/>
             <img className="orange-outline-2" src={orangeOutline2} />
