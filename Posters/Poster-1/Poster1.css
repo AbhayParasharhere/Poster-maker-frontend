@@ -129,10 +129,35 @@ p {
   line-height: normal;
   text-transform: capitalize;
 }
+@container changeRes (max-width: 1600px) {
+  .main-container--1 {
+    font-size: 100%;
+  }
+  .employee-img--1 {
+    height: 80%;
+    width: 80%;
+    bottom: 0;
+  }
+}
 
 @container changeRes (max-width: 1200px) {
   .main-container--1 {
-    font-size: 65%;
+    font-size: 100%;
+  }
+  .employee-img--1 {
+    height: 80%;
+    width: 80%;
+    bottom: 0;
+  }
+}
+@container changeRes (max-width: 1080px) {
+  .main-container--1 {
+    font-size: 90%;
+  }
+  .employee-img--1 {
+    height: 80%;
+    width: 80%;
+    bottom: 0;
   }
 }
 @container changeRes (max-width: 768px) {
@@ -146,7 +171,7 @@ p {
   }
   .employee-img--1 {
     height: 70%;
-    width: 40%;
+    width: 70%;
     bottom: 0;
   }
 }
@@ -155,8 +180,8 @@ p {
     font-size: 27%;
   }
   .employee-img--1 {
-    height: 70%;
-    width: 70%;
+    height: 80%;
+    width: 80%;
     bottom: 0;
   }
 }
