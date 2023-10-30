@@ -1,28 +1,29 @@
-p{
-  margin:0px;
+p {
+  margin: 0px;
 }
 
-.main-container--1{
-  height:100%;
-  width:100%;
+.main-container--1 {
+  height: 100%;
+  width: 100%;
   font-size: 1em;
-  display:flex;
-  border:solid 1px black;
+  display: flex;
+  border: solid 1px black;
+  background-color: #fff;
 }
-.left-container--1{
-  display:flex;
-  flex:1;
+.left-container--1 {
+  display: flex;
+  flex: 1;
   position: relative;
 }
-.company-logo--1{
-  position:absolute;
-  height:10%;
-  width:40%;
-  top:0.9em;
-  left:0.9em;  
+.company-logo--1 {
+  position: absolute;
+  height: 10%;
+  width: 40%;
+  top: 0.9em;
+  left: 0.9em;
 }
-.employee-img--1{
-  position:absolute;
+.employee-img--1 {
+  position: absolute;
   /* height:70em;
   width:25.625em; */
   height: 50%;
@@ -30,35 +31,35 @@ p{
   bottom: 0;
 }
 
-.dotted-shit--1{
-  position:absolute;
-  height:7.875em;
-  width:12.5em;
-  bottom:0px;
-  right:-1.875em;
+.dotted-shit--1 {
+  position: absolute;
+  height: 7.875em;
+  width: 12.5em;
+  bottom: 0px;
+  right: -1.875em;
 }
-.right-container--1{
-  display:flex;
-  flex:1;
-  justify-content:center;
-  position: relative;  
+.right-container--1 {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  position: relative;
 }
-.text-container--1{
-  display:flex;
-  flex-direction:column;
+.text-container--1 {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-right: 1.75em;
   gap: 2.8em;
 }
-.dotted-shit-2--1{
-  position:absolute;
-  height:5.625em;
-  width:11.875em;
-  top:0px;
-  right:0px;
+.dotted-shit-2--1 {
+  position: absolute;
+  height: 5.625em;
+  width: 11.875em;
+  top: 0px;
+  right: 0px;
 }
-.tagline--1{
-  color: #00104A;
+.tagline--1 {
+  color: #00104a;
   text-align: center;
   font-family: Kaisei HarunoUmi;
   font-size: 4em;
@@ -66,10 +67,9 @@ p{
   font-weight: 700;
   line-height: normal;
   text-transform: capitalize;
-  margin-bottom:0.525em;
+  margin-bottom: 0.525em;
 }
-.text-1--1{
- 
+.text-1--1 {
   color: #000;
   text-align: center;
   font-family: Actor;
@@ -78,13 +78,10 @@ p{
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
-  
 }
 
-
-.text-2--1{
-  
-  color: #00104A;
+.text-2--1 {
+  color: #00104a;
   text-align: center;
   font-family: Actor;
   font-size: 2.4em;
@@ -92,20 +89,19 @@ p{
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
-  background-color:rgba(255, 216, 116, 1);
-  padding-top:0.5em;
-  padding-bottom:0.5em;
-  margin-bottom:1em;
+  background-color: rgba(255, 216, 116, 1);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
 }
-.contact-info-container--1{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
- 
+.contact-info-container--1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.contact-info--1{
-  color: #FFF;
+.contact-info--1 {
+  color: #fff;
   text-align: center;
   font-family: Actor;
   font-size: 2.875em;
@@ -113,17 +109,17 @@ p{
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
-  background-color:rgba(0, 16, 74, 1);
+  background-color: rgba(0, 16, 74, 1);
   width: 5.9em;
-  
+
   flex-shrink: 0;
   border-radius: 3.75em;
-  background: #00104A;
-  padding-top:0.25em;
-  padding-bottom:0.25em;
-  margin-bottom:1.125em;
+  background: #00104a;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin-bottom: 1.125em;
 }
-.contact-details--1{
+.contact-details--1 {
   color: #000;
   text-align: center;
   font-family: Actor;
@@ -133,7 +129,6 @@ p{
   line-height: normal;
   text-transform: capitalize;
 }
-
 
 @container changeRes (max-width: 1200px) {
   .main-container--1 {
@@ -149,9 +144,9 @@ p{
   .main-container--1 {
     font-size: 30%;
   }
-  .employee-img--1{
-    height:70%;
-    width:40%;
+  .employee-img--1 {
+    height: 70%;
+    width: 40%;
     bottom: 0;
   }
 }
@@ -159,9 +154,9 @@ p{
   .main-container--1 {
     font-size: 27%;
   }
-  .employee-img--1{
-    height:70%;
-    width:70%;
+  .employee-img--1 {
+    height: 70%;
+    width: 70%;
     bottom: 0;
   }
 }
@@ -171,5 +166,3 @@ p{
     font-size: 17%;
   }
 }
-
-
