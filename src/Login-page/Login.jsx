@@ -26,19 +26,25 @@ export default function Login(){
     loginPassword: ""
   })
   const navigate = useNavigate()
-
+  const [error,setError] = React.useState(null)
   function handleChange(event){
     setLoginData((prevLoginData) => {return {...prevLoginData, [event.target.name] : event.target.value}})
   }
 
   function handleClick(){
     const fetchData = async() => {
-      const tokenProvided = await fetchToken({email:loginData.loginEmail,password:loginData.loginPassword});
-      Cookies.set('token', tokenProvided.token, { expires: 7, secure: true });
-      navigate("/",{replace:true})
+      try {
+        const tokenProvided = await fetchToken({email:loginData.loginEmail,password:loginData.loginPassword});
+        Cookies.set('token', tokenProvided.token, { expires: 7, secure: true });
+        navigate("/",{replace:true})
+      } catch(err){
+          setError(err.message)
+          console.log('inside function: ', err)
+      }   
     }
     fetchData()
   }
+    console.log('outside function: ', error)
 
     return(
     <div className="main-container">
@@ -81,9 +87,10 @@ export default function Login(){
                         </div>
                     </div>
                 </button> 
-                  <p className = "sign-log-text">Don't have an account?
-                    <Link to = "/signup" className = "sign-log-link"> Sign up</Link>
-                  </p> 
+                {error && <p className = "red">{error}</p>}
+                <p className = "sign-log-text">Don't have an account?
+                  <Link to = "/signup" className = "sign-log-link"> Sign up</Link>
+                </p> 
           </div>
             <img className="orange-fill-2" src={orangeFill2}/>
             <img className="orange-outline-2" src={orangeOutline2} />

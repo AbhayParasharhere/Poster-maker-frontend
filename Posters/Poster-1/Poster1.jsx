@@ -1,6 +1,5 @@
 import React from "react";
 import "./Poster1.css";
-// import OneGoalLogo from "../../src/assets/images/Poster/"
 import YellowFill from "../../src/assets/images/Poster/yellow-fill.png"
 import DottedShit from "../../src/assets/images/Poster/dotted-shit.png"
 import DottedShit2 from "../../src/assets/images/Poster/dotted-shit-2.png"

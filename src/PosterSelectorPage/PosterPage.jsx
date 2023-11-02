@@ -4,7 +4,6 @@ import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterPageComponents/PosterDisplayComponent/PosterDisplay.css";
 import { Outlet, redirect } from "react-router-dom";
 import Cookies from "js-cookie";
-import html2canvas from "html2canvas";
 import domtoimage from "dom-to-image-more";
 
 export function loader() {
@@ -80,17 +79,25 @@ export default function PosterPage() {
     });
   }
 
+  let cloneId = 0; // Initialize a unique identifier for each clone
+
   const downloadImage = () => {
     const target = document.getElementById("poster-download");
-    const originalWidth = target.style.width;
-    const originalHeight = target.style.height;
-
-    setDownload(true);
-
-    target.style.width = `${downloadSize[selectSize]["width"]}px`;
-    target.style.height = `${downloadSize[selectSize]["height"]}px`;
+    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  
+    // Create an invisible clone of the target element
+    const clone = target.cloneNode(true);
+    clone.style.width = downloadWidth;
+    clone.style.height = downloadHeight;
+    clone.style.position = "absolute";
+    clone.style.left = "-9999px";
+    clone.style.top = "-9999px";
+  
+    document.body.appendChild(clone); // Add the clone to the document temporarily
+  
     domtoimage
-      .toPng(target)
+      .toPng(clone)
       .then((dataUrl) => {
         var anchor = document.createElement("a");
         anchor.setAttribute("href", dataUrl);
@@ -101,12 +108,13 @@ export default function PosterPage() {
         console.error("Error capturing the image: ", error);
       })
       .finally(() => {
-        target.style.width = originalWidth;
-        target.style.height = originalHeight;
+        document.body.removeChild(clone); // Remove the clone from the document
         setDownload(false);
       });
   };
-
+  
+  
+  
   return (
     <div>
       <Header />
@@ -130,7 +138,7 @@ export default function PosterPage() {
               style={sizeStyles[selectSize]}
               id="poster-download"
             >
-              <Outlet text="123456" />
+               <Outlet />
             </div>
           </div>
 

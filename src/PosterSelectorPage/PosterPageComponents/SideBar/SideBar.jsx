@@ -10,6 +10,10 @@ export default function SideBar(){
     {
         img: "src/assets/images/PosterPageImages/Life-Insurance-poster-2.png",
         pageLink: "poster-2"
+    },
+    {
+        img: "src/assets/images/PosterPageImages/Life-Insurance-poster-2.png",
+        pageLink: "poster-3"
     }
     
 

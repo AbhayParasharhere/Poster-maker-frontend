@@ -16,12 +16,12 @@ export default async function fetchToken({email,password}) {
       });
 
       if (!response.ok) {
-        throw new Error("Authentication failed");
+        throw new Error("An error occured please try again");
       }
 
       const data = await response.json();
       return data; // Return the token response
     } catch (error) {
-      console.error("Error fetching token:", error);
+      throw new Error("Failed to log in");
     }
   };

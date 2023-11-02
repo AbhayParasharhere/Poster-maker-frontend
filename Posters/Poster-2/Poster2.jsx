@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import getData from "../../src/apis/getData"
 
 import "./Poster2.css";
+
 export async function loader(){
   const token = Cookies.get("token")
   if(token){
