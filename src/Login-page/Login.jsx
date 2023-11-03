@@ -13,12 +13,7 @@ import arrowIcon from "../assets/images/Login-page-images/arrowIcon.png"
 import Cookies from 'js-cookie';
 import fetchToken from "../apis/fetchToken"
 import {Navigate,Link, useNavigate} from "react-router-dom"
-//Ask where to add the link for signup page
-//In selector page download button placement is not good
-//for help and profile, do we need other pages and if yes give design for each
-//For change profile there would be a dropdown or simply  a click on the profile image
-//Clarity on the resposive nature of the selector page(Prefer with mobile view also)
-//mobile view for all pages
+
 
 export default function Login(){
   const [loginData, setLoginData] = React.useState({
@@ -72,11 +67,11 @@ export default function Login(){
             <div className="input-container">
                 <div>
                     <p className="label-text">Email</p>
-                    <input className="main-inputs" placeholder="Enter email" name = "loginEmail" value = {loginData.loginEmail} onChange = {handleChange} />
+                    <input className="main-inputs" type = "email" placeholder="Enter email" name = "loginEmail" value = {loginData.loginEmail} onChange = {handleChange} />
                 </div>
                 <div>
                     <p className="label-text">Password</p>
-                    <input className="main-inputs" placeholder="Enter password" name = "loginPassword" value = {loginData.loginPassword} onChange = {handleChange}/>
+                    <input className="main-inputs" type = "password" placeholder="Enter password" name = "loginPassword" value = {loginData.loginPassword} onChange = {handleChange}/>
                 </div>
 
             </div>

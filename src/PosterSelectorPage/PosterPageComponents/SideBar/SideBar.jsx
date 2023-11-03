@@ -12,7 +12,7 @@ export default function SideBar(){
         pageLink: "poster-2"
     },
     {
-        img: "src/assets/images/PosterPageImages/Life-Insurance-poster-2.png",
+        img: "src/assets/images/PosterPageImages/Poster-3-Preview.png",
         pageLink: "poster-3"
     }
     
