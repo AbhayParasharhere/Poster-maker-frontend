@@ -138,7 +138,7 @@ p {
   }
   .employee-img--1 {
     height: 80%;
-    width: 70%;
+    width: 75%;
     bottom: 0;
   }
 }
@@ -148,8 +148,8 @@ p {
     font-size: 100%;
   }
   .employee-img--1 {
-    height: 65%;
-    width: 95%;
+    height: 60%;
+    width: 100%;
     bottom: 0;
   }
 }
@@ -158,8 +158,8 @@ p {
     font-size: 90%;
   }
   .employee-img--1 {
-    height: 65%;
-    width: 95%;
+    height: 56%;
+    width: 100%;
     bottom: 0;
   }
 }
@@ -173,8 +173,8 @@ p {
     font-size: 30%;
   }
   .employee-img--1 {
-    height: 80%;
-    width: 65%;
+    height: 70%;
+    width: 75%;
     bottom: 0;
   }
   .left-container--1{
@@ -186,8 +186,8 @@ p {
     font-size: 27%;
   }
   .employee-img--1 {
-    height: 70%;
-    width: 85%;
+    height: 60%;
+    width: 100%;
     bottom: 0;
   }
 }

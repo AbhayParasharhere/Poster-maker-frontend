@@ -175,6 +175,7 @@
     .main-container--3 {
         font-size: 100%;
         margin-left: 2em;
+        gap:240px;
     }
     .footer--3 {
         font-size: 100%;
@@ -183,8 +184,8 @@
         font-size: 3.8em;
     }
     .emp-img--3{
-        width: 55em;
-        height: 60em;
+        width: 40em;
+        height: 65em;
     }
     .main-title--3 {
         font-size: 1.5em;
@@ -212,16 +213,23 @@
     }
 }
 
-@container changeRes (max-width: 1200px) {
+@container changeRes (width: 1200px) {
     .main-container--3, .footer--3 {
         font-size: 85%;
     }
+    .main-container--3{
+        gap:60px;
+    }
 }
 
-@container changeRes (max-width: 1080px) {
+@container changeRes (width: 1080px) {
     .main-container--3, .footer--3 {
         font-size: 75%;
     }
+    .main-container--3{
+        gap:64px;
+    }
+
 }
 
 @container changeRes (width: 550px) {
