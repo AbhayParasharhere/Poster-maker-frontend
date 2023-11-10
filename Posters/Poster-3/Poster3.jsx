@@ -1,7 +1,7 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
 import "./Poster3.css"
 import getData from "../../src/apis/getData"
-import  { useLoaderData } from "react-router-dom"
+import  { useLoaderData, redirect } from "react-router-dom"
 import Cookies from "js-cookie"
 import PIILogo from "../../src/assets/images/Poster/PII-Logo.png"
 export async function loader(){

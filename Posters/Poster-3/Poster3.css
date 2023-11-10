@@ -229,7 +229,6 @@
     .main-container--3{
         gap:64px;
     }
-
 }
 
 @container changeRes (width: 550px) {

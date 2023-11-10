@@ -4,7 +4,7 @@ export default async function postBackgroundImage(token,backgroundImage)  {
     console.log(backgroundImage)
 
     try {
-      let url = "http://localhost:8000/api/user/background-image/";
+      let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/background-image/";
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -22,4 +22,4 @@ export default async function postBackgroundImage(token,backgroundImage)  {
     } catch (error) {
       console.error("Error uploading background image:", error);
     }
-  };
+  }

@@ -10,7 +10,7 @@ async function textInfo(token){
 
 try {   
   
-  let url = "http://localhost:8000/api/user/me/";
+  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/me/";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -29,14 +29,14 @@ try {
 } catch (error) {
   console.error("Error fetching token:", error);
 }
-};
+}
 async function personPhoto(token){
   const requestData = `Token ${token}`
   console.log("This is the login token data:",requestData)
 
 try {   
   
-  let url = "http://localhost:8000/api/user/background-image/";
+  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/background-image/";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -55,14 +55,14 @@ try {
 } catch (error) {
   console.error("Error fetching token:", error);
 }
-};
+}
 async function signaturePhoto(token){
   const requestData = `Token ${token}`
   console.log("This is the login token data:",requestData)
 
 try {   
   
-  let url = "http://localhost:8000/api/user/signature-image/";
+  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/signature-image/";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -81,4 +81,4 @@ try {
 } catch (error) {
   console.error("Error fetching token:", error);
 }
-};
+}
