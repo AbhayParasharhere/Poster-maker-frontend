@@ -3,7 +3,7 @@ export default  async function postSignatureImage (token,signaturePhoto) {
     uploadData.append("signature_image",signaturePhoto);
 
     try {
-      let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/signature-image/";
+      let url = "https://beautyresort.in/api/user/signature-image/";
       const response = await fetch(url, {
         method: "POST",
         headers: {

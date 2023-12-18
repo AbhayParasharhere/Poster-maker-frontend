@@ -4,7 +4,7 @@ export default async function postBackgroundImage(token,backgroundImage)  {
     console.log(backgroundImage)
 
     try {
-      let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/background-image/";
+      let url = "https://beautyresort.in/api/user/background-image/";
       const response = await fetch(url, {
         method: "POST",
         headers: {

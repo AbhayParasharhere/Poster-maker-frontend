@@ -10,7 +10,7 @@ async function textInfo(token){
 
 try {   
   
-  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/me/";
+  let url = "https://beautyresort.in/api/user/me/";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -36,7 +36,7 @@ async function personPhoto(token){
 
 try {   
   
-  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/background-image/";
+  let url = "https://beautyresort.in/api/user/background-image/";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -62,7 +62,7 @@ async function signaturePhoto(token){
 
 try {   
   
-  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/signature-image/";
+  let url = "https://beautyresort.in/api/user/signature-image/";
   const response = await fetch(url, {
     method: "GET",
     headers: {

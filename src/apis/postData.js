@@ -9,7 +9,7 @@ export default async function postData (formValues)  {
     };
     console.log("data:", userData);
     try {
-      let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/sign-up/";
+      let url = "https://beautyresort.in/api/user/sign-up/";
       const response = await fetch(url, {
         method: "POST",
         headers: {

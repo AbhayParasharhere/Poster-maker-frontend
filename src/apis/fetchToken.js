@@ -6,7 +6,7 @@ export default async function fetchToken({email,password}) {
 
     try {   
       
-      let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/token/";
+      let url = "https://beautyresort.in/api/user/token/";
       const response = await fetch(url, {
         method: "POST",
         headers: {
