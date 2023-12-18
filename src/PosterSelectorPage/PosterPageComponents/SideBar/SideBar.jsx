@@ -3,16 +3,16 @@ import "./SideBar.css"
 import {NavLink} from "react-router-dom"
 export default function SideBar(){
     const previewPosterData = [{
-        img: "src/assets/images/PosterPageImages/InsaurancePoster-1.png",
+        img: "/InsaurancePoster-1.png",
         pageLink: ""
     }
     ,
     {
-        img: "src/assets/images/PosterPageImages/Life-Insurance-poster-2.png",
+        img: "/Life-Insurance-poster-2.png",
         pageLink: "poster-2"
     },
     {
-        img: "src/assets/images/PosterPageImages/Poster-3-Preview.png",
+        img: "/Poster-3-Preview.png",
         pageLink: "poster-3"
     }
     
