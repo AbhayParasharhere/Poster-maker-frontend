@@ -12,6 +12,7 @@ import purpleOutline2 from "../assets/images/Login-page-images/purpleOutline-2.p
 import arrowIcon from "../assets/images/Login-page-images/arrowIcon.png"
 import Cookies from 'js-cookie';
 import fetchToken from "../apis/fetchToken"
+import "./Login.css"
 import {Navigate,Link, useNavigate} from "react-router-dom"
 
 
