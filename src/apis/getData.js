@@ -1,84 +1,82 @@
 export default async function fetchData(token) {
-  return {"textData": await textInfo(token),
-          "personImage": await personPhoto(token),
-          "signatureImage": await signaturePhoto(token)
+  return {
+    textData: await textInfo(token),
+    personImage: await personPhoto(token),
+    signatureImage: await signaturePhoto(token),
+  };
 }
-}
-async function textInfo(token){
-  const requestData = `Token ${token}`
-  console.log("This is the login token data:",requestData)
+async function textInfo(token) {
+  const requestData = `Token ${token}`;
+  console.log("This is the login token data:", requestData);
 
-try {   
-  
-  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/me/";
-  const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": requestData
-    },
-  });
+  try {
+    let url = "https://beautyresort.in/api/user/me/";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: requestData,
+      },
+    });
 
-  if (!response.ok) {
-    throw new Error("Authentication failed");
+    if (!response.ok) {
+      throw new Error("Authentication failed");
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data; // Return the token response
+  } catch (error) {
+    console.error("Error fetching token:", error);
   }
-
-  const data = await response.json();
-  console.log(data)
-  return data; // Return the token response
-} catch (error) {
-  console.error("Error fetching token:", error);
 }
-}
-async function personPhoto(token){
-  const requestData = `Token ${token}`
-  console.log("This is the login token data:",requestData)
+async function personPhoto(token) {
+  const requestData = `Token ${token}`;
+  console.log("This is the login token data:", requestData);
 
-try {   
-  
-  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/background-image/";
-  const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": requestData
-    },
-  });
+  try {
+    let url = "https://beautyresort.in/api/user/background-image/";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: requestData,
+      },
+    });
 
-  if (!response.ok) {
-    throw new Error("Authentication failed");
+    if (!response.ok) {
+      throw new Error("Authentication failed");
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data; // Return the token response
+  } catch (error) {
+    console.error("Error fetching token:", error);
   }
-
-  const data = await response.json();
-  console.log(data)
-  return data; // Return the token response
-} catch (error) {
-  console.error("Error fetching token:", error);
 }
-}
-async function signaturePhoto(token){
-  const requestData = `Token ${token}`
-  console.log("This is the login token data:",requestData)
+async function signaturePhoto(token) {
+  const requestData = `Token ${token}`;
+  console.log("This is the login token data:", requestData);
 
-try {   
-  
-  let url = "http://ec2-34-238-164-129.compute-1.amazonaws.com/api/user/signature-image/";
-  const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": requestData
-    },
-  });
+  try {
+    let url = "https://beautyresort.in/api/user/signature-image/";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: requestData,
+      },
+    });
 
-  if (!response.ok) {
-    throw new Error("Authentication failed");
+    if (!response.ok) {
+      throw new Error("Authentication failed");
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data; // Return the token response
+  } catch (error) {
+    console.error("Error fetching token:", error);
   }
-
-  const data = await response.json();
-  console.log(data)
-  return data; // Return the token response
-} catch (error) {
-  console.error("Error fetching token:", error);
-}
 }

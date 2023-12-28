@@ -1,53 +1,33 @@
+button {
+  cursor: pointer;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.header {
+  max-width: 100%;
+  background-color: #161a25;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 70px;
+  padding-left: 120px;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+.header--icon-container {
+  display: flex;
+  height: 100%;
+}
+.header--logo-image {
+  height: 30px;
+}
 
-button{
-    cursor:pointer;
-}
-.header{
-    width: 97.7%;
-    background-color: #202124;
-    height: 50px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 30px;
-}
-.header--icon-container{
-    display: flex;
-    height: 100%;
-}
-.header--logo-image{
-    height:50px;
-}
-.help-icon-button{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border:none;
-    padding-left: 18px;
-    width: 60px;
-    padding-right: 18px;
-}
-.help-icon-image{
-    height: 60%;
-}
-.profile-icon-button{
-    height: 100%;
-    width: 60px;
-    background: none;
-    border: none;
-    align-items: center;
-    justify-content: center;
-
-}
-.profile-icon{
-    height: 60%;
-}
-.log-out-button{
-    background:none;
-    color:white;
-    border: none;
-    cursor: pointer;
+.log-out-button {
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
