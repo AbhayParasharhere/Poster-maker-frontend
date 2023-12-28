@@ -31,7 +31,6 @@ export default function App() {
           <Route path = "poster-6" element = {<Poster6 />} loader = {poster6Loader}/>
           <Route path = "poster-7" element = {<Poster7 />} loader = {poster7Loader}/>
           <Route path = "poster-8" element = {<Poster8 />} loader = {poster8Loader}/>
-
         </Route>
         <Route element={<Login />} path="/login" />
         <Route element={<SignUp />} path="/signup" />
