@@ -3,7 +3,7 @@ import getData from "../../src/apis/getData"
 import Logo from "../../src/assets/images/Poster/Logo.png"
 import  { useLoaderData, redirect } from "react-router-dom"
 import Cookies from "js-cookie"
-import PIILogo from "../../src/assets/images/Poster/PII-Logo.png"
+import PIILogo from "../../src/assets/images/Poster/PIILogo.png"
 export async function loader(){
   const token = Cookies.get("token")
   if(token){
