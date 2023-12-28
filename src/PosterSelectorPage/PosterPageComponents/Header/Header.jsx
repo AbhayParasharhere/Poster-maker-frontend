@@ -2,6 +2,7 @@ import React from "react";
 import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
 import logo from "/src/assets/images/posterMakerLogo.png";
+
 export default function Header() {
   const [loggedIn, setLoggedIn] = React.useState(
     Cookies.get("token") ? true : false

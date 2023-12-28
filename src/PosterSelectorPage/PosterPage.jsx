@@ -29,10 +29,12 @@ export default function PosterPage() {
       selectSize = key;
     }
   }
-  const downloadSize = {"Instagram":{"width":1080, "height": 1080},
-  "Twitter":{"width":1600, "height": 900},
-  "LinkedIn":{"width":1200, "height": 1200},
-  "Facebook":{"width":1080, "height": 1080}}
+  const downloadSize = {
+    Instagram: { width: 1080, height: 1080 },
+    Twitter: { width: 1600, height: 900 },
+    LinkedIn: { width: 1200, height: 1200 },
+    Facebook: { width: 1080, height: 1080 },
+  };
   const sizeStyles = {
     Twitter: {
       width: "550px",
@@ -85,7 +87,7 @@ export default function PosterPage() {
     const target = document.getElementById("poster-download");
     const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
     const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
-  
+
     // Create an invisible clone of the target element
     const clone = target.cloneNode(true);
     clone.style.width = downloadWidth;
@@ -93,9 +95,9 @@ export default function PosterPage() {
     clone.style.position = "absolute";
     clone.style.left = "-9999px";
     clone.style.top = "-9999px";
-  
+
     document.body.appendChild(clone); // Add the clone to the document temporarily
-  
+
     domtoimage
       .toPng(clone)
       .then((dataUrl) => {
@@ -112,13 +114,11 @@ export default function PosterPage() {
         setDownload(false);
       });
   };
-  
-  
-  
+
   return (
-    <div>
+    <div className="poster-display--main-container">
       <Header />
-      <div className="main-body-container">
+      <div className="poster-display--main-body-container">
         <SideBar />
         <div className="main-poster-container">
           <div className="poster--download-button-container">
@@ -138,7 +138,7 @@ export default function PosterPage() {
               style={sizeStyles[selectSize]}
               id="poster-download"
             >
-               <Outlet />
+              <Outlet />
             </div>
           </div>
 
