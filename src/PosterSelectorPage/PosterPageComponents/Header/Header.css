@@ -1,0 +1,33 @@
+button {
+  cursor: pointer;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.header {
+  max-width: 100%;
+  background-color: #161a25;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 70px;
+  padding-left: 120px;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+.header--icon-container {
+  display: flex;
+  height: 100%;
+}
+.header--logo-image {
+  height: 30px;
+}
+
+.log-out-button {
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

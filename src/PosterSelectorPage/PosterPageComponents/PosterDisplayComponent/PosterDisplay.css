@@ -1,0 +1,118 @@
+body{
+    background-color: #FEFEFE;
+}
+.main-poster-container{
+    flex:3;
+    display: flex;
+    flex-direction: column;
+    background-color: #FEFEFE;
+}
+.poster--download-button-container{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.poster--size{
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+    color: #7A7A7A;
+    background-color: #EAEAEA;
+    padding: 5px 10px;
+    border-radius: 10px;
+    
+}
+.black-color{
+    color:#000000;
+    }
+.main-button-container{
+    display: flex;
+    gap:10px
+}
+.download-button{
+    background-color:#FEC89A;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-family: Inter;
+    font-weight: 600;
+    font-family: Inter;
+    letter-spacing: 0.04em;
+    text-align: left;
+}
+.poster--display{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex:4;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    }
+.poster{
+    width: 300px;
+    height: 300px;
+    padding: 0;
+    container-type: inline-size;
+    container-name: changeRes;
+}
+.poster--size-select-container{
+    background: linear-gradient(0deg, #404040, #404040),
+                linear-gradient(0deg, #4A4A4A, #4A4A4A);
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.size-select-sub-container{
+    display: flex;
+    gap:60px;
+    height: 100px;}
+.specific-size-select-container{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    align-items: center;
+    font-family: Inter;
+    font-size: 14px;    
+    font-weight: 400;
+    text-align: left;
+    color:#D9D9D9;
+}
+.specific-size-select-container-selected{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    align-items: center;
+    background-color: #FEC89A4D;
+    font-family: Inter;
+    font-size: 14px;    
+    font-weight: 400;
+    text-align: left;
+    color:#D9D9D9;
+}
+.instagram-select{
+    background-color: #DFDFDF;
+    width: 7vw;
+    height: 65px;
+}
+.facebook-select{
+    background-color: #DFDFDF;
+    width: 7vw;
+    height: 65px;
+}
+.linkedIn-select{
+    background-color: #DFDFDF;
+    width: 8vw;
+    height: 90px;
+}
+.twitter-select{
+    background-color: #DFDFDF;
+    width: 12vw;
+    height: 50px;
+}

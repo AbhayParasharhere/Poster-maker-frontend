@@ -1,0 +1,37 @@
+.main-sidebar-container{
+    background:  linear-gradient(0deg, #404040, #404040),
+    linear-gradient(0deg, #555555, #555555);
+    display: grid;
+    grid-template-columns: 1fr; 
+    padding: 25px;
+    overflow-y: scroll;
+    height: 84vh;
+}
+.main-sidebar-container::-webkit-scrollbar{
+    background: linear-gradient(0deg, rgba(64, 64, 64, 0.72), rgba(64, 64, 64, 0.72)),
+    linear-gradient(0deg, #555555, #555555);
+    
+    width: 7px;
+    border-left: solid  0.2px rgba(128,128,128,0.5);
+}
+.main-sidebar-container::-webkit-scrollbar-thumb{
+    background:  #A5A5A5;
+    border-radius: 10px;
+}
+.poster-container{
+    background-color: white;
+    height: 25vh;
+    width: 25vw;
+    min-width: 250px;
+}
+.poster-preview{
+    width:100%;
+    height: 100%;
+}
+.poster-selected{
+    background-color: #F0B27D4D;
+    height: 200px;
+}
+.not-selected{
+    height: 200px;
+}

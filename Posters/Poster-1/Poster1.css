@@ -1,0 +1,199 @@
+p {
+  margin: 0px;
+}
+
+.main-container--1 {
+  height: 100%;
+  width: 100%;
+  font-size: 1em;
+  display: flex;
+  border: solid 1px black;
+  background-color: #fff;
+}
+.left-container--1 {
+  display: flex;
+  flex: 1;
+  position: relative;
+  background: url("../../src/assets/images/Poster/yellow-fill.png");
+  background-repeat: no-repeat;
+  background-size: 80% 100%
+}
+.company-logo--1 {
+  position: absolute;
+  height: 10%;
+  width: 40%;
+  top: 0.9em;
+  left: 0.9em;
+}
+.employee-img--1 {
+  position: absolute;
+  /* height:70em;
+  width:25.625em; */
+  height: 50%;
+  width: 50%;
+  bottom: 0;
+}
+
+.dotted-shit--1 {
+  position: absolute;
+  height: 7.875em;
+  width: 12.5em;
+  bottom: 0px;
+  right: -1.875em;
+}
+.right-container--1 {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+}
+.text-container--1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 1.75em;
+  gap: 2.8em;
+}
+.dotted-shit-2--1 {
+  position: absolute;
+  height: 5.625em;
+  width: 11.875em;
+  top: 0px;
+  right: 0px;
+}
+.tagline--1 {
+  color: #00104a;
+  text-align: center;
+  font-family: Kaisei HarunoUmi;
+  font-size: 4em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 0.525em;
+}
+.text-1--1 {
+  color: #000;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.4em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.text-2--1 {
+  color: #00104a;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.4em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  background-color: rgba(255, 216, 116, 1);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.contact-info-container--1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contact-info--1 {
+  color: #fff;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.875em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  background-color: rgba(0, 16, 74, 1);
+  width: 5.9em;
+
+  flex-shrink: 0;
+  border-radius: 3.75em;
+  background: #00104a;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin-bottom: 1.125em;
+}
+.contact-details--1 {
+  color: #000;
+  text-align: center;
+  font-family: Actor;
+  font-size: 2.375em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+@container changeRes (max-width: 1600px) {
+  .main-container--1 {
+    font-size: 100%;
+  }
+  .employee-img--1 {
+    height: 80%;
+    width: 75%;
+    bottom: 0;
+  }
+}
+
+@container changeRes (max-width: 1200px) {
+  .main-container--1 {
+    font-size: 100%;
+  }
+  .employee-img--1 {
+    height: 60%;
+    width: 100%;
+    bottom: 0;
+  }
+}
+@container changeRes (max-width: 1080px) {
+  .main-container--1 {
+    font-size: 90%;
+  }
+  .employee-img--1 {
+    height: 56%;
+    width: 100%;
+    bottom: 0;
+  }
+}
+@container changeRes (max-width: 768px) {
+  .main-container--1 {
+    font-size: 55%;
+  }
+}
+@container changeRes (max-width: 620px) {
+  .main-container--1 {
+    font-size: 30%;
+  }
+  .employee-img--1 {
+    height: 70%;
+    width: 75%;
+    bottom: 0;
+  }
+  .left-container--1{
+    background-size: 75% 100%
+  }
+}
+@container changeRes (max-width: 480px) {
+  .main-container--1 {
+    font-size: 27%;
+  }
+  .employee-img--1 {
+    height: 60%;
+    width: 100%;
+    bottom: 0;
+  }
+}
+
+@container changeRes (max-width: 290px) {
+  .main-container--1 {
+    font-size: 17%;
+  }
+}
