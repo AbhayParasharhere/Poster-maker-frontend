@@ -3,7 +3,7 @@ import "./Poster1.css";
 import YellowFill from "../../src/assets/images/Poster/yellowfill.png"
 import DottedShit from "../../src/assets/images/Poster/dottedshit.png"
 import DottedShit2 from "../../src/assets/images/Poster/dottedshit2.png"
-import OneGoalLogo from "../../src/assets/images/Poster/oneGoalLogo1.png"
+import OneGoalLogo from "../../src/assets/images/Poster/OneGoalCompanyLogo.png"
 import getData from "../../src/apis/getData"
 import Cookies from "js-cookie";
 import { useLoaderData } from "react-router-dom";
