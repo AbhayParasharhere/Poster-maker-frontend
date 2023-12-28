@@ -1,3 +1,4 @@
+
 export default async function postData(formValues) {
   const userData = {
     name: formValues.name,
@@ -17,6 +18,7 @@ export default async function postData(formValues) {
       },
       body: JSON.stringify(userData),
     });
+
 
     if (!response.ok) {
       throw new Error("Could not make the user");

@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Style+Script&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.container-1--Poster-7  {
+    width: 100%;
+    height: 100%;
+    background-image: url('/bg-7-Poster-7.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    
+}
+.right-text--5 {
+    width: 24em;
+    height: 3em;
+    border-radius: 3.125em;
+    background: #410253;
+    flex-shrink: 0;
+    position: absolute;
+    top : 1em;
+    right: 1em;
+    padding-top: 1.25em;
+    padding-left: 1em;
+}
+
+.text--5 {
+    color: #FFBE00;
+    font-family: Inter;
+    font-size: 1.5625em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.text-1--5 {
+    color: #FFBE00;
+    font-family: Inter;
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 0.5em;
+}
+.text-2--5--Poster-7 {
+    color: #FBBE0A;
+    font-family: Inria Serif;
+    font-size: 6.25em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.text-3--5 {
+    color: #FBC00B;
+    font-family: Inter;
+    font-size: 6.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-4--5 {
+    color: #F3BD3B;
+    font-family: Inter;
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.main-container--5 {
+    margin-top: 13em;
+    margin-left: 4em;
+    /* position: absolute;
+    bottom: 0; */
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img--5 {
+    width: 35em;
+    height: 40em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+ 
+}
+
+.bottom-text--5 {
+    color: #FCAF01;
+    font-family: Inter;
+    font-size: 1.4em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    bottom: 7em;
+    right: 1em;
+}
+
+.bottom-text-1--5 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 3.5em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+.bottom-text-2--5 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+@container changeRes (width: 1200px) {
+    .main-container--5 {
+        margin-top: 15em;
+        margin-left: 3em;
+    }
+    .bottom-text--5 {
+        font-size: 1.7em;
+        bottom: 6.5em;
+        right: 1.5em;
+    }
+    .bottom-text-1--5 {
+        font-size: 3.75em;
+        bottom: 1em;
+        right: 1.5em;
+    }
+    .bottom-text-2--5 {
+        font-size: 1.5em;
+        bottom: 1em;
+        right: 2em;
+    }
+}
+
+@container changeRes (width: 300px) {
+    .container--Poster-7 {
+        font-size: 30%;
+    }
+    .text--5 {
+        font-size: 7.5px;
+    }
+    .main-container--5 {
+        margin-top: 13em;
+        /* margin-left: 6em; */
+        display: flex;
+    
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .text-1--5 {
+        font-size: 2.5em;
+    }
+    ..text-2--5--Poster-7 {
+        font-size: 5.5em;
+    }
+    .text-3--5 {
+        font-size: 5.5em;
+    }
+    .text-4--5 {
+        font-size: 2em;
+    }
+    .img--5 {
+        height: 35em;
+    }
+    .bottom-text--5 {
+        font-size: 5.5px;
+        bottom: 8em;
+    }
+    .bottom-text-2--5 {
+        font-size: 6px;
+    }
+   
+}
+
+@container changeRes (width: 350px) {
+    .container--Poster-7 {
+        font-size: 32%;
+    }
+    .text--5 {
+        font-size: 8px;
+    }
+    .main-container--5 {
+        margin-top: 15em;
+        /* margin-left: 6em; */
+    }
+    .text-1--5 {
+        font-size: 2.5em;
+    }
+    ..text-2--5--Poster-7 {
+        font-size: 5.5em;
+    }
+    .text-3--5 {
+        font-size: 5.5em;
+    }
+    .text-4--5 {
+        font-size: 2em;
+    }
+    .img--5 {
+        height: 35em;
+    }
+    .bottom-text--5 {
+        font-size: 6.5px;
+        bottom: 8em;
+    }
+    .bottom-text-2--5 {
+        font-size: 7px;
+    }
+   
+}
+
+
+
+

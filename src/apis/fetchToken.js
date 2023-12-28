@@ -5,6 +5,7 @@ export default async function fetchToken({ email, password }) {
   };
   console.log("This is the login token data:", requestData);
 
+
   try {
     let url = "https://beautyresort.in/api/user/token/";
     const response = await fetch(url, {

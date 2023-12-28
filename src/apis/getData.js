@@ -9,6 +9,7 @@ async function textInfo(token) {
   const requestData = `Token ${token}`;
   console.log("This is the login token data:", requestData);
 
+
   try {
     let url = "https://beautyresort.in/api/user/me/";
     const response = await fetch(url, {
@@ -34,6 +35,7 @@ async function personPhoto(token) {
   const requestData = `Token ${token}`;
   console.log("This is the login token data:", requestData);
 
+
   try {
     let url = "https://beautyresort.in/api/user/background-image/";
     const response = await fetch(url, {
@@ -43,6 +45,7 @@ async function personPhoto(token) {
         Authorization: requestData,
       },
     });
+
 
     if (!response.ok) {
       throw new Error("Authentication failed");
@@ -59,6 +62,7 @@ async function signaturePhoto(token) {
   const requestData = `Token ${token}`;
   console.log("This is the login token data:", requestData);
 
+
   try {
     let url = "https://beautyresort.in/api/user/signature-image/";
     const response = await fetch(url, {
@@ -68,6 +72,7 @@ async function signaturePhoto(token) {
         Authorization: requestData,
       },
     });
+
 
     if (!response.ok) {
       throw new Error("Authentication failed");

@@ -1,0 +1,407 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container-1--8-Poster--8 {
+    background-color: #22376d;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5em;
+    position: relative;
+    }
+
+.main-container--Poster--8{
+    display: flex;
+    padding-left: 0;
+    width: 95%;
+    height: 100%;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+    margin-left: 1.5em;
+    padding: 0;
+}
+.left-container--8 {
+    flex-basis: 40em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* background-color: rgba(158,133,92,255); */
+    margin-left: 0;
+    /* border-top-left-radius: 2em; */
+}
+
+.right-container--8 {
+    flex-basis: 60em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    /* padding-top: 4em; */
+    /* background-color: rgba(147,125,84,255); */
+    /* border-top-right-radius: 2em; */
+}
+
+.logo--8 {
+    width: 25em;
+    height: 20em;
+    background-color: #22376d34;
+    padding-left: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
+    /* align-self: center; */
+    /* padding-left: em; */
+}
+
+.emp-img--8 {
+    width: 60em;
+    height: 62em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.main-title--8 {
+    color: #fbf50f;
+    font-size: 5em;
+    font-weight: 550;
+    text-align: right;
+    margin-bottom: 0;
+    margin-left: 0em;
+}
+
+.text-9--8-Poster-8 {
+    margin-top: 0;
+    color: #fbf50f;
+    font-size: 5em;
+    text-align: right;
+    font-weight: 550;
+}
+
+
+.text-1--8--Poster-8 {
+    color: #fbf50f;
+    font-size: 2em;
+    /* width: 150%; */
+    /* text-align: right; */
+    align-self: flex-end;
+    font-weight: 550;
+    margin-left: 2em;
+    padding-left: 0;
+    
+}
+
+.text-2--8 {
+    color: white;
+    font-size: 2em;
+    font-weight: 500;
+    /* width: 100%; */
+    /* margin-left: 2em; */
+   
+    align-self: flex-end;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+.text-8--8-Poster-8 {
+    color: #fbf50f;
+    font-size: 4em;
+    font-weight: 500;
+    margin-top: 1.5em;
+    align-self: flex-end;
+    margin-right: 0.3em;
+    /* text-align: center; */
+}
+
+.text-10--8-Poster-8 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 500;
+    /* margin-top: 0.2em; */
+    margin-left: 1.5em;
+    line-height: 2em;
+    align-self: flex-end;
+    margin-right: 0.5em;
+}
+
+.text-4--8-Poster-8 {
+    color: white;
+    /* margin-top: 1em; */
+    font-size: 2em;
+    line-height: 2em;
+    align-self: flex-end;
+    margin-right: 0.5em;
+}
+
+.contact-container--8 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffefa;
+    /* width: 140%; */
+    color: #1b293e;
+    padding-left: 1em;
+    border-top-left-radius: 1.5em;
+    border-bottom-left-radius: 1.5em;
+    margin-top: 1em;
+    align-self: flex-end;
+    /* margin-left: 9em; */
+}
+
+.text-5--8-Poster-8  {
+    color: #1b293e;
+    margin-top: 0.5em;
+    font-size: 2.1em;
+    line-height: 2em;
+}
+
+
+.text-6--8-Poster-8 {
+    padding-top: 0;
+    color:  #fbf50f;
+    font-size: 3.5em;
+    /* margin-top: em; */
+    align-self: flex-end;
+    margin-right: 0.5em;
+}
+
+
+
+@container changeRes (width: 1600px) {
+    .main-container--Poster--8 {
+        font-size: 100%;
+        margin-left: 2em;
+        gap:240px;
+    }
+    
+    .emp-img--8{
+        width: 40em;
+        height: 65em;
+    }
+    .main-title--8 {
+        font-size: 1.5em;
+    }
+    .text-1--8 {
+        font-size: 3em;
+    }
+    .text-4--8 {
+        font-size: 1.5em;
+    }
+    .text-8--8, .text-10--8 {
+        margin-top: 0.5em;
+        line-height: 0.5em;
+    }
+    .text-6--8 {
+        font-size: 1em;
+        margin-top: 1em;
+    }
+    .text-4--8, .text-2--8 {
+        margin-top: 0.1em;
+    }
+    .right-container--8 {
+        flex-grow: 0;
+        width: 10em;
+    }
+}
+
+@container changeRes (width: 1200px) {
+    .main-container--Poster--8 {
+        font-size: 75%;
+    }
+    .main-container--Poster--8{
+        gap:60px;
+    }
+    .emp-img--8 {
+        width: 50em;
+        height: 52em;
+    }
+}
+
+@container changeRes (width: 1080px) {
+    .main-container--Poster--8{
+        font-size: 65%;
+    }
+}
+
+@container changeRes (width: 550px) {
+.main-container--Poster--8{
+font-size: 42%;
+}
+.footer-name--8 {
+font-size: 3.8em;
+}
+.emp-img--8{
+width: 30em;
+height: 30em;
+}
+.main-title--8 {
+font-size: 1.5em;
+}
+.text-1--8 {
+font-size: 3em;
+}
+.text-4--8 {
+margin-top: 0.3em;
+font-size: 1.5em;
+}
+.text-8--8, .text-10--8 {
+margin-top: 0.3em;
+line-height: 0.5em;
+}
+.text-6--8 {
+font-size: 1em;
+margin-top: 0.2em;
+}
+.text-4--8, .text-2--8 {
+margin-top: 0.1em;
+}
+.right-container--8 {
+width: 60em;
+}
+.contact-container--8 {
+margin-top: 0.4em;
+font-size: 0.7em;
+}
+.text-5--8-Poster-8  {
+font-size: 2em;
+}
+.text-2--8 {
+margin-top: 0em;
+}
+.right-container--8 {
+padding-top: 1em;
+}
+.phone--8 {
+line-height: 1em;
+}
+}
+@container changeRes (width: 350px) {
+    .main-container--Poster--8{
+        font-size: 32%;
+    }
+    .emp-img--8 {
+        width: 39em;
+        height: 42em;
+    }
+    .text-6--8 {
+        margin-top: 1em;
+    }
+    .text-5--8-Poster-8  {
+        font-size: 7px;
+    }
+    .contact-container--8 {
+        padding-left: 0;
+    }
+    .text-1--8--Poster-8 {
+        font-size: 8px;
+    }
+    .text-2--8 {
+        font-size: 6px;
+    }
+    .text-4--8 {
+        font-size: 7px;
+    }
+    .text-6--8 {
+        font-size: 6.5px;
+    }
+    .text-8--8 {
+        font-size: 7px;
+    }
+    .text-10--8 {
+        font-size: 6.5px;
+    }
+    .left-container--8 {
+        max-width: 80px;
+    }
+    .right-container--8 {
+        padding-top: 0;
+    }
+    
+    .text-9--8-Poster-8 {
+        font-size: 3.5em;
+    }
+    .main-title--8 {
+        font-size: 3.5em;
+    }
+    .text-8--8-Poster-8 {
+        margin-top: 0;
+        font-size: 3em;
+    }
+    .text-4--8-Poster-8 {
+        font-size: 2em;
+    }
+    .text-6--8-Poster-8 {
+        font-size: 2em;
+    }
+    .text-10--8-Poster-8 {
+        font-size: 2em;
+    }
+}
+
+@container changeRes (width: 300px) {
+    .main-container--Poster--8{
+        font-size: 25%;
+    }
+    .emp-img--8 {
+        width: 39em;
+        height: 42em;
+    }
+    .text-6--8 {
+        margin-top: 1em;
+    }
+    .text-5--8-Poster-8  {
+        font-size: 7px;
+    }
+    .contact-container--8 {
+        padding-left: 0;
+    }
+    .text-1--8--Poster-8 {
+        font-size: 8px;
+    }
+    .text-2--8 {
+        font-size: 6px;
+    }
+    .text-4--8 {
+        font-size: 7px;
+    }
+    .text-6--8 {
+        font-size: 6.5px;
+    }
+    .text-8--8 {
+        font-size: 7px;
+    }
+    .text-10--8 {
+        font-size: 6.5px;
+    }
+    .left-container--8 {
+        max-width: 80px;
+    }
+    .right-container--8 {
+        padding-top: 0;
+    }
+    
+    .text-9--8-Poster-8 {
+        font-size: 3.5em;
+    }
+    .main-title--8 {
+        font-size: 3.5em;
+    }
+    .text-8--8-Poster-8 {
+        margin-top: 0;
+        font-size: 3em;
+    }
+    .text-4--8-Poster-8 {
+        font-size: 2em;
+    }
+    .text-6--8-Poster-8 {
+        font-size: 2em;
+    }
+    .text-10--8-Poster-8 {
+        font-size: 2em;
+    }
+   
+}
