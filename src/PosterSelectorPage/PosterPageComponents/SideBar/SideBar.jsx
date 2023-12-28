@@ -3,37 +3,37 @@ import "./SideBar.css"
 import {NavLink} from "react-router-dom"
 export default function SideBar(){
     const previewPosterData = [{
-        img: "/sidebar-Poster-1.png",
+        img: "/sidebarPoster1.png",
         pageLink: ""
     }
     ,
     {
-        img: "/sidebar-Poster-2.png",
-        pageLink: "poster-2"
+        img: "/sidebarPoster2.png",
+        pageLink: "poster2"
     },
     {
-        img: "/sidebar-Poster-3.png",
-        pageLink: "poster-3"
+        img: "/sidebarPoster3.png",
+        pageLink: "poster3"
     },
     {
-        img: "/sidebar-Poster-4.png",
-        pageLink: "poster-4"
+        img: "/sidebarPoster4.png",
+        pageLink: "poster4"
     },
     {
-        img: "/sidebar-Poster-5.png",
-        pageLink: "poster-5"
+        img: "/sidebarPoster5.png",
+        pageLink: "poster5"
     }, 
     {
-        img: "/sidebar-Poster-6.png",
-        pageLink: "poster-6"
+        img: "/sidebarPoster6.png",
+        pageLink: "poster6"
     }, 
     {
-        img: "/sidebar-Poster-7.png",
+        img: "/sidebarPoster7.png",
         pageLink: "poster-7"
     },
     {
-        img: "/sidebar-Poster-8.png",
-        pageLink: "poster-8"
+        img: "/sidebarPoster8.png",
+        pageLink: "poster8"
     }
     
 
