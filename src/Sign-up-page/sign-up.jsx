@@ -1,5 +1,4 @@
 import React from "react";
-import ReactCrop from "react-image-crop";
 import Vector from "../assets/images/Vector.png";
 import uploadIcon from "../assets/images/uploadicon.png";
 import blueFill from "../assets/images/blue_fill.png";
