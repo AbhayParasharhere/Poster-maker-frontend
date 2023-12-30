@@ -1,13 +1,19 @@
+.sidebar--scroll-container {
+  background: #161a25;
+  color: cadetblue;
+  display: inline-block;
+  padding: 50px 0;
+  border-top-right-radius: 40px;
+}
 .main-sidebar-container {
   background: #161a25;
-  border-top-right-radius: 54px;
   display: grid;
   grid-template-columns: 1fr;
   overflow-y: scroll;
   max-height: 100%;
   width: 300px;
   scrollbar-gutter: auto;
-  padding: 50px 50px;
+  padding: 0 50px;
 }
 .sidebar--template-container {
   display: flex;
@@ -68,4 +74,10 @@
 }
 .poster-selected {
   background-color: #f0b27d4d;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 50px;
 }
