@@ -11,9 +11,15 @@ import fetchToken from "../apis/fetchToken";
 import postBackgroundImage from "../apis/postBackgroundImage";
 import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
+<<<<<<< HEAD:src/Sign-up-page/sign-up.jsx
 import "./sign-up.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+=======
+import "./signup.css";
+import {Navigate, Link, useNavigate} from "react-router-dom";
+import Cookies from "js-cookie"
+>>>>>>> d56dab2aa35319482f4fb6a4fc50760059a745e9:src/Signuppage/signup.jsx
 // Things to Add:
 // Display Error message, ask designer where to display it
 // When submitted redirect to the next page

@@ -1,9 +1,9 @@
 import React from "react";
 import "./Poster1.css";
-import YellowFill from "../../src/assets/images/Poster/yellow-fill.png"
-import DottedShit from "../../src/assets/images/Poster/dotted-shit.png"
-import DottedShit2 from "../../src/assets/images/Poster/dotted-shit-2.png"
-import OneGoalLogo from "../../src/assets/images/Poster/oneGoalLogoW.png"
+import YellowFill from "../../src/assets/images/Poster/yellowfill.png"
+import DottedShit from "../../src/assets/images/Poster/dottedshit.png"
+import DottedShit2 from "../../src/assets/images/Poster/dottedshit2.png"
+import OneGoalLogo from "../../src/assets/images/Poster/OneGoalCompanyLogo.png"
 import getData from "../../src/apis/getData"
 import Cookies from "js-cookie";
 import { useLoaderData } from "react-router-dom";
