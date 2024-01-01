@@ -15,6 +15,7 @@ import postData from "../apis/postData";
 import "./sign-up.css";
 import {Navigate, Link, useNavigate} from "react-router-dom";
 import Cookies from "js-cookie"
+import { useState } from "react";
 // Things to Add:
 // Display Error message, ask designer where to display it
 // When submitted redirect to the next page
@@ -48,6 +49,7 @@ export default function SignUp() {
 
   const [changeSignatureInputColor, setChangeSignatureInputColor] = React.useState(false);
   const [changePhotoInputColor, setChangePhotoInputColor] = React.useState(false);
+  const [openCrop, setOpenCrop] = useState(false);
   const navigate = useNavigate()
   const staticFormData = [
     {
@@ -262,6 +264,7 @@ export default function SignUp() {
 
           </div>
         </div>
+        openCrop ? (
         <div className="bar-s">
           <div>
             <label htmlFor="photo" className={changePhotoInputColor ? "face-image-label-green-s" : "face-image-label-s"}>
@@ -285,6 +288,7 @@ export default function SignUp() {
             </div>
           </button>
         </div>
+        ) : ()
         <p className = "sign-log-text">Already have an account?
             <Link to = "/login" className = "sign-link"> Log in</Link>
         </p> 
