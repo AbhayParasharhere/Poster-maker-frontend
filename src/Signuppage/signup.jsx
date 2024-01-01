@@ -1,5 +1,4 @@
 import React from "react";
-import ReactCrop from "react-image-crop";
 import Vector from "../assets/images/Vector.png";
 import uploadIcon from "../assets/images/uploadicon.png";
 import blueFill from "../assets/images/blue_fill.png";
@@ -12,7 +11,7 @@ import fetchToken from "../apis/fetchToken";
 import postBackgroundImage from "../apis/postBackgroundImage";
 import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
-import "./sign-up.css";
+import "./signup.css";
 import {Navigate, Link, useNavigate} from "react-router-dom";
 import Cookies from "js-cookie"
 // Things to Add:
