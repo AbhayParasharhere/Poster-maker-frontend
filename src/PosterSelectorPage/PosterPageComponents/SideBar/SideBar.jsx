@@ -34,6 +34,10 @@ export default function SideBar(){
     {
         img: "/sidebarPoster8.png",
         pageLink: "poster8"
+    },
+    {
+        img: "/sidebarPoster8.png",
+        pageLink: "poster9"
     }
     
 

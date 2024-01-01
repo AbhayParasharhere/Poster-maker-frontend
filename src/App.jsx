@@ -12,6 +12,7 @@ import Poster5, { loader as poster5Loader } from "../Posters/Poster5/Poster5";
 import Poster6, { loader as poster6Loader } from "../Posters/Poster6/Poster6";
 import Poster7, { loader as poster7Loader } from "../Posters/Poster7/Poster7";
 import Poster8, { loader as poster8Loader } from "../Posters/Poster8/Poster8";
+import Poster9, { loader as poster9Loader } from "../Posters/Poster9/Poster9";
 import {
   Route,
   createBrowserRouter,
@@ -31,6 +32,7 @@ export default function App() {
           <Route path = "poster6" element = {<Poster6 />} loader = {poster6Loader}/>
           <Route path = "poster7" element = {<Poster7 />} loader = {poster7Loader}/>
           <Route path = "poster8" element = {<Poster8 />} loader = {poster8Loader}/>
+          <Route path = "poster9" element = {<Poster9 />} loader = {poster9Loader}/>
         </Route>
         <Route element={<Login />} path="/login" />
         <Route element={<SignUp />} path="/signup" />
