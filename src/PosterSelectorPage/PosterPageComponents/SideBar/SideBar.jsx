@@ -3,10 +3,9 @@ import "./SideBar.css"
 import {NavLink} from "react-router-dom"
 export default function SideBar(){
     const previewPosterData = [{
-        img: "/sidebarPoster1.png",
-        pageLink: ""
-    }
-    ,
+        img: "/SidebarP9.png",
+        pageLink: "poster9"
+    }, 
     {
         img: "/sidebarPoster2.png",
         pageLink: "poster2"
@@ -36,9 +35,10 @@ export default function SideBar(){
         pageLink: "poster8"
     },
     {
-        img: "/SidebarP9.png",
-        pageLink: "poster9"
+        img: "/sidebarPoster1.png",
+        pageLink: ""
     }
+
     
 
 ]
