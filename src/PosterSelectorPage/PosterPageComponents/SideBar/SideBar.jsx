@@ -36,7 +36,7 @@ export default function SideBar(){
         pageLink: "poster8"
     },
     {
-        img: "/sidebarPoster8.png",
+        img: "/SidebarP9.png",
         pageLink: "poster9"
     }
     
