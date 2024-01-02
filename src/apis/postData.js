@@ -27,6 +27,6 @@ export default async function postData(formValues) {
     console.log(status);
     return status;
   } catch (error) {
-    console.error("Error making the user", error);
+    throw new Error("Cannot Reach the servers");
   }
 }

@@ -77,6 +77,6 @@ async function signaturePhoto(token) {
     console.log(data);
     return data; // Return the token response
   } catch (error) {
-    console.error("Error fetching token:", error);
+    throw new Error("Cannot Reach the Server");
   }
 }

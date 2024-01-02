@@ -11,9 +11,9 @@ import fetchToken from "../apis/fetchToken";
 import postBackgroundImage from "../apis/postBackgroundImage";
 import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
-import "./sign-up.css";
-import {Navigate, Link, useNavigate} from "react-router-dom";
-import Cookies from "js-cookie"
+import "./signup.css";
+import { Navigate, Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 // Things to Add:
 // Display Error message, ask designer where to display it
 // When submitted redirect to the next page
@@ -41,13 +41,18 @@ export default function SignUp() {
     contactNumber: "",
   }));
   const [emailBorderToggle, setEmailBorderToggle] = React.useState(false);
-  const [confirmEmailBorderToggle, setConfirmEmailBorderToggle] = React.useState(false);
-  const [passwordInputColorToggle, setPasswordInputColorToggle] = React.useState(false);
-  const [passwordConfirmInputColorToggle, setPasswordConfirmInputColorToggle] = React.useState(false);
+  const [confirmEmailBorderToggle, setConfirmEmailBorderToggle] =
+    React.useState(false);
+  const [passwordInputColorToggle, setPasswordInputColorToggle] =
+    React.useState(false);
+  const [passwordConfirmInputColorToggle, setPasswordConfirmInputColorToggle] =
+    React.useState(false);
 
-  const [changeSignatureInputColor, setChangeSignatureInputColor] = React.useState(false);
-  const [changePhotoInputColor, setChangePhotoInputColor] = React.useState(false);
-  const navigate = useNavigate()
+  const [changeSignatureInputColor, setChangeSignatureInputColor] =
+    React.useState(false);
+  const [changePhotoInputColor, setChangePhotoInputColor] =
+    React.useState(false);
+  const navigate = useNavigate();
   const staticFormData = [
     {
       mandatory: true,
@@ -118,11 +123,23 @@ export default function SignUp() {
       value: formValues.SignaturePhoto,
     },
   ];
+  const [errorMessage, setError] = React.useState(false);
 
   function handleChange(event) {
-    console.log('name:', event.target.name, 'previous', formValues.backgroundImage);
+    console.log(
+      "name:",
+      event.target.name,
+      "previous",
+      formValues.backgroundImage
+    );
     setFormValues((prevValues) => {
-      return { ...prevValues, [event.target.name]: event.target.type === "file" ? event.target.files[0] : event.target.value };
+      return {
+        ...prevValues,
+        [event.target.name]:
+          event.target.type === "file"
+            ? event.target.files[0]
+            : event.target.value,
+      };
     });
     changeInputBorder(event);
   }
@@ -133,18 +150,30 @@ export default function SignUp() {
       return;
     }
     if (event.target.name === "email") {
-      value.match(regex) ? setEmailBorderToggle(true) : setEmailBorderToggle(false);
+      value.match(regex)
+        ? setEmailBorderToggle(true)
+        : setEmailBorderToggle(false);
     } else if (event.target.name === "confirmEmail") {
-      value === formValues.email ? setConfirmEmailBorderToggle(true) : setConfirmEmailBorderToggle(false);
+      value === formValues.email
+        ? setConfirmEmailBorderToggle(true)
+        : setConfirmEmailBorderToggle(false);
       console.log("ran");
     } else if (event.target.name === "confirmPassword") {
-      value === formValues.password ? setPasswordConfirmInputColorToggle(true) : setPasswordConfirmInputColorToggle(false);
+      value === formValues.password
+        ? setPasswordConfirmInputColorToggle(true)
+        : setPasswordConfirmInputColorToggle(false);
     } else if (event.target.name === "password") {
-      value.length > 8 ? setPasswordInputColorToggle(true) : setPasswordInputColorToggle(false);
+      value.length > 8
+        ? setPasswordInputColorToggle(true)
+        : setPasswordInputColorToggle(false);
     } else if (event.target.name === "SignaturePhoto") {
-      value !== "" ? setChangeSignatureInputColor(true) : setChangeSignatureInputColor(false);
+      value !== ""
+        ? setChangeSignatureInputColor(true)
+        : setChangeSignatureInputColor(false);
     } else if (event.target.name === "backgroundImage") {
-      value !== "" ? setChangePhotoInputColor(true) : setChangePhotoInputColor(false);
+      value !== ""
+        ? setChangePhotoInputColor(true)
+        : setChangePhotoInputColor(false);
     }
   }
 
@@ -157,18 +186,21 @@ export default function SignUp() {
       formValues.confirmPassword === "" ||
       formValues.contactNumber === ""
     ) {
-      console.log("Fill the Requirements");
+      setError("Fill the requirements");
       return;
     } else if (formValues.password.length < 9) {
-      console.log("password length is less than 9");
+      setError("Password must be more than 9 characters");
       return;
     } else if (!formValues.email.match(regex)) {
-      console.log("email not valid");
+      setError("Invalid Email");
       return;
-    } else if (formValues.email !== formValues.confirmEmail || formValues.password !== formValues.confirmPassword) {
-      console.log("your email or password are not the same");
+    } else if (
+      formValues.email !== formValues.confirmEmail ||
+      formValues.password !== formValues.confirmPassword
+    ) {
+      setError("Your email or password are not the same");
       return;
-    } 
+    }
 
     const fetchData = async () => {
       try {
@@ -178,7 +210,10 @@ export default function SignUp() {
         let tokenResponse;
         if (createUserStatus === 201) {
           // Fetch the token
-          tokenResponse = await fetchToken({email:formValues.email,password:formValues.password});
+          tokenResponse = await fetchToken({
+            email: formValues.email,
+            password: formValues.password,
+          });
           console.log("response:", tokenResponse);
         } else {
           console.log("user not created");
@@ -186,17 +221,24 @@ export default function SignUp() {
         console.log(tokenResponse);
         // Once you have the token, use it to make authenticated API requests
         if (tokenResponse) {
-          await postBackgroundImage(tokenResponse.token,formValues.backgroundImage);
-          await postSignatureImage(tokenResponse.token,formValues.SignaturePhoto);
-          Cookies.set('token', tokenResponse.token, { expires: 7, secure: true });
-          navigate("/",{replace:true})
+          await postBackgroundImage(
+            tokenResponse.token,
+            formValues.backgroundImage
+          );
+          await postSignatureImage(
+            tokenResponse.token,
+            formValues.SignaturePhoto
+          );
+          Cookies.set("token", tokenResponse.token, {
+            expires: 7,
+            secure: true,
+          });
+          navigate("/", { replace: true });
         }
       } catch (error) {
-        console.error("Error:", error);
+        setError(error.message);
       }
     };
-
-
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {
@@ -204,11 +246,27 @@ export default function SignUp() {
       <div className="info-input-container-s" key={item.name}>
         <p className="top-text-s">
           {item.topText}
-          <span className={item.mandatory ? "mandatory-feild-true-s" : "mandatory-feild-false-s"}> *</span>
+          <span
+            className={
+              item.mandatory
+                ? "mandatory-feild-true-s"
+                : "mandatory-feild-false-s"
+            }
+          >
+            {" "}
+            *
+          </span>
         </p>
         {item.image ? (
           <div className="siganture-container-s">
-            <label htmlFor="signature" className={changeSignatureInputColor ? "signature-label-green-s" : "signature-label-s"}>
+            <label
+              htmlFor="signature"
+              className={
+                changeSignatureInputColor
+                  ? "signature-label-green-s"
+                  : "signature-label-s"
+              }
+            >
               <img className="signature-image-icon-s" src={uploadIcon} />
               <span className="label-text-s">{item.placeholder}</span>
               <span className="label-text-2-s">Upload</span>
@@ -241,8 +299,9 @@ export default function SignUp() {
       <div className="sign-up-container-s">
         <p className="header-s"> SIGN UP </p>
         <div className="name-container-s">
-          <p className="top-text-s">Full Name
-          <span className="mandatory-feild-true-s"> *</span>
+          <p className="top-text-s">
+            Full Name
+            <span className="mandatory-feild-true-s"> *</span>
           </p>
           <input
             className="name-input-s"
@@ -254,16 +313,19 @@ export default function SignUp() {
         </div>
         <div className="same-input-grid-s">
           {renderForm}
-          <div>
-
-          </div>
-          <div>
-
-          </div>
+          <div></div>
+          <div></div>
         </div>
         <div className="bar-s">
           <div>
-            <label htmlFor="photo" className={changePhotoInputColor ? "face-image-label-green-s" : "face-image-label-s"}>
+            <label
+              htmlFor="photo"
+              className={
+                changePhotoInputColor
+                  ? "face-image-label-green-s"
+                  : "face-image-label-s"
+              }
+            >
               <img className="signature-image-icon-s" src={uploadIcon} />
               Upload Photo
             </label>
@@ -275,7 +337,12 @@ export default function SignUp() {
               onChange={handleChange}
             />
           </div>
-          <button className="get-started-button-s" onClick={() => { submitForm(formValues) }}>
+          <button
+            className="get-started-button-s"
+            onClick={() => {
+              submitForm(formValues);
+            }}
+          >
             <div className="button-inside-div-s">
               Get Started
               <div className="arrow-s">
@@ -284,11 +351,17 @@ export default function SignUp() {
             </div>
           </button>
         </div>
-        <p className = "sign-log-text">Already have an account?
-            <Link to = "/login" className = "sign-link"> Log in</Link>
-        </p> 
+        {errorMessage && <p className="signup--error-text">{errorMessage}</p>}
+
+        <p className="sign-log-text">
+          Already have an account?
+          <Link to="/login" className="sign-link">
+            {" "}
+            Log in
+          </Link>
+        </p>
       </div>
-    
+
       <div className="other-container-s">
         <img className="blue-fill-s" src={blueFill} />
         <img className="blue-outline-s" src={blueOutline} />

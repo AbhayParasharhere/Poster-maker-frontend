@@ -1,5 +1,5 @@
 import React from "react";
-import posterBackground from "../../src/assets/images/Poster/poster2-picture.png"
+import posterBackground from "../../src/assets/images/Poster/poster2picture.png"
 import { useLoaderData } from "react-router-dom";
 import Cookies from "js-cookie";
 import getData from "../../src/apis/getData"

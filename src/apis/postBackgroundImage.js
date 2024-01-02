@@ -3,6 +3,7 @@ export default async function postBackgroundImage(token, backgroundImage) {
   uploadData.append("background_image", backgroundImage);
   console.log(backgroundImage);
 
+
   try {
     let url = "https://beautyresort.in/api/user/background-image/";
     const response = await fetch(url, {
@@ -12,6 +13,7 @@ export default async function postBackgroundImage(token, backgroundImage) {
       },
       body: uploadData,
     });
+
 
     if (!response.ok) {
       throw new Error("Background image upload failed");

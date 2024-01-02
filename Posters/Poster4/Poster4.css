@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container--Poster-4 {
+    width: 100%;
+    height: 100%; 
+}
+.main-container--Poster-4 {
+    width: 100%;
+    height: 100%;
+    background-image: url('/bg4.jpeg');
+    background-size: cover;
+    position: relative;
+    
+    display: flex;
+}
+
+.left-container--Poster-4 {
+    margin-left: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.text-1--Poster-4 {
+    color: #325D7D;
+    font-family: Inter;
+    font-size: 4.6875em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.05em;
+}
+
+.text-2--Poster-4 {
+    color: #D01F1F;
+    font-family: Dancing Script;
+    font-size: 7.375em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.05em;
+
+}
+
+.text-3--Poster-4 {
+    color: #1F5182;
+    font-family: Inter;
+    font-size: 4.6875em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    /* margin-bottom: 2em; */
+}
+
+.text-4--Poster-4 {
+    margin-top: 1em;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 3.4375em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    /* margin-right: 2em; */
+   
+    margin-bottom: 4em;
+}
+
+.st--Poster-4 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 0.5em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.text-5--Poster-4-4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 2.1em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    /* margin-top: 1.5em; */
+    transform: translateY(-1.2em);
+    margin-left: 0.3em;
+    
+}
+
+.text-6--Poster-4-4 {
+    color: #B12236;
+    font-family: Inter;
+    font-size: 1.57em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    /* margin-left: 1.2em; */
+    transform: translateY(-1.8em);
+}
+
+.text-7--Poster-4 {
+    color: #B12237;
+    font-family: Inter;
+    font-size: 1.875em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    bottom: 3.2em;
+    left: 2.5em;
+}
+
+.text-8--Poster-4 {
+    color: #1F5488;
+    font-family: Inter;
+    font-size: 2.2em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    bottom: 1.7em;
+    left: 2.2em;
+}
+ 
+.text-9--Poster-4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.2em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.23438em;
+    position: absolute;
+    bottom: 1.7em;
+    left: 3.9em;
+}
+
+.img--Poster-4 {
+    width: 40em;
+    height: 45em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@container changeRes (width: 1200px) {
+    .main-container--Poster-4, .left-container--Poster-4  {
+        font-size: 105%;
+    }
+
+}
+
+@container changeRes (width: 300px) {
+    .main-container--Poster-4  {
+        font-size: 25%;
+    }
+    .left-container--Poster-4 {
+        margin-left: 7em;
+    }
+    .text-4--Poster-4 {
+       margin-top: 1.2em; 
+    }
+    .text-5--Poster-4 {
+        transform: translateY(-0.2em);
+        margin-left: 1.4em;
+    }
+    .text-6--Poster-4 {
+        transform: translateY(-0.2em);
+        font-size: 7px;
+        /* margin-left: 21px; */
+    }
+    .text-7--Poster-4 {
+        left: 2.8em; 
+    }
+    .text-8--Poster-4 {
+        left: 2.5em; 
+    }
+    .text-9--Poster-4 {
+        font-size: 0.5em;
+        left: 10.8em; 
+    }
+
+}
+
+@container changeRes (width: 350px) {
+    .main-container--Poster-4  {
+        font-size: 30%;
+    }
+    .left-container--Poster-4 {
+        margin-left: 6em;
+    }
+    .text-4--Poster-4 {
+       margin-top: 1.2em; 
+    }
+    .text-5--Poster-4 {
+        transform: translateY(-0.2em);
+        margin-left: 0.8em;
+    }
+    .text-6--Poster-4 {
+        transform: translateY(-0.2em);
+        font-size: 9px;
+        /* margin-left: 28px; */
+    }
+    .text-7--Poster-4 {
+        left: 2.8em; 
+    }
+    .text-8--Poster-4 {
+        left: 2.5em; 
+    }
+    .text-9--Poster-4 {
+        font-size: 0.5em;
+        left: 10.8em; 
+    }
+
+}
+

@@ -1,0 +1,279 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Poster5--main-container {
+    background-image: url('/bg5Poster.jpeg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    /* flex-basis: ; */
+}
+
+.lleft-container {
+    margin-left: 2em;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    /* flex-basis: 100px; */
+    /* padding: 0; */
+    /* width: 300px; */
+}
+.right-container--Poster-5 {
+    max-width: 200px;
+}
+
+
+.text-1--7 {
+    color: #F4BB04;
+    font-family: Inter;
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.text-2--7 {
+    color: #FDB404;
+    font-family: Inter;
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.125rem;
+}
+.text-3--7 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 9em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transform: translateY(-0.2em);
+}
+
+.text-4--7 {
+    color: #FCB703;
+    font-family: Inter;
+    font-size: 3.75em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    transform: translateY(-1em);
+}
+
+.text-q--7 {
+    color: #FFF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.text-5--7 {
+    color: #FBB504;
+    font-family: Inter;
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.text-q {
+    color: #FFF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.text-6--7 {
+    color: #F7B705;
+    font-family: Inter;
+    font-size: 1.5875em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+ }
+
+.text-7--7 {
+    width: 6.1875em;
+    height: 2.25em;
+    flex-shrink: 0;
+    background: #FEB500;
+    padding-top: 0.2em;
+}
+
+.p-text--7 {
+    color: #12484A;
+    font-family: Inter;
+    font-size: 1.5875em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: center;
+}
+
+.text-8--7 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 2.3125em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.more-info--7 {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5625em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    bottom: 2.6em;
+    left: 2.4em;
+}
+
+.phone {
+    color: #000;
+    font-family: Inter;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    bottom: 1em;
+    left: 1.8em;
+}
+
+.img--7 {
+    width: 36em;
+    height: 40em;
+    position: absolute;
+    bottom: 7em;
+    right: 0;
+}
+.name--7 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 3.125em;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+}
+
+.des--7 {
+    color: #FDB602;
+    font-family: Inter;
+    font-size: 1.5625em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    bottom: 0.7em;
+    right: 6em;
+}
+
+
+.Poster-5-container--7 {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+@container changeRes (width: 1200px) {
+    .Poster5--main-container {
+        font-size: 95%;
+    }
+    .more-info--7 {
+        bottom: 3em;
+        left: 2.6em;
+    }
+    .phone {
+        bottom: 1.2em;
+        left: 2em;
+    }
+    .img--7 {
+        width: 40em;
+    }
+   
+
+    /* .name--7 {
+        bottom: 1em;
+        right: 2.2em;
+    }
+    .des--7 {
+        bottom: 0.7em;
+        right: 2.2em;
+    } */
+
+}
+
+@container changeRes (width: 300px) {
+    .Poster5--main-container {
+        font-size: 25%;
+    }
+    .lleft-container, .right-container--Poster-5 {
+        font-size: 100%;
+
+    }
+    .right-container {
+        max-width: 100px;
+    }
+    .more-info--7 {
+        bottom: 2.8em;
+        left: 2.8em;
+    }
+    .phone {
+        bottom: 1.2em;
+        left: 2.2em;
+    }
+    .img--7 {
+        width: 40em;
+    }
+    .des--7 {
+        font-size: 7px;
+        bottom: 0.7em;
+        right: 4em;
+    }
+
+}
+
+@container changeRes (width: 350px) {
+    .Poster5--main-container {
+        font-size: 30%;
+    }
+    .lleft-container, .right-container--Poster-5 {
+        font-size: 100%;
+    }
+    .more-info--7 {
+        bottom: 2.8em;
+        left: 2.8em;
+    }
+    .phone {
+        bottom: 1.2em;
+        left: 2.2em;
+    }
+    .img--7 {
+        width: 39em;
+    }
+    .des--7 {
+        font-size: 8px;
+        bottom: 0.7em;
+        right: 5em;
+    }
+
+}
+
