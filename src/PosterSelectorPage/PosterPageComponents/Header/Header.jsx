@@ -21,7 +21,7 @@ export default function Header() {
       </div>
       <div className="header--icon-container">
         <button onClick={logout} className="log-out-button">
-          Back{" "}
+          Log Out{" "}
         </button>
       </div>
     </div>
