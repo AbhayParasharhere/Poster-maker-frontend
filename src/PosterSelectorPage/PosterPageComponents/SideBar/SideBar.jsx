@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./SideBar.css";
 import templateIcon from "./images/templatesIcon.png";
@@ -16,6 +17,7 @@ export default function SideBar() {
       img: "src/assets/images/PosterPageImages/Poster-3-Preview.png",
       pageLink: "poster-3",
     },
+
   ];
   const displayPreviewPoster = previewPosterData.map((preview, index) => {
     return (
@@ -45,6 +47,7 @@ export default function SideBar() {
         </select>
         <div className="sidebar--display-preview-container">
           {displayPreviewPoster}
+
         </div>
       </div>
     </div>
