@@ -7,36 +7,36 @@ export default function SideBar() {
   const previewPosterData = [
     {
         img: "/SidebarP9.png",
-        pageLink: "poster-9",
+        pageLink: "poster9",
     }, 
 
     {
       img: "/sidebarPoster2.png",
-      pageLink: "poster-2",
+      pageLink: "poster2",
     },
     {
       img: "/sidebarPoster3.png",
-      pageLink: "poster-3",
+      pageLink: "poster3",
     },
     {
       img: "/sidebarPoster4.png",
-      pageLink: "poster-4",
+      pageLink: "poster4",
     },
     {
         img: "/sidebarPoster5.png",
-        pageLink: "poster-5",
+        pageLink: "poster5",
     },
     {
         img: "/sidebarPoster6.png",
-        pageLink: "poster-6",
+        pageLink: "poster6",
     },
     {
         img: "/sidebarPoster7.png",
-        pageLink: "poster-7",
+        pageLink: "poster7",
     },
     {
         img: "/sidebarPoster8.png",
-        pageLink: "poster-8",
+        pageLink: "poster8",
     },
     {
         img: "/sidebarPoster1.png",
