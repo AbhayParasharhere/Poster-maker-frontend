@@ -6,17 +6,42 @@ import { NavLink } from "react-router-dom";
 export default function SideBar() {
   const previewPosterData = [
     {
-      img: "/sidebarPoster1.png",
-      pageLink: "",
-    },
+        img: "/SidebarP9.png",
+        pageLink: "poster-9",
+    }, 
+
     {
-      img: "src/assets/images/PosterPageImages/Life-Insurance-poster-2.png",
+      img: "/sidebarPoster2.png",
       pageLink: "poster-2",
     },
     {
-      img: "src/assets/images/PosterPageImages/Poster-3-Preview.png",
+      img: "/sidebarPoster3.png",
       pageLink: "poster-3",
     },
+    {
+      img: "/sidebarPoster4.png",
+      pageLink: "poster-4",
+    },
+    {
+        img: "/sidebarPoster5.png",
+        pageLink: "poster-5",
+    },
+    {
+        img: "/sidebarPoster6.png",
+        pageLink: "poster-6",
+    },
+    {
+        img: "/sidebarPoster7.png",
+        pageLink: "poster-7",
+    },
+    {
+        img: "/sidebarPoster8.png",
+        pageLink: "poster-8",
+    },
+    {
+        img: "/sidebarPoster1.png",
+        pageLink: "",
+    }
 
   ];
   const displayPreviewPoster = previewPosterData.map((preview, index) => {
