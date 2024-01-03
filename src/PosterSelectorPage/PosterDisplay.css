@@ -1,5 +1,5 @@
 body {
-  background-color: #fefefe;
+  background-color: #303544;
 }
 .poster-display--main-container {
   height: 100vh;
@@ -20,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  background-color: #fefefe;
+  background-color: #303544;
 }
 .poster--download-button-container {
   display: flex;
@@ -36,26 +36,29 @@ body {
   font-weight: 500;
   font-size: 14px;
   text-align: left;
-  color: #7a7a7a;
-  background-color: #eaeaea;
+  color: white;
+  background-color: #a7a6b4;
   padding: 5px 10px;
   border-radius: 10px;
 }
 .black-color {
   color: #000000;
+  font-weight: 500;
+  font-family: Inter;
 }
 .main-button-container {
   display: flex;
   gap: 10px;
 }
 .download-button {
-  background-color: #fec89a;
+  background-color: #161a25;
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
   font-family: Inter;
   font-weight: 600;
   font-family: Inter;
+  color: white;
   letter-spacing: 0.04em;
   text-align: left;
 }
@@ -75,8 +78,8 @@ body {
   container-name: changeRes;
 }
 .poster--size-select-container {
-  background: linear-gradient(0deg, #404040, #404040),
-    linear-gradient(0deg, #4a4a4a, #4a4a4a);
+  background: #161a25;
+  border-top-left-radius: 20px;
   flex: 1;
   display: flex;
   align-items: center;
@@ -86,6 +89,7 @@ body {
   display: flex;
   gap: 60px;
   height: 100px;
+  margin-top: 20px;
 }
 .specific-size-select-container {
   display: flex;
@@ -93,6 +97,7 @@ body {
   gap: 16px;
   align-items: center;
   font-family: Inter;
+  width: 125px;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
@@ -106,27 +111,17 @@ body {
   background-color: #fec89a4d;
   font-family: Inter;
   font-size: 14px;
+  width: 125px;
   font-weight: 400;
   text-align: left;
   color: #d9d9d9;
 }
-.instagram-select {
-  background-color: #dfdfdf;
-  width: 7vw;
-  height: 65px;
-}
-.facebook-select {
-  background-color: #dfdfdf;
-  width: 7vw;
-  height: 65px;
-}
-.linkedIn-select {
-  background-color: #dfdfdf;
-  width: 8vw;
-  height: 90px;
-}
-.twitter-select {
-  background-color: #dfdfdf;
-  width: 12vw;
-  height: 50px;
+
+.icon-container {
+  height: 100px;
+  width: 120px;
+  background-color: #303544;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

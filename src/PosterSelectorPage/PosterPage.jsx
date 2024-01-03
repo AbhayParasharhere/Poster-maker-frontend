@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
-import "./PosterPageComponents/PosterDisplayComponent/PosterDisplay.css";
+import "./PosterDisplay.css";
 import { Outlet, redirect } from "react-router-dom";
 import Cookies from "js-cookie";
 import domtoimage from "dom-to-image-more";
+import instagramIcon from "./selectorPageImages/instagramIcon.png";
+import facebookIcon from "./selectorPageImages/facebookIcon.png";
+import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
+import twitterIcon from "./selectorPageImages/twitterIcon.png";
 
 export function loader() {
   const token = Cookies.get("token");
@@ -154,7 +158,9 @@ export default function PosterPage() {
                   handleSizeChange("Instagram");
                 }}
               >
-                <div className="instagram-select">.</div>
+                <div className="icon-container">
+                  <img src={instagramIcon} />
+                </div>
                 <span>Instagram</span>
               </div>
 
@@ -168,7 +174,9 @@ export default function PosterPage() {
                   handleSizeChange("Facebook");
                 }}
               >
-                <div className="facebook-select">.</div>
+                <div className="icon-container">
+                  <img src={facebookIcon} />
+                </div>
                 <span>Facebook</span>
               </div>
 
@@ -182,11 +190,13 @@ export default function PosterPage() {
                   handleSizeChange("LinkedIn");
                 }}
               >
-                <div className="linkedIn-select">.</div>
+                <div className="icon-container">
+                  <img src={linkedinIcon} />
+                </div>
                 <span>LinkedIn</span>
               </div>
 
-              <div
+              {/* <div
                 className={
                   posterSize["Twitter"]
                     ? "specific-size-select-container-selected"
@@ -196,9 +206,11 @@ export default function PosterPage() {
                   handleSizeChange("Twitter");
                 }}
               >
-                <div className="twitter-select">.</div>
+                <div className="icon-container">
+                  <img src={twitterIcon} />
+                </div>
                 <span>Twitter</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
