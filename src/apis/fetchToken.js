@@ -1,6 +1,9 @@
 export default async function fetchToken({ email, password }) {
+  console.log(email); 
+  let emailLower = email.toLowerCase();
+  console.log(emailLower); 
   const requestData = {
-    email,
+    emailLower,
     password,
   };
   console.log("This is the login token data:", requestData);
