@@ -1,0 +1,287 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tangerine:wght@400;700&display=swap'); */
+
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+/* .containerPoster10 
+{
+    container-type: inline-size;
+    container-name: changeRes;
+    
+} */
+.maincontainerPoster10 
+{
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-image: linear-gradient(#feaa13, #8c24fe);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+.logoP10 
+{
+    width: 10em;
+    height: 10em;
+}
+.imgPoster10 
+{
+    width: 100%;
+    height: 100%;
+  
+    /* object-fit: cover; */
+}
+.svg-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.contentContainerPoster10 
+{
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.CnamePoster10 {
+    color: #FFF;
+    font-family: Constantia;
+    font-size: 3.2em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.websiteP10 
+{
+    color: #A54CD7;
+    font-family: Constantia;
+    font-size: 1.7em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.circleP10 
+{
+    /* width: 40em; 
+    height: 40em;  */
+    translate: 0 -57.5em;
+}
+
+.greenP10 
+{
+    /* width: 40em; 
+    height: 40em;  */
+    translate: 0 -115em;
+}
+.divLohriP10 {
+    display: flex;
+    flex-direction: column;
+    translate: 0 -145em;
+    gap: 0;
+
+}
+.happyP10
+{
+    color: #DC2E1A;
+    font-family: Inter;
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    align-self: center;
+}
+
+.LohriP10
+{
+    color: rgba(255, 40, 3, 0.80);
+    font-family: 'Tangerine';
+    font-size: 4.5em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    /* align-self: center; */
+}
+
+.textP10
+{
+    color: rgba(254, 38, 6, 0.70);
+    font-family: Inria Serif;
+    font-size: 1.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.empP10 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20em;
+    height: 20em;
+    z-index: 1;
+}
+.footerP10 {
+    /* margin-top: 2em; */
+    translate: 0 -134.6em;
+    background: #FFAA02;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.nameP10 
+{
+
+color: #FFF;
+font-family: Inter;
+font-size: 2.2em;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.phoneP10 
+{
+color: #FFF;
+font-family: Inter;
+font-size: 1.5em;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+align-self: center;
+}
+
+@container changeRes (width: 1200px) {
+    .maincontainerPoster10  {
+        font-size: 105%;
+    }
+    .divLohriP10 {
+        translate: 0 -142em;   
+    }
+    .footerP10 {
+        /* margin-top: 2em; */
+        translate: 0 -122.5em;
+    }
+
+}
+@container changeRes (width: 350px) {
+    .maincontainerPoster10  {
+        font-size: 20%;
+    }
+    .divLohriP10 {
+        translate: 0 -142em;   
+    }
+    .footerP10 {
+        /* margin-top: 2em; */
+        translate: 0 -120.2em;
+    }
+    .dholP10 {
+        width: 80em;
+        height: 80em;
+    }
+    .circleP10 {
+        width: 80em;
+        height: 80em;
+        translate: 0 -80.5em;
+    }
+    .greenP10 {
+    /* width: 40em; 
+    height: 40em;  */
+    width: 60em;
+    height: 60em;
+    translate: 0 -155em;
+}
+.footerP10 {
+    /* margin-top: 2em; */
+    translate: 0 -149em;
+}
+.divLohriP10 {
+    translate: 0 -185em;
+}
+.textP10
+{
+    font-size: 6px;
+}
+.happyP10 {
+    font-size: 7px;
+}
+.LohriP10 {
+    font-size: 20px;
+}
+.empP10 {
+    width: 35em;
+    height: 35em;
+}
+
+}
+
+@container changeRes (width: 300px) {
+    .maincontainerPoster10  {
+        font-size: 15%;
+    }
+    .divLohriP10 {
+        translate: 0 -142em;   
+    }
+    .footerP10 {
+        /* margin-top: 2em; */
+        translate: 0 -120.2em;
+    }
+    .dholP10 {
+        width: 80em;
+        height: 80em;
+    }
+    .circleP10 {
+        width: 80em;
+        height: 80em;
+        translate: 0 -80.5em;
+    }
+    .greenP10 {
+    /* width: 40em; 
+    height: 40em;  */
+    width: 60em;
+    height: 60em;
+    translate: 0 -155em;
+}
+.footerP10 {
+    /* margin-top: 2em; */
+    translate: 0 -138.5em;
+}
+.divLohriP10 {
+    translate: 0 -185em;
+}
+.textP10
+{
+    font-size: 5px;
+}
+.happyP10 {
+    font-size: 5px;
+}
+.LohriP10 {
+    font-size: 16px;
+}
+.empP10 {
+    width: 40em;
+    height: 40em;
+}
+
+}
+
+
+
+
+
+
