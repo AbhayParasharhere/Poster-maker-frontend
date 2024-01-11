@@ -15,16 +15,15 @@ import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 // Things to Add:
-// Display Error message, ask designer where to display it
 // When submitted redirect to the next page
-// export function loader(){
-//   const token = Cookies.get("token")
-//   if(!token){
-//       throw redirect("/login")
-//   } else{
-//       throw redirect("/")
-//   }
-// }
+export function loader() {
+  const token = Cookies.get("token");
+  if (!token) {
+    throw redirect("/login");
+  } else {
+    throw redirect("/");
+  }
+}
 export default function SignUp() {
   const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/g;
 
@@ -177,6 +176,45 @@ export default function SignUp() {
     }
   }
 
+  const fetchData = async () => {
+    try {
+      const createUserStatus = await postData(formValues);
+      let tokenResponse;
+      if (createUserStatus === 201) {
+        // Fetch the token
+        console.log("data is submitted and fetch token commences");
+        tokenResponse = await fetchToken({
+          email: formValues.email,
+          password: formValues.password,
+        });
+        console.log("response:", tokenResponse);
+      } else {
+        console.log("user not created");
+      }
+      console.log(tokenResponse);
+      // Once you have the token, use it to make authenticated API requests
+      if (tokenResponse) {
+        console.log("Got token");
+        await postBackgroundImage(
+          tokenResponse.token,
+          formValues.backgroundImage
+        );
+        await postSignatureImage(
+          tokenResponse.token,
+          formValues.SignaturePhoto
+        );
+        console.log("navigating");
+        Cookies.set("token", tokenResponse.token, {
+          expires: 7,
+          secure: true,
+        });
+        navigate("/", { replace: true });
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   function submitForm(formValues) {
     if (
       formValues.name === "" ||
@@ -202,43 +240,6 @@ export default function SignUp() {
       return;
     }
 
-    const fetchData = async () => {
-      try {
-        // Create a User
-
-        const createUserStatus = await postData(formValues);
-        let tokenResponse;
-        if (createUserStatus === 201) {
-          // Fetch the token
-          tokenResponse = await fetchToken({
-            email: formValues.email,
-            password: formValues.password,
-          });
-          console.log("response:", tokenResponse);
-        } else {
-          console.log("user not created");
-        }
-        console.log(tokenResponse);
-        // Once you have the token, use it to make authenticated API requests
-        if (tokenResponse) {
-          await postBackgroundImage(
-            tokenResponse.token,
-            formValues.backgroundImage
-          );
-          await postSignatureImage(
-            tokenResponse.token,
-            formValues.SignaturePhoto
-          );
-          Cookies.set("token", tokenResponse.token, {
-            expires: 7,
-            secure: true,
-          });
-          navigate("/", { replace: true });
-        }
-      } catch (error) {
-        setError(error.message);
-      }
-    };
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {

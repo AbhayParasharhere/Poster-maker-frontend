@@ -1,4 +1,5 @@
 export default async function postData(formValues) {
+  console.log("post data api called");
   const userData = {
     name: formValues.name,
     password: formValues.password,
@@ -7,7 +8,7 @@ export default async function postData(formValues) {
     contact_number: formValues.contactNumber,
     employee_id: formValues.employeeID,
   };
-  console.log("data:", userData);
+  console.log("This is the form data submitted to post data api", userData);
   try {
     let url = "https://beautyresort.in/api/user/sign-up/";
     const response = await fetch(url, {
@@ -24,9 +25,10 @@ export default async function postData(formValues) {
 
     const data = await response.json();
     const status = response.status;
-    console.log(status);
+    console.log("this is the status console", status);
     return status;
   } catch (error) {
-    throw new Error("Cannot Reach the servers");
+    console.log(error);
+    throw new Error(error);
   }
 }

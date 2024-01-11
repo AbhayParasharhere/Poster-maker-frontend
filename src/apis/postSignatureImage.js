@@ -1,5 +1,6 @@
 export default async function postSignatureImage(token, signaturePhoto) {
   const uploadData = new FormData();
+  console.log("Signature image api called");
   uploadData.append("signature_image", signaturePhoto);
 
   try {
