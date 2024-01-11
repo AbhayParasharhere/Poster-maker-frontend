@@ -29,6 +29,6 @@ export default async function postData(formValues) {
     return status;
   } catch (error) {
     console.log(error);
-    throw new Error("Post data not working");
+    throw new Error(error);
   }
 }
