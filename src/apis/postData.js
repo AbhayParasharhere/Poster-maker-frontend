@@ -1,4 +1,5 @@
 export default async function postData(formValues) {
+  console.log("post data api called");
   const userData = {
     name: formValues.name,
     password: formValues.password,
@@ -27,6 +28,6 @@ export default async function postData(formValues) {
     console.log(status);
     return status;
   } catch (error) {
-    throw new Error("Cannot Reach the servers");
+    throw new Error("Post data not working");
   }
 }
