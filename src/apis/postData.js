@@ -8,7 +8,7 @@ export default async function postData(formValues) {
     contact_number: formValues.contactNumber,
     employee_id: formValues.employeeID,
   };
-  console.log("data:", userData);
+  console.log("This is the form data submitted to post data api", userData);
   try {
     let url = "https://beautyresort.in/api/user/sign-up/";
     const response = await fetch(url, {
