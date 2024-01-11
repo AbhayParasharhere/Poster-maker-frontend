@@ -178,10 +178,6 @@ export default function SignUp() {
 
   const fetchData = async () => {
     try {
-      console.log(
-        "This is the form data submitted to post data api",
-        formValues
-      );
       const createUserStatus = await postData(formValues);
       let tokenResponse;
       if (createUserStatus === 201) {
@@ -198,7 +194,7 @@ export default function SignUp() {
       console.log(tokenResponse);
       // Once you have the token, use it to make authenticated API requests
       if (tokenResponse) {
-        cosole.log("Got token");
+        console.log("Got token");
         await postBackgroundImage(
           tokenResponse.token,
           formValues.backgroundImage
