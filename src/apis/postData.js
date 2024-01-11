@@ -25,9 +25,10 @@ export default async function postData(formValues) {
 
     const data = await response.json();
     const status = response.status;
-    console.log(status);
+    console.log("this is the status console", status);
     return status;
   } catch (error) {
+    console.log(error);
     throw new Error("Post data not working");
   }
 }
