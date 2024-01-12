@@ -20,7 +20,7 @@ export default async function postData(formValues) {
     });
 
     if (!response.ok) {
-      throw new Error(response);
+      console.log(response);
     }
 
     const data = await response.json();
