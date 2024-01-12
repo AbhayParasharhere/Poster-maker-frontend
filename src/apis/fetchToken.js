@@ -1,28 +1,35 @@
-export default async function fetchToken({ email, password }) {
-  let emailLower = email.toLowerCase(); 
-  const requestData = {
-    email: emailLower,
-    password: password,
-  };
+function fetchToken({ email, password }) {
+  return new Promise((resolve, reject) => {
+    const requestData = {
+      email,
+      password,
+    };
+    console.log(
+      "Fetch token API called and This is the login token data:",
+      requestData
+    );
 
-
-  try {
     let url = "https://beautyresort.in/api/user/token/";
-    const response = await fetch(url, {
+
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(requestData),
-    });
-
-    if (!response.ok) {
-      throw new Error("An error occured please try again");
-    }
-
-    const data = await response.json();
-    return data; // Return the token response
-  } catch (error) {
-    throw new Error("Failed to log in");
-  }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("An error occurred, please try again");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        resolve(data); // Resolve with the token response
+      })
+      .catch((error) => {
+        console.log("This is the error", error);
+        reject(new Error("Failed to log in"));
+      });
+  });
 }
