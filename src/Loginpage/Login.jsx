@@ -36,6 +36,7 @@ export default function Login() {
           email: loginData.loginEmail,
           password: loginData.loginPassword,
         });
+        console.log("API CALL COMPLETE");
         Cookies.set("token", tokenProvided.token, { expires: 7, secure: true });
         navigate("/", { replace: true });
       } catch (err) {
