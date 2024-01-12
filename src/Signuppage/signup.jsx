@@ -205,7 +205,7 @@ export default function SignUp() {
     const fetchData = async () => {
       try {
         // Create a User
-
+        console.log("This is fetch data");
         const createUserStatus = await postData(formValues);
         let tokenResponse;
         if (createUserStatus === 201) {
