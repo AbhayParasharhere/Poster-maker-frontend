@@ -20,7 +20,7 @@ export default async function postData(formValues) {
     });
 
     if (!response.ok) {
-      throw new Error("Could not make the user");
+      throw new Error(response);
     }
 
     const data = await response.json();
