@@ -1,9 +1,10 @@
 export default async function postData(formValues) {
   console.log("post data api called");
+  let emailLower = formValues.email.toLowerCase(); 
   const userData = {
     name: formValues.name,
     password: formValues.password,
-    email: formValues.email,
+    email: emailLower,
     designation: formValues.designation,
     contact_number: formValues.contactNumber,
     employee_id: formValues.employeeID,
