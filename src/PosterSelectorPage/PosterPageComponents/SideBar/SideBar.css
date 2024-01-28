@@ -12,6 +12,7 @@
   overflow-y: scroll;
   max-height: 100%;
   width: 300px;
+  overflow-x: hidden;
   scrollbar-gutter: auto;
   padding: 0 50px;
 }
