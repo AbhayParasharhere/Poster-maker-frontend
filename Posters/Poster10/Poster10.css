@@ -233,35 +233,28 @@ align-self: center;
     .maincontainerPoster10  {
         font-size: 15%;
     }
-    .divLohriP10 {
-        translate: 0 -142em;   
-    }
-    .footerP10 {
-        /* margin-top: 2em; */
-        translate: 0 -120.2em;
-    }
     .dholP10 {
-        width: 80em;
-        height: 80em;
+        width: 180px;
+        height: 180px;
     }
     .circleP10 {
-        width: 80em;
-        height: 80em;
-        translate: 0 -80.5em;
+        width: 190px;
+        height: 190px;
+        translate: 0 -192px;
     }
     .greenP10 {
     /* width: 40em; 
     height: 40em;  */
-    width: 60em;
-    height: 60em;
-    translate: 0 -155em;
+    width: 220px;
+    height: 220px;
+    translate: 0 -395px;
 }
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -138.5em;
+    translate: 0 -392.5px;
 }
 .divLohriP10 {
-    translate: 0 -185em;
+    translate: 0 -515px;
 }
 .textP10
 {
@@ -274,8 +267,8 @@ align-self: center;
     font-size: 16px;
 }
 .empP10 {
-    width: 40em;
-    height: 40em;
+    width: 90px;
+    height: 90px;
 }
 
 }
