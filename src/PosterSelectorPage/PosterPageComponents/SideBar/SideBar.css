@@ -11,7 +11,7 @@
   grid-template-columns: 1fr;
   overflow-y: scroll;
   max-height: 100%;
-  width: 300px;
+  width: 330px;
   scrollbar-gutter: auto;
   padding: 0 50px;
 }
