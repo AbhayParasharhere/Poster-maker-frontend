@@ -257,9 +257,11 @@ align-self: center;
 }
 .footerP10 {
     /* margin-top: 2em; */
-    transform: translateY(-73px);
-    /* -webkit-transform: translateY(-73px); */
+    /* translate: 0 -149em; */
+    position: absolute;
+    bottom: 0;
 }
+
 .divLohriP10 {
     translate: 0 -515px;
 }
