@@ -182,11 +182,7 @@ align-self: center;
     .maincontainerPoster10  {
         font-size: 20%;
     }
-    .logoP10 
-    {
-    width: 25px;
-    height: 25px;
-    }
+
     .divLohriP10 {
         translate: 0 -142em;   
     }
@@ -237,6 +233,11 @@ align-self: center;
 @container changeRes (width: 300px) {
     .maincontainerPoster10  {
         font-size: 15%;
+    }
+    .logoP10 
+    {
+    width: 25px;
+    height: 25px;
     }
     .dholP10 {
         width: 180px;
