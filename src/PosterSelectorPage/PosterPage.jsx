@@ -88,13 +88,15 @@ export default function PosterPage() {
   let cloneId = 0; // Initialize a unique identifier for each clone
 
   const downloadImage = async () => {
+    let clone; // Declare clone variable outside the try block
+  
     try {
       const target = document.getElementById("poster-download");
       const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
       const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
   
       // Create an invisible clone of the target element
-      const clone = target.cloneNode(true);
+      clone = target.cloneNode(true);
       clone.style.width = downloadWidth;
       clone.style.height = downloadHeight;
       clone.style.position = "absolute";
@@ -115,10 +117,12 @@ export default function PosterPage() {
     } catch (error) {
       console.error("Error capturing the image: ", error);
     } finally {
-      document.body.removeChild(clone); // Remove the clone from the document
+      if (clone) {
+        document.body.removeChild(clone); // Remove the clone from the document if it exists
+      }
       setDownload(false);
     }
-  };
+  };  
   
 
   return (
