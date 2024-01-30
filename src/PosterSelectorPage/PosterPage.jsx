@@ -87,42 +87,39 @@ export default function PosterPage() {
 
   let cloneId = 0; // Initialize a unique identifier for each clone
 
-  const downloadImage = () => {
-    const target = document.getElementById("poster-download");
-    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
-
-    // Create an invisible clone of the target element
-    const clone = target.cloneNode(true);
-    clone.style.width = downloadWidth;
-    clone.style.height = downloadHeight;
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px";
-    clone.style.top = "-9999px";
-
-    document.body.appendChild(clone); // Add the clone to the document temporarily
-
-  domtoimage
-  .toBlob(clone)
-  .then((blob) => {
-    var url = window.URL.createObjectURL(blob);
-
-    var anchor = document.createElement("a");
-    anchor.setAttribute("href", url);
-    anchor.setAttribute("download", "my-image.png");
-    anchor.click();
-
-    window.URL.revokeObjectURL(url);
-  })
-  .catch((error) => {
-    console.error("Error capturing the image: ", error);
-  })
-  .finally(() => {
-    document.body.removeChild(clone);
-    setDownload(false);
-  });
-
+  const downloadImage = async () => {
+    try {
+      const target = document.getElementById("poster-download");
+      const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+      const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  
+      // Create an invisible clone of the target element
+      const clone = target.cloneNode(true);
+      clone.style.width = downloadWidth;
+      clone.style.height = downloadHeight;
+      clone.style.position = "absolute";
+      clone.style.left = "-9999px";
+      clone.style.top = "-9999px";
+  
+      document.body.appendChild(clone); // Add the clone to the document temporarily
+  
+      const dataUrl = await domtoimage.toBlob(clone);
+      const url = window.URL.createObjectURL(dataUrl);
+  
+      var anchor = document.createElement("a");
+      anchor.setAttribute("href", url);
+      anchor.setAttribute("download", "my-image.png");
+      anchor.click();
+  
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error capturing the image: ", error);
+    } finally {
+      document.body.removeChild(clone); // Remove the clone from the document
+      setDownload(false);
+    }
   };
+  
 
   return (
     <div className="poster-display--main-container">
