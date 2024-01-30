@@ -94,7 +94,6 @@ export default function PosterPage() {
   
 
   const downloadImage = () => {
-    const elementRef = useRef(null);
     const target = document.getElementById("poster-download");
     const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
     const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
