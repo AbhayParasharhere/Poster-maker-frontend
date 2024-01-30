@@ -108,9 +108,8 @@ export default function PosterPage() {
 
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
-    html2canvas(clone, {
-      allowTaint : true
-    }).then((canvas) => {
+    html2canvas(clone)
+    .then((canvas) => {
             // Convert canvas to data URL
             const dataUrl = canvas.toDataURL();
 
