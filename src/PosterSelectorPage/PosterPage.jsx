@@ -108,22 +108,27 @@ export default function PosterPage() {
 
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
-    htmlToImage
-      .toPng(clone)
-      .then((dataUrl) => {
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
-        anchor.click();
-      })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
-      })
-      .finally(() => {
-        document.body.removeChild(clone); // Remove the clone from the document
-        setDownload(false);
-      });
-  };
+    html2canvas(clone, {
+      allowTaint : true,
+      useCors : true
+    }).then((canvas) => {
+            // Convert canvas to data URL
+            const dataUrl = canvas.toDataURL();
+
+            var anchor = document.createElement("a");
+            anchor.setAttribute("href", dataUrl);
+            anchor.setAttribute("download", "my-image.png");
+            anchor.click();
+        })
+        .catch((error) => {
+            console.error("Error capturing the image: ", error);
+        })
+        .finally(() => {
+            document.body.removeChild(clone); // Remove the clone from the document
+            setDownload(false);
+        });
+};
+
 
  
   
