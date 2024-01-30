@@ -10,6 +10,7 @@ import facebookIcon from "./selectorPageImages/facebookIcon.png";
 import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
 import twitterIcon from "./selectorPageImages/twitterIcon.png";
 import html2canvas from 'html2canvas';
+import htmlToImage from 'html-to-image';
 
 export function loader() {
   const token = Cookies.get("token");
@@ -88,37 +89,39 @@ export default function PosterPage() {
 
   let cloneId = 0; // Initialize a unique identifier for each clone
 
-  const downloadImage = () => {
-    const target = document.getElementById("poster-download");
-    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  
 
-    // Create an invisible clone of the target element
-    const clone = target.cloneNode(true);
-    clone.style.width = downloadWidth;
-    clone.style.height = downloadHeight;
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px";
-    clone.style.top = "-9999px";
+const downloadImage = () => {
+  const target = document.getElementById("poster-download");
+  const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+  const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
 
-    document.body.appendChild(clone); // Add the clone to the document temporarily
+  // Create an invisible clone of the target element
+  const clone = target.cloneNode(true);
+  clone.style.width = downloadWidth;
+  clone.style.height = downloadHeight;
+  clone.style.position = "absolute";
+  clone.style.left = "-9999px";
+  clone.style.top = "-9999px";
 
-    html2canvas(clone)
-      .then((canvas) => {
-        var dataUrl = canvas.toDataURL("image/png");
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
-        anchor.click();
-      })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
-      })
-      .finally(() => {
-        document.body.removeChild(clone); // Remove the clone from the document
-        setDownload(false);
-      });
+  document.body.appendChild(clone); // Add the clone to the document temporarily
+
+  htmlToImage.toPng(clone)
+    .then((dataUrl) => {
+      var anchor = document.createElement("a");
+      anchor.setAttribute("href", dataUrl);
+      anchor.setAttribute("download", "my-image.png");
+      anchor.click();
+    })
+    .catch((error) => {
+      console.error("Error capturing the image: ", error);
+    })
+    .finally(() => {
+      document.body.removeChild(clone); // Remove the clone from the document
+      setDownload(false);
+    });
 };
+
  
   
 
