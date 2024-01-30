@@ -91,9 +91,10 @@ export default function PosterPage() {
 
   let cloneId = 0; // Initialize a unique identifier for each clone
 
-  const elementRef = useRef(null);
+  
 
   const downloadImage = () => {
+    const elementRef = useRef(null);
     const target = document.getElementById("poster-download");
     const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
     const downloadHeight = `${downloadSize[selectSize]["height"]}px`;

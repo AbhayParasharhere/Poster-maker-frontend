@@ -18,7 +18,7 @@ export default function Poster10() {
     const loaderData = useLoaderData()
   return (
     // <div class="containerPoster10">
-            <div class="maincontainerPoster10">
+            <div class="maincontainerPoster10" ref={elementRef}>
                 <svg class="svg-background" width="1100" height="1149" viewBox="0 0 1000 1149" fill="none" xmlns="http://www.w3.org/2000/svg"> 
                     <path d="M634 24C635.105 24 636 23.1045 636 22C636 20.8955 635.105 20 634 20C632.895 20 632 20.8955 632 22C632 23.1045 632.895 24 634 24Z" fill="white" fill-opacity="0.5"/>
                     <path d="M640 29C641.105 29 642 28.1045 642 27C642 25.8955 641.105 25 640 25C638.895 25 638 25.8955 638 27C638 28.1045 638.895 29 640 29Z" fill="white" fill-opacity="0.5"/>
