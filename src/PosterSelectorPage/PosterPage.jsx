@@ -9,6 +9,7 @@ import instagramIcon from "./selectorPageImages/instagramIcon.png";
 import facebookIcon from "./selectorPageImages/facebookIcon.png";
 import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
 import twitterIcon from "./selectorPageImages/twitterIcon.png";
+import html2canvas from 'html2canvas';
 
 export function loader() {
   const token = Cookies.get("token");
