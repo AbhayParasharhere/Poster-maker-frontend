@@ -109,11 +109,11 @@ export default function PosterPage() {
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
     domtoimage
-      .toSvg(clone)
+      .toJpeg(clone)
       .then((dataUrl) => {
         var anchor = document.createElement("a");
         anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
+        anchor.setAttribute("download", "my-image.jpeg");
         anchor.click();
       })
       .catch((error) => {
