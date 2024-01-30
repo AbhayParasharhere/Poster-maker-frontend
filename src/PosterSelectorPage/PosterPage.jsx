@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
@@ -94,7 +94,6 @@ export default function PosterPage() {
   
 
   const downloadImage = () => {
-    const elementRef = useRef(null);
     const target = document.getElementById("poster-download");
     const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
     const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
@@ -109,15 +108,16 @@ export default function PosterPage() {
 
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
-    toPng(elementRef.current, { cacheBust: false })
+    domtoimage
+      .toBlob(clone)
       .then((dataUrl) => {
-        const link = document.createElement("a");
-        link.download = "my-image-name.png";
-        link.href = dataUrl;
-        link.click();
+        var anchor = document.createElement("a");
+        anchor.setAttribute("href", dataUrl);
+        anchor.setAttribute("download", "my-image.png");
+        anchor.click();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error("Error capturing the image: ", error);
       })
       .finally(() => {
         document.body.removeChild(clone); // Remove the clone from the document
