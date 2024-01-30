@@ -110,17 +110,22 @@ const downloadImage = () => {
 
   htmlToImage.toPng(clone)
     .then((dataUrl) => {
-      var anchor = document.createElement("a");
-      anchor.setAttribute("href", dataUrl);
-      anchor.setAttribute("download", "my-image.png");
-      anchor.click();
+      var img = new Image();
+      img.src = dataUrl;
+      document.body.appendChild(img);
+      // var anchor = document.createElement("a");
+      // anchor.setAttribute("href", dataUrl);
+      // anchor.setAttribute("download", "my-image.png");
+      // anchor.click();
     })
     .catch((error) => {
       console.error("Error capturing the image: ", error);
     })
     .finally(() => {
-      document.body.removeChild(clone); // Remove the clone from the document
-      setDownload(false);
+      htmlToImage.toPng(document.getElementById('my-node'))
+      .then(function (dataUrl) {
+        download(dataUrl, 'my-node.png');
+      });
     });
 };
 
