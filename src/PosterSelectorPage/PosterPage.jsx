@@ -91,7 +91,7 @@ export default function PosterPage() {
 
   let cloneId = 0; // Initialize a unique identifier for each clone
 
-  
+  const elementRef = useRef(null);
 
   const downloadImage = () => {
     const target = document.getElementById("poster-download");
@@ -108,21 +108,15 @@ export default function PosterPage() {
 
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
-    domtoimage
-      .toPng(clone)
+    toPng(elementRef.current, { cacheBust: false })
       .then((dataUrl) => {
-        domtoimage
-        .toPng(clone)
-        .then((dataUrl2) => {
-          var anchor = document.createElement("a");
-          anchor.setAttribute("href", dataUrl2);
-          anchor.setAttribute("download", "my-image.png");
-          anchor.click();
-        })
-
+        const link = document.createElement("a");
+        link.download = "my-image-name.png";
+        link.href = dataUrl;
+        link.click();
       })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
+      .catch((err) => {
+        console.log(err);
       })
       .finally(() => {
         document.body.removeChild(clone); // Remove the clone from the document
