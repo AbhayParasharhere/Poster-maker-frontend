@@ -87,41 +87,39 @@ export default function PosterPage() {
 
   let cloneId = 0; // Initialize a unique identifier for each clone
 
-  const downloadImage = async () => {
-    let clone; // Declare clone variable outside the try block
+  const downloadImage = () => {
+    const target = document.getElementById("poster-download");
+    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
   
-    try {
-      const target = document.getElementById("poster-download");
-      const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-      const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+    // Create an invisible clone of the target element
+    const clone = target.cloneNode(true);
+    clone.style.width = downloadWidth;
+    clone.style.height = downloadHeight;
+    clone.style.position = "absolute";
+    clone.style.left = "-9999px";
+    clone.style.top = "-9999px";
   
-      // Create an invisible clone of the target element
-      clone = target.cloneNode(true);
-      clone.style.width = downloadWidth;
-      clone.style.height = downloadHeight;
-      clone.style.position = "absolute";
-      clone.style.left = "-9999px";
-      clone.style.top = "-9999px";
+    document.body.appendChild(clone); // Add the clone to the document temporarily
   
-      document.body.appendChild(clone); // Add the clone to the document temporarily
-  
-      const dataUrl = await domtoimage.toBlob(clone);
-      const url = window.URL.createObjectURL(dataUrl);
-  
-      var anchor = document.createElement("a");
-      anchor.setAttribute("href", url);
-      anchor.setAttribute("download", "my-image.png");
-      anchor.click();
-  
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Error capturing the image: ", error);
-    } finally {
-      if (clone) {
-        document.body.removeChild(clone); // Remove the clone from the document if it exists
-      }
-      setDownload(false);
-    }
+    // Set a timeout for 10 seconds
+    setTimeout(() => {
+      domtoimage
+        .toPng(clone)
+        .then((dataUrl) => {
+          var anchor = document.createElement("a");
+          anchor.setAttribute("href", dataUrl);
+          anchor.setAttribute("download", "my-image.png");
+          anchor.click();
+        })
+        .catch((error) => {
+          console.error("Error capturing the image: ", error);
+        })
+        .finally(() => {
+          document.body.removeChild(clone); // Remove the clone from the document
+          setDownload(false);
+        });
+    }, 10000); // 10000 milliseconds = 10 seconds
   };  
   
 
