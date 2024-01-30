@@ -114,7 +114,8 @@ export default function PosterPage() {
         var anchor = document.createElement("a");
         anchor.setAttribute("href", dataUrl);
         anchor.setAttribute("download", "my-image.png");
-        anchor.click();
+        download(dataUrl, 'my-node.png');
+        // anchor.click();
       })
       .catch((error) => {
         console.error("Error capturing the image: ", error);
