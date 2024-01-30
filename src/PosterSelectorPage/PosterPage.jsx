@@ -10,7 +10,9 @@ import facebookIcon from "./selectorPageImages/facebookIcon.png";
 import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
 import twitterIcon from "./selectorPageImages/twitterIcon.png";
 import html2canvas from 'html2canvas';
-import htmlToImage from 'html-to-image';
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+
 
 export function loader() {
   const token = Cookies.get("token");
