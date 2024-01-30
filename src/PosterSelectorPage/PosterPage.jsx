@@ -102,7 +102,6 @@ export default function PosterPage() {
 
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
-
   domtoimage
   .toBlob(clone)
   .then((blob) => {
@@ -123,6 +122,7 @@ export default function PosterPage() {
     setDownload(false);
   });
 
+  };
 
   return (
     <div className="poster-display--main-container">
