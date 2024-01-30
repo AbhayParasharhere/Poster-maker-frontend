@@ -93,41 +93,37 @@ export default function PosterPage() {
 
   
 
-const downloadImage = () => {
-  const target = document.getElementById("poster-download");
-  const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-  const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  const downloadImage = () => {
+    const target = document.getElementById("poster-download");
+    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
 
-  // Create an invisible clone of the target element
-  const clone = target.cloneNode(true);
-  clone.style.width = downloadWidth;
-  clone.style.height = downloadHeight;
-  clone.style.position = "absolute";
-  clone.style.left = "-9999px";
-  clone.style.top = "-9999px";
+    // Create an invisible clone of the target element
+    const clone = target.cloneNode(true);
+    clone.style.width = downloadWidth;
+    clone.style.height = downloadHeight;
+    clone.style.position = "absolute";
+    clone.style.left = "-9999px";
+    clone.style.top = "-9999px";
 
-  document.body.appendChild(clone); // Add the clone to the document temporarily
+    document.body.appendChild(clone); // Add the clone to the document temporarily
 
-  htmlToImage.toPng(clone)
-    .then((dataUrl) => {
-      var img = new Image();
-      img.src = dataUrl;
-      document.body.appendChild(img);
-      // var anchor = document.createElement("a");
-      // anchor.setAttribute("href", dataUrl);
-      // anchor.setAttribute("download", "my-image.png");
-      // anchor.click();
-    })
-    .catch((error) => {
-      console.error("Error capturing the image: ", error);
-    })
-    .finally(() => {
-      htmlToImage.toPng(document.getElementById('my-node'))
-      .then(function (dataUrl) {
-        download(dataUrl, 'my-node.png');
+    domtoimage
+      .toSvg(clone)
+      .then((dataUrl) => {
+        var anchor = document.createElement("a");
+        anchor.setAttribute("href", dataUrl);
+        anchor.setAttribute("download", "my-image.png");
+        anchor.click();
+      })
+      .catch((error) => {
+        console.error("Error capturing the image: ", error);
+      })
+      .finally(() => {
+        document.body.removeChild(clone); // Remove the clone from the document
+        setDownload(false);
       });
-    });
-};
+  };
 
  
   
