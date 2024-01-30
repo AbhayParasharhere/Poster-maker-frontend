@@ -91,7 +91,7 @@ export default function PosterPage() {
     const target = document.getElementById("poster-download");
     const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
     const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
-  
+
     // Create an invisible clone of the target element
     const clone = target.cloneNode(true);
     clone.style.width = downloadWidth;
@@ -99,28 +99,26 @@ export default function PosterPage() {
     clone.style.position = "absolute";
     clone.style.left = "-9999px";
     clone.style.top = "-9999px";
-  
+
     document.body.appendChild(clone); // Add the clone to the document temporarily
-  
-    // Set a timeout for 10 seconds
-    setTimeout(() => {
-      domtoimage
-        .toPng(clone)
-        .then((dataUrl) => {
-          var anchor = document.createElement("a");
-          anchor.setAttribute("href", dataUrl);
-          anchor.setAttribute("download", "my-image.png");
-          anchor.click();
-        })
-        .catch((error) => {
-          console.error("Error capturing the image: ", error);
-        })
-        .finally(() => {
-          document.body.removeChild(clone); // Remove the clone from the document
-          setDownload(false);
-        });
-    }, 10000); // 10000 milliseconds = 10 seconds
-  };  
+
+    html2canvas(clone)
+      .then((canvas) => {
+        var dataUrl = canvas.toDataURL("image/png");
+        var anchor = document.createElement("a");
+        anchor.setAttribute("href", dataUrl);
+        anchor.setAttribute("download", "my-image.png");
+        anchor.click();
+      })
+      .catch((error) => {
+        console.error("Error capturing the image: ", error);
+      })
+      .finally(() => {
+        document.body.removeChild(clone); // Remove the clone from the document
+        setDownload(false);
+      });
+};
+ 
   
 
   return (
