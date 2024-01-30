@@ -17,7 +17,6 @@ export async function loader(){
 }
 export default function Poster10() {
     const loaderData = useLoaderData()
-    const elementRef = useRef(null);
   return (
     // <div class="containerPoster10">
             <div class="maincontainerPoster10" ref={elementRef}>
