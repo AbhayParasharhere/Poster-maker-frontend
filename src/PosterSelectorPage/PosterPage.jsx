@@ -102,22 +102,27 @@ export default function PosterPage() {
 
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
-    domtoimage
-      .toPng(clone)
-      .then((dataUrl) => {
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
-        anchor.click();
-      })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
-      })
-      .finally(() => {
-        document.body.removeChild(clone); // Remove the clone from the document
-        setDownload(false);
-      });
-  };
+
+  domtoimage
+  .toBlob(clone)
+  .then((blob) => {
+    var url = window.URL.createObjectURL(blob);
+
+    var anchor = document.createElement("a");
+    anchor.setAttribute("href", url);
+    anchor.setAttribute("download", "my-image.png");
+    anchor.click();
+
+    window.URL.revokeObjectURL(url);
+  })
+  .catch((error) => {
+    console.error("Error capturing the image: ", error);
+  })
+  .finally(() => {
+    document.body.removeChild(clone);
+    setDownload(false);
+  });
+
 
   return (
     <div className="poster-display--main-container">
