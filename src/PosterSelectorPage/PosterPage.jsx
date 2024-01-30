@@ -109,12 +109,17 @@ export default function PosterPage() {
     document.body.appendChild(clone); // Add the clone to the document temporarily
 
     domtoimage
-      .toJpeg(clone)
+      .toPng(clone)
       .then((dataUrl) => {
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.jpeg");
-        anchor.click();
+        domtoimage
+        .toPng(clone)
+        .then((dataUrl2) => {
+          var anchor = document.createElement("a");
+          anchor.setAttribute("href", dataUrl2);
+          anchor.setAttribute("download", "my-image.png");
+          anchor.click();
+        })
+
       })
       .catch((error) => {
         console.error("Error capturing the image: ", error);
