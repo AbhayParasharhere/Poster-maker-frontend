@@ -4,7 +4,7 @@ import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
 import { Outlet, redirect } from "react-router-dom";
 import Cookies from "js-cookie";
-import domtoimage from "dom-to-image";
+import domtoimage from 'dom-to-image-more';
 import instagramIcon from "./selectorPageImages/instagramIcon.png";
 import facebookIcon from "./selectorPageImages/facebookIcon.png";
 import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
