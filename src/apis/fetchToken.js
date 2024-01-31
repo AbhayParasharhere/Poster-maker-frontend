@@ -17,11 +17,10 @@ export default async function fetchToken({ email, password }) {
 
     if (!response.ok) {
       const data = await response.json();
-      if (data.email[0]) {
+      if (data?.email) {
         throw new Error(data.email[0]);
-      } else {
-        throw new Error("Invalid Credentials, Try again");
       }
+      throw new Error("Invalid Credentials, Try again");
     }
     const data = await response.json();
     return data; // Return the token response
