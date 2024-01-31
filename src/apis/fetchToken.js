@@ -1,10 +1,9 @@
 export default async function fetchToken({ email, password }) {
-  let emailLower = email.toLowerCase(); 
+  let emailLower = email.toLowerCase();
   const requestData = {
     email: emailLower,
     password: password,
   };
-
 
   try {
     let url = "https://beautyresort.in/api/user/token/";
@@ -17,12 +16,15 @@ export default async function fetchToken({ email, password }) {
     });
 
     if (!response.ok) {
-      throw new Error("An error occured please try again");
+      const data = await response.json();
+      if (data?.email) {
+        throw new Error(data.email[0]);
+      }
+      throw new Error("Invalid Credentials, Try again");
     }
-
     const data = await response.json();
     return data; // Return the token response
   } catch (error) {
-    throw new Error("Failed to log in");
+    throw new Error(error.message);
   }
 }
