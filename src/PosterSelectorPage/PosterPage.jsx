@@ -12,6 +12,7 @@ import twitterIcon from "./selectorPageImages/twitterIcon.png";
 import html2canvas from 'html2canvas';
 import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import { usePDF } from 'react-to-pdf';
 
 
 export function loader() {
@@ -94,40 +95,40 @@ export default function PosterPage() {
   
 
   const downloadImage = () => {
-    const target = document.getElementById("poster-download");
-    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  //   const target = document.getElementById("poster-download");
+  //   const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+  //   const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
 
-    // Create an invisible clone of the target element
-    const clone = target.cloneNode(true);
-    clone.style.width = downloadWidth;
-    clone.style.height = downloadHeight;
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px";
-    clone.style.top = "-9999px";
+  //   // Create an invisible clone of the target element
+  //   const clone = target.cloneNode(true);
+  //   clone.style.width = downloadWidth;
+  //   clone.style.height = downloadHeight;
+  //   clone.style.position = "absolute";
+  //   clone.style.left = "-9999px";
+  //   clone.style.top = "-9999px";
 
-    document.body.appendChild(clone); // Add the clone to the document temporarily
+  //   document.body.appendChild(clone); // Add the clone to the document temporarily
 
-    domtoimage
-      .toPng(clone)
-      .then((dataUrl) => {
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
-        anchor.click();
-      })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
-      })
-      .finally(() => {
-        document.body.removeChild(clone); // Remove the clone from the document
-        setDownload(false);
-      });
-  }; 
-
+  //   domtoimage
+  //     .toPng(clone)
+  //     .then((dataUrl) => {
+  //       var anchor = document.createElement("a");
+  //       anchor.setAttribute("href", dataUrl);
+  //       anchor.setAttribute("download", "my-image.png");
+  //       anchor.click();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error capturing the image: ", error);
+  //     })
+  //     .finally(() => {
+  //       document.body.removeChild(clone); // Remove the clone from the document
+  //       setDownload(false);
+  //     });
+  // }; 
+  const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 
  
-  
+}
 
   return (
     <div className="poster-display--main-container">
@@ -151,7 +152,7 @@ export default function PosterPage() {
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
-            >
+              ref={targetRef} >
               <Outlet />
             </div>
           </div>
@@ -205,8 +206,9 @@ export default function PosterPage() {
                 </div>
                 <span>LinkedIn</span>
               </div>
+              <button onClick={() => toPDF()}>Download PDF</button>
 
-              {/* <div
+              {/* /* <div
                 className={
                   posterSize["Twitter"]
                     ? "specific-size-select-container-selected"
@@ -220,11 +222,12 @@ export default function PosterPage() {
                   <img src={twitterIcon} />
                 </div>
                 <span>Twitter</span>
-              </div> */}
+              </div> */ }
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+      
 }
