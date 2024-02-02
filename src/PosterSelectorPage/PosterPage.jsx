@@ -125,11 +125,11 @@ export default function PosterPage() {
   //       setDownload(false);
   //     });
   // }; 
-  const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+  
 
  
 }
-
+const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
   return (
     <div className="poster-display--main-container">
       <Header />
