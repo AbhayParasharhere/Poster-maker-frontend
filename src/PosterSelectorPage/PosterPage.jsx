@@ -131,7 +131,7 @@ export default function PosterPage() {
 }
 // const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 const htmlToImageConvert = () => {
-  toPng(targetRef.current, { cacheBust: false })
+  toPng(elementRef.current, { cacheBust: false })
     .then((dataUrl) => {
       const link = document.createElement("a");
       link.download = "my-image-name.png";
@@ -142,6 +142,7 @@ const htmlToImageConvert = () => {
       console.log(err);
     });
 };
+const elementRef = useRef(null);
   return (
     <div className="poster-display--main-container">
       <Header />
@@ -164,7 +165,7 @@ const htmlToImageConvert = () => {
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
-              ref={targetRef} >
+              ref={elementRef} >
               <Outlet />
             </div>
           </div>
