@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 export default function SideBar() {
   const previewPosterData = [
     {
-      img: "/sidebarPoster10.png",
-      pageLink: "poster10",
+      img: "/sidebarPoster5.png",
+      pageLink: "poster5",
     } 
     // {
     //     img: "/SidebarP9.png",
