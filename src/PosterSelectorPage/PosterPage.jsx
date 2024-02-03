@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
