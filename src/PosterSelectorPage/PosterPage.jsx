@@ -9,10 +9,10 @@ import instagramIcon from "./selectorPageImages/instagramIcon.png";
 import facebookIcon from "./selectorPageImages/facebookIcon.png";
 import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
 import twitterIcon from "./selectorPageImages/twitterIcon.png";
-import html2canvas from 'html2canvas';
-import * as htmlToImage from 'html-to-image';
+// import html2canvas from 'html2canvas';
+// import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
-import { usePDF } from 'react-to-pdf';
+// import { usePDF } from 'react-to-pdf';
 
 
 export function loader() {
@@ -129,7 +129,19 @@ export default function PosterPage() {
 
  
 }
-const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+// const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+const htmlToImageConvert = () => {
+  toPng(targetRef.current, { cacheBust: false })
+    .then((dataUrl) => {
+      const link = document.createElement("a");
+      link.download = "my-image-name.png";
+      link.href = dataUrl;
+      link.click();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
   return (
     <div className="poster-display--main-container">
       <Header />
@@ -206,7 +218,8 @@ const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
                 </div>
                 <span>LinkedIn</span>
               </div>
-              <button onClick={() => toPDF()}>Download PDF</button>
+              <button onClick={htmlToImageConvert}>Download Image</button>
+              {/* <button onClick={() => toPDF()}>Download PDF</button> */}
 
               {/* /* <div
                 className={
