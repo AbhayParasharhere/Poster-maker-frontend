@@ -144,15 +144,28 @@ export default function PosterPage() {
 // };
 // const elementRef = useRef(null);
 const htmlToImageConvert = () => {
-  let myimg = $("#img-cont")[0]
-  domtoimage.toBlob(myimg,{
+    const target = document.getElementById("poster-download");
+    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+
+    // Create an invisible clone of the target element
+    const clone = target.cloneNode(true);
+    clone.style.width = downloadWidth;
+    clone.style.height = downloadHeight;
+    clone.style.position = "absolute";
+    clone.style.left = "-9999px";
+    clone.style.top = "-9999px";
+
+    document.body.appendChild(clone);
+ 
+  domtoimage.toBlob(clone,{
       height: 1080,
       width: 1080
   })
   .then(dataUrl => {
       // Safari hack https://github.com/tsayen/dom-to-image/issues/343
   domtoimage
-      .toBlob(myimg,{
+      .toBlob(clone,{
           // you need height and width for safari
           height: 1080,
           width: 1080
