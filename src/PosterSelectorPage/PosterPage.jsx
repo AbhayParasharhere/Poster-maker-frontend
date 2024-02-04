@@ -143,7 +143,7 @@ export default function PosterPage() {
 //     });
 // };
 // const elementRef = useRef(null);
-$("#btnSave").click(function () {
+const htmlToImageConvert = () => {
   let myimg = $("#img-cont")[0]
   domtoimage.toBlob(myimg,{
       height: 1080,
@@ -161,7 +161,7 @@ $("#btnSave").click(function () {
           window.saveAs(dataUrl2, 'myimage.png');
       });
   });
-});
+};
   return (
     <div className="poster-display--main-container">
       <Header />
@@ -174,7 +174,7 @@ $("#btnSave").click(function () {
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button id = "btnSave" className="download-button">
+              <button className="download-button" onClick={htmlToImageConvert}>
                 Download
               </button>
             </div>
