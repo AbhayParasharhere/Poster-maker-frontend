@@ -130,19 +130,38 @@ export default function PosterPage() {
  
 }
 // const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
-const htmlToImageConvert = () => {
-  toPng(elementRef.current, { cacheBust: false })
-    .then((dataUrl) => {
-      const link = document.createElement("a");
-      link.download = "my-image-name.png";
-      link.href = dataUrl;
-      link.click();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-const elementRef = useRef(null);
+// const htmlToImageConvert = () => {
+//   toPng(elementRef.current, { cacheBust: false })
+//     .then((dataUrl) => {
+//       const link = document.createElement("a");
+//       link.download = "my-image-name.png";
+//       link.href = dataUrl;
+//       link.click();
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
+// const elementRef = useRef(null);
+$("#btnSave").click(function () {
+  let myimg = $("#img-cont")[0]
+  domtoimage.toBlob(myimg,{
+      height: 1080,
+      width: 1080
+  })
+  .then(dataUrl => {
+      // Safari hack https://github.com/tsayen/dom-to-image/issues/343
+  domtoimage
+      .toBlob(myimg,{
+          // you need height and width for safari
+          height: 1080,
+          width: 1080
+      })
+      .then(dataUrl2 => {
+          window.saveAs(dataUrl2, 'myimage.png');
+      });
+  });
+});
   return (
     <div className="poster-display--main-container">
       <Header />
@@ -155,7 +174,7 @@ const elementRef = useRef(null);
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button className="download-button" onClick={downloadImage}>
+              <button id = "btnSave" className="download-button">
                 Download
               </button>
             </div>
