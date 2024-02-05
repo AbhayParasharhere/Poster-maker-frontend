@@ -142,38 +142,18 @@ export default function PosterPage() {
 //       console.log(err);
 //     });
 // };
-// const elementRef = useRef(null);
+const elementRef = useRef(null);
 const htmlToImageConvert = () => {
-    const target = document.getElementById("poster-download");
-    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
-
-    // Create an invisible clone of the target element
-    const clone = target.cloneNode(true);
-    clone.style.width = downloadWidth;
-    clone.style.height = downloadHeight;
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px";
-    clone.style.top = "-9999px";
-
-    document.body.appendChild(clone);
- 
-  domtoimage.toBlob(clone,{
-      height: 1080,
-      width: 1080
-  })
-  .then(dataUrl => {
-      // Safari hack https://github.com/tsayen/dom-to-image/issues/343
-  domtoimage
-      .toBlob(clone,{
-          // you need height and width for safari
-          height: 1080,
-          width: 1080
-      })
-      .then(dataUrl2 => {
-          window.saveAs(dataUrl2, 'myimage.png');
-      });
-  });
+  toPng(elementRef.current, { cacheBust: false })
+    .then((dataUrl) => {
+      const link = document.createElement("a");
+      link.download = "my-image-name.png";
+      link.href = dataUrl;
+      link.click();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
   return (
     <div className="poster-display--main-container">
@@ -197,7 +177,7 @@ const htmlToImageConvert = () => {
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
-              // ref={elementRef} 
+              ref={elementRef} 
               >
               <Outlet />
             </div>
