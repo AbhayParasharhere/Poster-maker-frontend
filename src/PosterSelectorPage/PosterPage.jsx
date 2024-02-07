@@ -105,29 +105,30 @@ export default function PosterPage() {
     clone.style.left = "-9999px";
     clone.style.top = "-9999px";
   
-    document.body.appendChild(clone); // Add the clone to the document temporarily
-  
-    try {
-      const canvas = document.createElement('canvas');
-      canvas.width = clone.offsetWidth;
-      canvas.height = clone.offsetHeight;
-      const ctx = canvas.getContext('2d');
-      document.body.appendChild(canvas);
-  
-      await html2canvas(clone, { canvas: canvas, useCORS: false });
-  
-      var dataUrl = canvas.toDataURL('image/png');
-      var anchor = document.createElement("a");
-      anchor.setAttribute("href", dataUrl);
-      anchor.setAttribute("download", "my-image.png");
-      anchor.click();
-    } catch (error) {
-      console.error("Error capturing the image: ", error);
-    } finally {
-      document.body.removeChild(clone); // Remove the clone from the document
-      setDownload(false);
-    }
-  };
+      document.body.appendChild(clone); // Add the clone to the document temporarily
+
+    html2canvas(clone, { useCORS: false })
+    .then((canvas) => {
+    // Convert the canvas to a data URL
+    var dataUrl = canvas.toDataURL("image/png");
+
+    // Create an anchor element to trigger download
+    var anchor = document.createElement("a");
+    anchor.setAttribute("href", dataUrl);
+    anchor.setAttribute("download", "myimage.png");
+
+    // Simulate a click on the anchor to trigger download
+    anchor.click();
+  })
+  .catch((error) => {
+    console.error("Error capturing the image: ", error);
+  })
+  .finally(() => {
+    document.body.removeChild(clone); // Remove the clone from the document
+    setDownload(false);
+  });
+};
+
   
 
 //   const downloadImage = () => {
