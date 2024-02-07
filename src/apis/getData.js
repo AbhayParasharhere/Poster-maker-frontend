@@ -35,31 +35,30 @@ async function personPhoto(token) {
   console.log("This is the login token data:", requestData);
 
   try {
-    let backgroundImage = localStorage.getItem("background_image");
+    // let backgroundImage = localStorage.getItem("background_image");
 
-        if (backgroundImage) {
-            return backgroundImage; // Return the locally stored image
-        }
-  //     else {
-  //       let url = "https://beautyresort.in/api/user/background-image/";
-  //   const response = await fetch(url, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: requestData,
-  //     },
-  //   });
+    //     if (backgroundImage) {
+    //         return backgroundImage; // Return the locally stored image
+    //     }
+  
+    let url = "https://beautyresort.in/api/user/background-image/";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: requestData,
+      },
+    });
 
-  //   if (!response.ok) {
-  //     throw new Error("Authentication failed");
-  //   }
+    if (!response.ok) {
+      throw new Error("Authentication failed");
+    }
 
-  //   const data = await response.json();
-  //   console.log(data);
-  //   return data; // Return the token response
-  // }
+    const data = await response.json();
+    console.log(data);
+    return data; // Return the token response
+  }
 
-      }
      catch (error) {
     console.error("Error fetching token:", error);
   }
