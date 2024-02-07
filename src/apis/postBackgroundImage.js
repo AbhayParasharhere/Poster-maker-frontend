@@ -15,16 +15,17 @@ export default async function postBackgroundImage(token, backgroundImage) {
     });
 
     if (response.ok) {
-      const blob = await response.blob();
+      // const blob = await response.blob();
 
-      // Convert Blob to Base64
-      const reader = new FileReader();
-      reader.readAsDataURL(blob);
-      reader.onloadend = () => {
-          const base64data = reader.result;
+      // // Convert Blob to Base64
+      // const reader = new FileReader();
+      // reader.readAsDataURL(blob);
+      // reader.onloadend = () => {
+      //     const base64data = reader.result;
 
           // Store Base64 data in local storage
-          localStorage.setItem("background_image", base64data);
+          imgData = getBase64Image(url);
+          localStorage.setItem("background_image", imgData);
       };
     }
 
