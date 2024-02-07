@@ -214,7 +214,7 @@ export default function PosterPage() {
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
-              ref={elementRef} 
+              // ref={elementRef} 
               >
               <Outlet />
             </div>
