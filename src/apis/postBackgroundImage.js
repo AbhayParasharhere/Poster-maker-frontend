@@ -24,8 +24,21 @@ export default async function postBackgroundImage(token, backgroundImage) {
       //     const base64data = reader.result;
 
           // Store Base64 data in local storage
-          imgData = getBase64Image(url);
-          localStorage.setItem("background_image", imgData);
+          async function fetchAndStoreImage(url) {
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                // Generate a unique key for storing the image in local storage
+                const key = `image_${Date.now()}`;
+                localStorage.setItem(key, JSON.stringify(blob));
+                console.log("Image stored successfully in local storage!");
+                return key; // Return the key for later retrieval if needed
+            } catch (error) {
+                console.error("Error fetching and storing image:", error);
+            }
+        }
+        const imageUrl = 'https://beautyresort.in/api/user/background-image/';
+        fetchAndStoreImage(imageUrl);
       };
     }
 
