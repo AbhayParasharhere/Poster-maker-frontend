@@ -92,43 +92,79 @@ export default function PosterPage() {
 
   let cloneId = 0; // Initialize a unique identifier for each clone
 
+  const downloadImage = async () => {
+    const target = document.getElementById("poster-download");
+    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  
+    // Create an invisible clone of the target element
+    const clone = target.cloneNode(true);
+    clone.style.width = downloadWidth;
+    clone.style.height = downloadHeight;
+    clone.style.position = "absolute";
+    clone.style.left = "-9999px";
+    clone.style.top = "-9999px";
+  
+    document.body.appendChild(clone); // Add the clone to the document temporarily
+  
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = clone.offsetWidth;
+      canvas.height = clone.offsetHeight;
+      const ctx = canvas.getContext('2d');
+      document.body.appendChild(canvas);
+  
+      await html2canvas(clone, { canvas: canvas, useCORS: false });
+  
+      var dataUrl = canvas.toDataURL('image/png');
+      var anchor = document.createElement("a");
+      anchor.setAttribute("href", dataUrl);
+      anchor.setAttribute("download", "my-image.png");
+      anchor.click();
+    } catch (error) {
+      console.error("Error capturing the image: ", error);
+    } finally {
+      document.body.removeChild(clone); // Remove the clone from the document
+      setDownload(false);
+    }
+  };
   
 
-  const downloadImage = () => {
-  //   const target = document.getElementById("poster-download");
-  //   const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-  //   const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+//   const downloadImage = () => {
+//     const target = document.getElementById("poster-download");
+//     const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+//     const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
 
-  //   // Create an invisible clone of the target element
-  //   const clone = target.cloneNode(true);
-  //   clone.style.width = downloadWidth;
-  //   clone.style.height = downloadHeight;
-  //   clone.style.position = "absolute";
-  //   clone.style.left = "-9999px";
-  //   clone.style.top = "-9999px";
+//     // Create an invisible clone of the target element
+//     const clone = target.cloneNode(true);
+//     clone.style.width = downloadWidth;
+//     clone.style.height = downloadHeight;
+//     clone.style.position = "absolute";
+//     clone.style.left = "-9999px";
+//     clone.style.top = "-9999px";
 
-  //   document.body.appendChild(clone); // Add the clone to the document temporarily
+//     document.body.appendChild(clone); // Add the clone to the document temporarily
 
-  //   domtoimage
-  //     .toPng(clone)
-  //     .then((dataUrl) => {
-  //       var anchor = document.createElement("a");
-  //       anchor.setAttribute("href", dataUrl);
-  //       anchor.setAttribute("download", "my-image.png");
-  //       anchor.click();
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error capturing the image: ", error);
-  //     })
-  //     .finally(() => {
-  //       document.body.removeChild(clone); // Remove the clone from the document
-  //       setDownload(false);
-  //     });
-  // }; 
+//     domtoimage
+//       .toPng(clone)
+//       .then((dataUrl) => {
+//         var anchor = document.createElement("a");
+//         anchor.setAttribute("href", dataUrl);
+//         anchor.setAttribute("download", "my-image.png");
+//         anchor.click();
+//       })
+//       .catch((error) => {
+//         console.error("Error capturing the image: ", error);
+//       })
+//       .finally(() => {
+//         document.body.removeChild(clone); // Remove the clone from the document
+//         setDownload(false);
+//       });
+//   }; 
   
 
  
-}
+// }
 // const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
 // const htmlToImageConvert = () => {
 //   toPng(elementRef.current, { cacheBust: false })
@@ -142,19 +178,20 @@ export default function PosterPage() {
 //       console.log(err);
 //     });
 // };
-const elementRef = useRef(null);
-const htmlToImageConvert = () => {
-  toPng(elementRef.current, { cacheBust: false })
-    .then((dataUrl) => {
-      const link = document.createElement("a");
-      link.download = "my-image-name.png";
-      link.href = dataUrl;
-      link.click();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+// const elementRef = useRef(null);
+// const htmlToImageConvert = () => {
+//   toPng(elementRef.current, { cacheBust: false })
+//     .then((dataUrl) => {
+//       const link = document.createElement("a");
+//       link.download = "my-image-name.png";
+//       link.href = dataUrl;
+//       link.click();
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
+
   return (
     <div className="poster-display--main-container">
       <Header />
