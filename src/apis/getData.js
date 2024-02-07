@@ -35,7 +35,13 @@ async function personPhoto(token) {
   console.log("This is the login token data:", requestData);
 
   try {
-    let url = "https://beautyresort.in/api/user/background-image/";
+    let backgroundImage = localStorage.getItem("background_image");
+
+        if (backgroundImage) {
+            return backgroundImage; // Return the locally stored image
+        }
+      else {
+        let url = "https://beautyresort.in/api/user/background-image/";
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -51,7 +57,10 @@ async function personPhoto(token) {
     const data = await response.json();
     console.log(data);
     return data; // Return the token response
-  } catch (error) {
+  }
+
+      }
+     catch (error) {
     console.error("Error fetching token:", error);
   }
 }
