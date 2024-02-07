@@ -107,7 +107,7 @@ export default function PosterPage() {
   
       document.body.appendChild(clone); // Add the clone to the document temporarily
 
-    html2canvas(clone, { useCORS: false, foreignObjectRendering: true })
+    html2canvas(clone, { useCORS: false})
     .then((canvas) => {
     // Convert the canvas to a data URL
     var dataUrl = canvas.toDataURL("image/png");
