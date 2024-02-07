@@ -40,7 +40,7 @@ export default async function postBackgroundImage(token, backgroundImage) {
         const imageUrl = 'https://beautyresort.in/api/user/background-image/';
         fetchAndStoreImage(imageUrl);
       };
-    }
+    
 
 
     if (!response.ok) {
@@ -49,7 +49,8 @@ export default async function postBackgroundImage(token, backgroundImage) {
 
     const data = await response.json();
     console.log(data);
-  } catch (error) {
+  }
+   catch (error) {
     console.error("Error uploading background image:", error);
   }
 }
