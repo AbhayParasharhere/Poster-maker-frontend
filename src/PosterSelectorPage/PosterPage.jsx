@@ -9,7 +9,7 @@ import instagramIcon from "./selectorPageImages/instagramIcon.png";
 import facebookIcon from "./selectorPageImages/facebookIcon.png";
 import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
 import twitterIcon from "./selectorPageImages/twitterIcon.png";
-// import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 // import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 // import { usePDF } from 'react-to-pdf';
