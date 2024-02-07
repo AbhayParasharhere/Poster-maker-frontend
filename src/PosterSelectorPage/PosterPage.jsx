@@ -204,7 +204,7 @@ export default function PosterPage() {
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button className="download-button" onClick={htmlToImageConvert}>
+              <button className="download-button" onClick={downloadImage}>
                 Download
               </button>
             </div>
@@ -269,7 +269,7 @@ export default function PosterPage() {
                 </div>
                 <span>LinkedIn</span>
               </div>
-              <button onClick={htmlToImageConvert}>Download Image</button>
+              <button onClick={downloadImage}>Download Image</button>
               {/* <button onClick={() => toPDF()}>Download PDF</button> */}
 
               {/* /* <div
