@@ -40,24 +40,24 @@ async function personPhoto(token) {
         if (backgroundImage) {
             return backgroundImage; // Return the locally stored image
         }
-      else {
-        let url = "https://beautyresort.in/api/user/background-image/";
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: requestData,
-      },
-    });
+  //     else {
+  //       let url = "https://beautyresort.in/api/user/background-image/";
+  //   const response = await fetch(url, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: requestData,
+  //     },
+  //   });
 
-    if (!response.ok) {
-      throw new Error("Authentication failed");
-    }
+  //   if (!response.ok) {
+  //     throw new Error("Authentication failed");
+  //   }
 
-    const data = await response.json();
-    console.log(data);
-    return data; // Return the token response
-  }
+  //   const data = await response.json();
+  //   console.log(data);
+  //   return data; // Return the token response
+  // }
 
       }
      catch (error) {
