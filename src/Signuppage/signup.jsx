@@ -14,8 +14,7 @@ import postData from "../apis/postData";
 import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-// Things to Add:
-// When submitted redirect to the next page
+
 export function loader() {
   const token = Cookies.get("token");
   if (!token) {
@@ -52,6 +51,7 @@ export default function SignUp() {
   const [changePhotoInputColor, setChangePhotoInputColor] =
     React.useState(false);
   const navigate = useNavigate();
+
   const staticFormData = [
     {
       mandatory: true,
@@ -178,8 +178,11 @@ export default function SignUp() {
 
   const fetchData = async () => {
     try {
-      const createUserStatus = await postData(formValues);
+      let backgroundSuccess = false;
+      let signatureSuccess = false;
       let tokenResponse;
+      const createUserStatus = await postData(formValues);
+
       if (createUserStatus === 201) {
         // Fetch the token
         console.log("data is submitted and fetch token commences");
@@ -195,20 +198,22 @@ export default function SignUp() {
       // Once you have the token, use it to make authenticated API requests
       if (tokenResponse) {
         console.log("Got token");
-        await postBackgroundImage(
+        backgroundSuccess = await postBackgroundImage(
           tokenResponse.token,
           formValues.backgroundImage
         );
-        await postSignatureImage(
+        signatureSuccess = await postSignatureImage(
           tokenResponse.token,
           formValues.SignaturePhoto
         );
-        console.log("navigating");
-        Cookies.set("token", tokenResponse.token, {
-          expires: 7,
-          secure: true,
-        });
-        navigate("/", { replace: true });
+        if (backgroundSuccess && signatureSuccess) {
+          console.log("navigating");
+          Cookies.set("token", tokenResponse.token, {
+            expires: 7,
+            secure: true,
+          });
+          navigate("/", { replace: true });
+        }
       }
     } catch (error) {
       setError(error.message);
@@ -216,6 +221,16 @@ export default function SignUp() {
   };
 
   function submitForm(formValues) {
+    const signatureExtentionArray = formValues.SignaturePhoto.name.split(".");
+    const signatureExtention =
+      signatureExtentionArray[signatureExtentionArray.length - 1];
+    const backgroundExtentionArray = formValues.backgroundImage.name.split(".");
+    const backgroundExtention =
+      backgroundExtentionArray[signatureExtentionArray.length - 1];
+    const validExtensions = ["png", "jpg", "jpeg"];
+    console.log("This is the signature extentiton", signatureExtention);
+    console.log("This is the background extentiton", backgroundExtention);
+
     if (
       formValues.name === "" ||
       formValues.email === "" ||
@@ -237,6 +252,12 @@ export default function SignUp() {
       formValues.password !== formValues.confirmPassword
     ) {
       setError("Your email or password are not the same");
+      return;
+    } else if (!validExtensions.includes(signatureExtention)) {
+      setError("The Signature image is not valid");
+      return;
+    } else if (!validExtensions.includes(backgroundExtention)) {
+      setError("The profile image is not valid");
       return;
     }
 
