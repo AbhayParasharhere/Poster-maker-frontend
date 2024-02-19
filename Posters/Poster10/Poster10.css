@@ -255,11 +255,23 @@ align-self: center;
     height: 220px;
     translate: 0 -395px;
 }
+@supports not (translate: 0 -397px;)
+{
+    .footerP10 {
+    translate: 0 -407px;
+    }
+}
 .footerP10 {
     /* margin-top: 2em; */
     translate: 0 -397px;
     /* position: absolute; */
     /* bottom: 0; */
+}
+@supports not (translate: 0 -397px)
+{
+    .footerP10 {
+    translate: 0 -407px;
+    }
 }
 
 .divLohriP10 {
