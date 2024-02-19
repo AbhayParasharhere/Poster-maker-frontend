@@ -16,9 +16,10 @@ export default async function postSignatureImage(token, signaturePhoto) {
     if (!response.ok) {
       throw new Error("Signature image upload failed");
     }
-
+    const status = response.status;
     const data = await response.json();
     console.log(data);
+    return status;
   } catch (error) {
     throw new Error(error);
   }

@@ -18,7 +18,9 @@ export default async function postBackgroundImage(token, backgroundImage) {
     }
 
     const data = await response.json();
+    const status = response.status;
     console.log(data);
+    return status;
   } catch (error) {
     throw new Error(error);
   }

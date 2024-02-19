@@ -206,7 +206,7 @@ export default function SignUp() {
           tokenResponse.token,
           formValues.SignaturePhoto
         );
-        if (backgroundSuccess && signatureSuccess) {
+        if (backgroundSuccess === 200 && signatureSuccess === 200) {
           console.log("navigating");
           Cookies.set("token", tokenResponse.token, {
             expires: 7,
