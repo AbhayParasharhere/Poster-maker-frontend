@@ -4,6 +4,7 @@ import logoP10 from "../../src/assets/images/Poster/logoP10.png"
 import DholP10 from "../../src/assets/images/Poster/DholP10.png"
 import circleP10 from "../../src/assets/images/Poster/circleP10.png"
 import greenP10 from "../../src/assets/images/Poster/greenP10.png"
+import React, { useRef } from 'react';
 import  { useLoaderData, redirect } from "react-router-dom"
 import Cookies from "js-cookie"
 export async function loader(){
@@ -14,8 +15,17 @@ export async function loader(){
     throw redirect("/login")
   }
 }
+import imglyRemoveBackground from "@imgly/background-removal"
+
+
 export default function Poster10() {
     const loaderData = useLoaderData()
+    let image_src = loaderData.personImage.background_image;
+
+imglyRemoveBackground(image_src).then((blob) => {
+  // The result is a blob encoded as PNG. It can be converted to an URL to be used as HTMLImage.src
+  const url_image = URL.createObjectURL(blob);
+})
   return (
     // <div class="containerPoster10">
             <div class="maincontainerPoster10">
@@ -2133,7 +2143,7 @@ export default function Poster10() {
                     <path d="M-32 853C-32 854.104 -32.8954 855 -34 855C-35.1046 855 -36 854.104 -36 853C-36 851.896 -35.1046 851 -34 851C-32.8954 851 -32 851.896 -32 853Z" fill="white" fill-opacity="0.5"/>
                     <path d="M-39 849C-37.8954 849 -37 848.104 -37 847C-37 845.896 -37.8954 845 -39 845C-40.1046 845 -41 845.896 -41 847C-41 848.104 -40.1046 849 -39 849Z" fill="white" fill-opacity="0.5"/>
                     </svg>
-                    <img src={loaderData.personImage.background_image} class="empP10" /> 
+                    <img src={url_image} class="empP10" /> 
                     
                 <div class="contentContainerPoster10">
                     <img src={logoP10} class="logoP10"/>
