@@ -242,6 +242,10 @@ body {
   color: #f0b27d;
   text-decoration: none;
 }
+.login--loading-text {
+  color: white;
+  font-family: Inter;
+}
 
 @media ((min-width: 1120px) and (max-width:1250px)) {
   .tagline-text {

@@ -123,6 +123,7 @@ export default function SignUp() {
     },
   ];
   const [errorMessage, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   function handleChange(event) {
     console.log(
@@ -180,6 +181,8 @@ export default function SignUp() {
     try {
       let backgroundSuccess = false;
       let signatureSuccess = false;
+      setLoading(true);
+      setError(false);
       let tokenResponse;
       const createUserStatus = await postData(formValues);
 
@@ -213,29 +216,17 @@ export default function SignUp() {
             secure: true,
           });
           navigate("/", { replace: true });
+          setLoading(false);
         }
       }
     } catch (error) {
       setError(error.message);
+      setLoading(false);
     }
   };
 
   function submitForm(formValues) {
-    const signatureExtentionArray = formValues.SignaturePhoto.name.split(".");
-    const signatureExtention =
-      signatureExtentionArray[signatureExtentionArray.length - 1];
-
-    const backgroundExtentionArray = formValues.backgroundImage.name.split(".");
-    const backgroundExtention =
-      backgroundExtentionArray[signatureExtentionArray.length - 1];
-
     const validExtensions = ["png", "jpg", "jpeg"];
-
-    console.log("This is the signature extentiton", signatureExtention);
-    console.log("This is the background extentiton", backgroundExtention);
-
-    const signatureImageSize = formValues.SignaturePhoto.size;
-    const backgroundImageSize = formValues.backgroundImage.size;
 
     if (
       formValues.name === "" ||
@@ -259,18 +250,48 @@ export default function SignUp() {
     ) {
       setError("Your email or password are not the same");
       return;
-    } else if (!validExtensions.includes(signatureExtention)) {
-      setError("The Signature image is not valid");
-      return;
-    } else if (!validExtensions.includes(backgroundExtention)) {
-      setError("The profile image is not valid");
-      return;
-    } else if (backgroundImageSize > 5000000) {
-      setError("Profile Image size too large");
-      return;
-    } else if (signatureImageSize > 5000000) {
-      setError("Signature Image size too large");
-      return;
+    }
+
+    if (formValues.SignaturePhoto) {
+      const signatureExtentionArray = formValues.SignaturePhoto.name.split(".");
+
+      const signatureExtention =
+        signatureExtentionArray[signatureExtentionArray.length - 1];
+
+      const signatureImageSize = formValues.SignaturePhoto.size;
+
+      console.log("This is the signature extentiton", signatureExtention);
+      if (!validExtensions.includes(signatureExtention)) {
+        setError("The Signature image is not valid");
+        return;
+      }
+      if (signatureImageSize > 5000000) {
+        setError("Signature Image size too large");
+        return;
+      }
+    }
+
+    if (formValues.backgroundImage) {
+      const backgroundExtentionArray =
+        formValues.backgroundImage.name.split(".");
+
+      const backgroundExtention =
+        backgroundExtentionArray[backgroundExtentionArray.length - 1];
+
+      const backgroundImageSize = formValues.backgroundImage.size;
+
+      console.log("This is the background extentiton", backgroundExtention);
+      if (
+        !validExtensions.includes(backgroundExtention) &&
+        formValues.backgroundImage
+      ) {
+        setError("The profile image is not valid");
+        return;
+      }
+      if (backgroundImageSize > 5000000 && formValues.backgroundImage) {
+        setError("Profile Image size too large");
+        return;
+      }
     }
 
     fetchData(); // Call the fetchData function
@@ -385,6 +406,7 @@ export default function SignUp() {
             </div>
           </button>
         </div>
+        {loading && <p className="signup--loading-text"> Loading...</p>}
         {errorMessage && <p className="signup--error-text">{errorMessage}</p>}
 
         <p className="sign-log-text">

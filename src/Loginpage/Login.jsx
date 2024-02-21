@@ -22,6 +22,7 @@ export default function Login() {
   });
   const navigate = useNavigate();
   const [error, setError] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
   function handleChange(event) {
     setLoginData((prevLoginData) => {
       return { ...prevLoginData, [event.target.name]: event.target.value };
@@ -31,14 +32,17 @@ export default function Login() {
   function handleClick() {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const tokenProvided = await fetchToken({
           email: loginData.loginEmail,
           password: loginData.loginPassword,
         });
         Cookies.set("token", tokenProvided.token, { expires: 7, secure: true });
         navigate("/", { replace: true });
+        setLoading(false);
       } catch (err) {
         setError(err.message);
+        setLoading(false);
         console.log("inside function: ", err);
       }
     };
@@ -103,6 +107,7 @@ export default function Login() {
               </div>
             </div>
           </button>
+          {loading && <p className="login--loading-text">Loading...</p>}
           {error && <p className="red">{error}</p>}
           <p className="sign-log-text">
             Don't have an account?
