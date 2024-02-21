@@ -21,10 +21,10 @@ import imglyRemoveBackground from "@imgly/background-removal"
 export default function Poster10() {
     const loaderData = useLoaderData()
     let image_src = loaderData.personImage.background_image;
-
+    let url_image;
 imglyRemoveBackground(image_src).then((blob) => {
   // The result is a blob encoded as PNG. It can be converted to an URL to be used as HTMLImage.src
-  const url_image = URL.createObjectURL(blob);
+  url_image = URL.createObjectURL(blob);
 })
   return (
     // <div class="containerPoster10">
