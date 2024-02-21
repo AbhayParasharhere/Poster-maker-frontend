@@ -224,12 +224,18 @@ export default function SignUp() {
     const signatureExtentionArray = formValues.SignaturePhoto.name.split(".");
     const signatureExtention =
       signatureExtentionArray[signatureExtentionArray.length - 1];
+
     const backgroundExtentionArray = formValues.backgroundImage.name.split(".");
     const backgroundExtention =
       backgroundExtentionArray[signatureExtentionArray.length - 1];
+
     const validExtensions = ["png", "jpg", "jpeg"];
+
     console.log("This is the signature extentiton", signatureExtention);
     console.log("This is the background extentiton", backgroundExtention);
+
+    const signatureImageSize = formValues.SignaturePhoto.size;
+    const backgroundImageSize = formValues.backgroundImage.size;
 
     if (
       formValues.name === "" ||
@@ -258,6 +264,12 @@ export default function SignUp() {
       return;
     } else if (!validExtensions.includes(backgroundExtention)) {
       setError("The profile image is not valid");
+      return;
+    } else if (backgroundImageSize > 5000000) {
+      setError("Profile Image size too large");
+      return;
+    } else if (signatureImageSize > 5000000) {
+      setError("Signature Image size too large");
       return;
     }
 
