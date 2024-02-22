@@ -1,23 +1,25 @@
-
 import React from "react";
 import "./SideBar.css";
 import templateIcon from "./images/templatesIcon.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams, Link } from "react-router-dom";
 export default function SideBar() {
   const previewPosterData = [
     {
       img: "/sidebarPoster10.png",
-      pageLink: "poster10",
-    } 
-    // {
-    //     img: "/SidebarP9.png",
-    //     pageLink: "poster9",
-    // }, 
+      pageLink: "/",
+      festival: "lohri",
+    },
+    {
+      img: "/SidebarP9.png",
+      pageLink: "poster9",
+      festival: "diwali",
+    },
 
-    // {
-    //   img: "/sidebarPoster2.png",
-    //   pageLink: "poster2",
-    // },
+    {
+      img: "/sidebarPoster2.png",
+      pageLink: "poster2",
+      festival: "holi",
+    },
     // {
     //   img: "/sidebarPoster3.png",
     //   pageLink: "poster3",
@@ -46,9 +48,18 @@ export default function SideBar() {
     //     img: "/sidebarPoster1.png",
     //     pageLink: "",
     // }
-
   ];
-  const displayPreviewPoster = previewPosterData.map((preview, index) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const filterParams = searchParams.get("filter");
+
+  const displayFilteredPoster = filterParams
+    ? previewPosterData.filter(
+        (poster) => poster.festival.toLowerCase() === filterParams
+      )
+    : previewPosterData;
+
+  const displayPreviewPoster = displayFilteredPoster.map((preview, index) => {
     return (
       <NavLink
         to={`${preview.pageLink}`}
@@ -63,6 +74,17 @@ export default function SideBar() {
       </NavLink>
     );
   });
+
+  function changeParam(value) {
+    if (value === "none") {
+      setSearchParams((prevParams) => {
+        prevParams.delete("filter");
+        return prevParams;
+      });
+    } else {
+      setSearchParams({ filter: value });
+    }
+  }
   return (
     <div className="sidebar--scroll-container">
       <div className="main-sidebar-container">
@@ -71,12 +93,22 @@ export default function SideBar() {
           <p className="sidebar--template-text"> Templates</p>
         </div>
         <hr className="sidebar--line-break" />
-        <select name="filter--dropdown" className="sidebar--dropdown">
-          <option value="new-year">New Year</option>
+        <select
+          name="filter--dropdown"
+          id="filter--dropdown"
+          className="sidebar--dropdown"
+          onChange={(e) => changeParam(e.target.value)}
+        >
+          {" "}
+          <option selected="selected" value="none">
+            All
+          </option>
+          <option value="lohri">Lohri</option>{" "}
+          <option value="diwali">Diwali</option>
+          <option value="holi">Holi</option>
         </select>
         <div className="sidebar--display-preview-container">
           {displayPreviewPoster}
-
         </div>
       </div>
     </div>
