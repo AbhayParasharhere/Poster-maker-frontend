@@ -36,12 +36,7 @@ export default function App() {
           <Route path="poster7" element={<Poster7 />} loader={poster7Loader} />
           <Route path="poster8" element={<Poster8 />} loader={poster8Loader} />
           <Route path="poster9" element={<Poster9 />} loader={poster9Loader} />
-          <Route
-            index
-            path="poster10"
-            element={<Poster10 />}
-            loader={poster10Loader}
-          />
+          <Route index element={<Poster10 />} loader={poster10Loader} />
         </Route>
         <Route element={<Login />} path="/login" />
         <Route element={<SignUp />} path="/signup" />

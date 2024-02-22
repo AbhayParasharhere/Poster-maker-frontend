@@ -6,8 +6,8 @@ export default function SideBar() {
   const previewPosterData = [
     {
       img: "/sidebarPoster10.png",
-      pageLink: "poster10",
-      festival: "lodi",
+      pageLink: "/",
+      festival: "lohri",
     },
     {
       img: "/SidebarP9.png",
@@ -74,19 +74,7 @@ export default function SideBar() {
       </NavLink>
     );
   });
-  // window.onload = function () {
-  //   document.getElementById("filter--dropdown").onchange = function () {
-  //     if (this.value === "lodi") {
-  //       //do this function
-  //       console.log("lodi");
-  //     } else if (this.value == "diwali") {
-  //       //do this function
-  //       console.log("diwali");
-  //     } else if (this.value == "holi") {
-  //       console.log("holi");
-  //     }
-  //   };
-  // };
+
   function changeParam(value) {
     if (value === "none") {
       setSearchParams((prevParams) => {
@@ -115,7 +103,7 @@ export default function SideBar() {
           <option selected="selected" value="none">
             All
           </option>
-          <option value="lodi">Lodi</option>{" "}
+          <option value="lohri">Lohri</option>{" "}
           <option value="diwali">Diwali</option>
           <option value="holi">Holi</option>
         </select>
