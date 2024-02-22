@@ -239,7 +239,10 @@ export default function SignUp() {
       setError("Your email or password are not the same");
       return;
     }
-
+    if(formValues.backgroundImage)
+    {
+      
+    }
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {

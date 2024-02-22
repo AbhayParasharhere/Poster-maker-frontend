@@ -23,6 +23,12 @@
     align-items: center;
     position: absolute;
 }
+.Loading
+{
+    color: #FFF;
+    margin-top: 50%;
+    font-size: 30px;
+}
 .logoP10 
 {
     width: 10em;

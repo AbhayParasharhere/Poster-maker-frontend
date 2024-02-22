@@ -1,35 +1,55 @@
-import "./Poster10.css"
-import getData from "../../src/apis/getData"
-import logoP10 from "../../src/assets/images/Poster/logoP10.png"
-import DholP10 from "../../src/assets/images/Poster/DholP10.png"
-import circleP10 from "../../src/assets/images/Poster/circleP10.png"
-import greenP10 from "../../src/assets/images/Poster/greenP10.png"
-import React, { useRef } from 'react';
-import  { useLoaderData, redirect } from "react-router-dom"
-import Cookies from "js-cookie"
+import "./Poster10.css";
+import getData from "../../src/apis/getData";
+import logoP10 from "../../src/assets/images/Poster/logoP10.png";
+import DholP10 from "../../src/assets/images/Poster/DholP10.png";
+import circleP10 from "../../src/assets/images/Poster/circleP10.png";
+import greenP10 from "../../src/assets/images/Poster/greenP10.png";
+import React, { useRef, useEffect, useState } from 'react';
+import { useLoaderData, redirect } from "react-router-dom";
+import Cookies from "js-cookie";
+import imglyRemoveBackground from "@imgly/background-removal";
+
 export async function loader(){
-  const token = Cookies.get("token")
+  const token = Cookies.get("token");
   if(token){
-    return getData(token)
-  }else{
-    throw redirect("/login")
+    return getData(token);
+  } else {
+    throw redirect("/login");
   }
 }
-import imglyRemoveBackground from "@imgly/background-removal"
-
 
 export default function Poster10() {
-    const loaderData = useLoaderData()
-    let image_src = loaderData.personImage.background_image;
-    let url_image;
-imglyRemoveBackground(image_src).then((blob) => {
-  // The result is a blob encoded as PNG. It can be converted to an URL to be used as HTMLImage.src
-  url_image = URL.createObjectURL(blob);
-})
-  return (
-    // <div class="containerPoster10">
-            <div class="maincontainerPoster10">
-                <svg class="svg-background" width="1100" height="1149" viewBox="0 0 1000 1149" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+    const loaderData = useLoaderData();
+    const [urlImage, setUrlImage] = useState(null); 
+    const [loading, setLoading] = useState(true); 
+
+    useEffect(() => {
+        const imageSrc = loaderData.personImage.background_image;
+
+        const loadImage = async () => {
+            try {
+                const blob = await imglyRemoveBackground(imageSrc);
+                const urlImage = URL.createObjectURL(blob);
+                setUrlImage(urlImage);
+                setLoading(false); 
+                console.log("URL inside - ", urlImage);
+            } catch (error) {
+                console.error("Error loading image:", error);
+                setLoading(false); 
+            }
+        };
+
+        loadImage();
+    }, [loaderData.personImage.background_image]);
+
+    return (
+        <div className="maincontainerPoster10">
+            {loading ? (
+                <div class="Loading">Loading...</div>
+            ) : (
+                <>
+                    {urlImage && <img src={urlImage} className="empP10" />}
+                    <svg class="svg-background" width="1100" height="1149" viewBox="0 0 1000 1149" fill="none" xmlns="http://www.w3.org/2000/svg"> 
                     <path d="M634 24C635.105 24 636 23.1045 636 22C636 20.8955 635.105 20 634 20C632.895 20 632 20.8955 632 22C632 23.1045 632.895 24 634 24Z" fill="white" fill-opacity="0.5"/>
                     <path d="M640 29C641.105 29 642 28.1045 642 27C642 25.8955 641.105 25 640 25C638.895 25 638 25.8955 638 27C638 28.1045 638.895 29 640 29Z" fill="white" fill-opacity="0.5"/>
                     <path d="M636 33C636 34.1045 635.105 35 634 35C632.895 35 632 34.1045 632 33C632 31.8955 632.895 31 634 31C635.105 31 636 31.8955 636 33Z" fill="white" fill-opacity="0.5"/>
@@ -2142,27 +2162,26 @@ imglyRemoveBackground(image_src).then((blob) => {
                     <path d="M-28 849C-26.8954 849 -26 848.104 -26 847C-26 845.896 -26.8954 845 -28 845C-29.1046 845 -30 845.896 -30 847C-30 848.104 -29.1046 849 -28 849Z" fill="white" fill-opacity="0.5"/>
                     <path d="M-32 853C-32 854.104 -32.8954 855 -34 855C-35.1046 855 -36 854.104 -36 853C-36 851.896 -35.1046 851 -34 851C-32.8954 851 -32 851.896 -32 853Z" fill="white" fill-opacity="0.5"/>
                     <path d="M-39 849C-37.8954 849 -37 848.104 -37 847C-37 845.896 -37.8954 845 -39 845C-40.1046 845 -41 845.896 -41 847C-41 848.104 -40.1046 849 -39 849Z" fill="white" fill-opacity="0.5"/>
-                    </svg>
-                    <img src={url_image} class="empP10" /> 
-                    
-                <div class="contentContainerPoster10">
-                    <img src={logoP10} class="logoP10"/>
-                    <div class="CnamePoster10">Punjab Insurance Agency Inc.</div>
-                </div>
-                <div class="websiteP10">www.punjabinsurance.ca</div>
-                <img src={DholP10} class="dholP10"/>
-                <img src={circleP10} class="circleP10"/>
-                <img src={greenP10} class="greenP10"/>
-                <div class="divLohriP10">
-                    <p class="happyP10">HAPPY</p>
-                    <p class="LohriP10">Lohri</p>
-                    <p class="textP10">WISHING YOU ALL A <br /> VERY HAPPY AND <br /> PROSPEROUS LOHRI</p>
-                </div>
-                <div class="footerP10">
-                    <p class="nameP10">{loaderData.textData.name}</p>
-                    <p class="phoneP10">{loaderData.textData.contact_number}</p>
-                </div>
-            </div>
-        
-        );
-        }
+                    </svg>  
+                    <div className="contentContainerPoster10">
+                        <img src={logoP10} className="logoP10"/>
+                        <div className="CnamePoster10">Punjab Insurance Agency Inc.</div>
+                    </div>
+                    <div className="websiteP10">www.punjabinsurance.ca</div>
+                    <img src={DholP10} className="dholP10"/>
+                    <img src={circleP10} className="circleP10"/>
+                    <img src={greenP10} className="greenP10"/>
+                    <div className="divLohriP10">
+                        <p className="happyP10">HAPPY</p>
+                        <p className="LohriP10">Lohri</p>
+                        <p className="textP10">WISHING YOU ALL A <br /> VERY HAPPY AND <br /> PROSPEROUS LOHRI</p>
+                    </div>
+                    <div className="footerP10">
+                        <p className="nameP10">{loaderData.textData.name}</p>
+                        <p className="phoneP10">{loaderData.textData.contact_number}</p>
+                    </div>
+                </>
+            )}
+        </div>
+    );
+}
