@@ -25,6 +25,11 @@ export function loader() {
 }
 export default function SignUp() {
   const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/g;
+  const testImage = new File(
+    ["/src/assets/images/blue_fill.png"],
+    "testing.png",
+    { type: "image/png" }
+  );
 
   const [formValues, setFormValues] = React.useState(() => ({
     name: "",
@@ -293,7 +298,12 @@ export default function SignUp() {
         return;
       }
     }
-
+    // if (!formValues.backgroundImage) {
+    //   formValues.backgroundImage = blueFill;
+    // }
+    // if (!formValues.SignaturePhoto) {
+    //   formValues.SignaturePhoto = blueFill;
+    // }
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {
