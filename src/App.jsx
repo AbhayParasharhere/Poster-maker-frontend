@@ -29,7 +29,6 @@ export default function App() {
       <Route>
         <Route path="/" element={<PosterPage />} loader={posterPageLoader}>
           {/* <Route path="poster1" element={<Poster1 />} loader={poster1Loader} />
-          <Route path="poster2" element={<Poster2 />} loader={poster2Loader} />
           <Route path="poster3" element={<Poster3 />} loader={poster3Loader} />
           <Route path="poster4" element={<Poster4 />} loader={poster4Loader} />
           <Route path="poster5" element={<Poster5 />} loader={poster5Loader} />
@@ -37,6 +36,7 @@ export default function App() {
           <Route path="poster7" element={<Poster7 />} loader={poster7Loader} />
           <Route path="poster8" element={<Poster8 />} loader={poster8Loader} />
            */}
+          <Route path="poster2" element={<Poster2 />} loader={poster2Loader} />
           <Route path="poster9" element={<Poster9 />} loader={poster9Loader} />
           <Route index element={<Poster10 />} loader={poster10Loader} />
         </Route>

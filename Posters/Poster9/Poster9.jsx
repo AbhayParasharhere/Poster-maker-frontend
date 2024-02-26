@@ -39,7 +39,10 @@ export default function Poster9() {
           <p class="text6P99">{loaderData.textData.designation}</p>
           <p class="text7P9">WWW.PUNJABINSURANCE.CA</p>
         </div>
-        <img src={loaderData.personImage.background_image} class="empP9" />
+        <img
+          src={loaderData?.personImage?.background_image || imgP9}
+          class="empP9"
+        />
       </div>
     );
   } catch (error) {

@@ -13,10 +13,10 @@ export default function SideBar() {
       pageLink: "poster9",
     },
 
-    // {
-    //   img: "/sidebarPoster2.png",
-    //   pageLink: "poster2",
-    // },
+    {
+      img: "/sidebarPoster2.png",
+      pageLink: "poster2",
+    },
     // {
     //   img: "/sidebarPoster3.png",
     //   pageLink: "poster3",
