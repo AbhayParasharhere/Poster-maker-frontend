@@ -14,12 +14,13 @@ export default async function postSignatureImage(token, signaturePhoto) {
     });
 
     if (!response.ok) {
-      throw Error("Background image upload failed");
+      throw new Error("Signature image upload failed");
     }
-
+    const status = response.status;
     const data = await response.json();
     console.log(data);
+    return status;
   } catch (error) {
-    console.error("Error uploading background image:", error);
+    throw new Error(error);
   }
 }

@@ -1,6 +1,6 @@
 export default async function postData(formValues) {
   console.log("post data api called");
-  let emailLower = formValues.email.toLowerCase(); 
+  let emailLower = formValues.email.toLowerCase();
   const userData = {
     name: formValues.name,
     password: formValues.password,
@@ -21,6 +21,7 @@ export default async function postData(formValues) {
     });
 
     if (!response.ok) {
+      console.log(response);
       throw new Error("Could not make the user");
     }
 

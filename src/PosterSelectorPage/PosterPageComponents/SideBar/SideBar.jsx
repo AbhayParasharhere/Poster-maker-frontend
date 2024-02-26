@@ -8,6 +8,7 @@ export default function SideBar() {
       img: "/sidebarPoster10.png",
       pageLink: "/",
       festival: "lohri",
+
     },
     {
       img: "/SidebarP9.png",

@@ -14,12 +14,14 @@ export default async function postBackgroundImage(token, backgroundImage) {
     });
 
     if (!response.ok) {
-      throw new Error("Background image upload failed");
+      throw new Error("Profile image upload failed");
     }
 
     const data = await response.json();
+    const status = response.status;
     console.log(data);
+    return status;
   } catch (error) {
-    console.error("Error uploading background image:", error);
+    throw new Error(error);
   }
 }

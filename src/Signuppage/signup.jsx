@@ -14,8 +14,7 @@ import postData from "../apis/postData";
 import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-// Things to Add:
-// When submitted redirect to the next page
+
 export function loader() {
   const token = Cookies.get("token");
   if (!token) {
@@ -26,6 +25,11 @@ export function loader() {
 }
 export default function SignUp() {
   const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/g;
+  const testImage = new File(
+    ["/src/assets/images/blue_fill.png"],
+    "testing.png",
+    { type: "image/png" }
+  );
 
   const [formValues, setFormValues] = React.useState(() => ({
     name: "",
@@ -52,6 +56,7 @@ export default function SignUp() {
   const [changePhotoInputColor, setChangePhotoInputColor] =
     React.useState(false);
   const navigate = useNavigate();
+
   const staticFormData = [
     {
       mandatory: true,
@@ -123,6 +128,7 @@ export default function SignUp() {
     },
   ];
   const [errorMessage, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   function handleChange(event) {
     console.log(
@@ -178,8 +184,13 @@ export default function SignUp() {
 
   const fetchData = async () => {
     try {
-      const createUserStatus = await postData(formValues);
+      let backgroundSuccess = false;
+      let signatureSuccess = false;
+      setLoading(true);
+      setError(false);
       let tokenResponse;
+      const createUserStatus = await postData(formValues);
+
       if (createUserStatus === 201) {
         // Fetch the token
         console.log("data is submitted and fetch token commences");
@@ -195,27 +206,33 @@ export default function SignUp() {
       // Once you have the token, use it to make authenticated API requests
       if (tokenResponse) {
         console.log("Got token");
-        await postBackgroundImage(
+        backgroundSuccess = await postBackgroundImage(
           tokenResponse.token,
           formValues.backgroundImage
         );
-        await postSignatureImage(
+        signatureSuccess = await postSignatureImage(
           tokenResponse.token,
           formValues.SignaturePhoto
         );
-        console.log("navigating");
-        Cookies.set("token", tokenResponse.token, {
-          expires: 7,
-          secure: true,
-        });
-        navigate("/", { replace: true });
+        if (backgroundSuccess === 200 && signatureSuccess === 200) {
+          console.log("navigating");
+          Cookies.set("token", tokenResponse.token, {
+            expires: 7,
+            secure: true,
+          });
+          navigate("/", { replace: true });
+          setLoading(false);
+        }
       }
     } catch (error) {
       setError(error.message);
+      setLoading(false);
     }
   };
 
   function submitForm(formValues) {
+    const validExtensions = ["png", "jpg", "jpeg"];
+
     if (
       formValues.name === "" ||
       formValues.email === "" ||
@@ -240,6 +257,53 @@ export default function SignUp() {
       return;
     }
 
+    if (formValues.SignaturePhoto) {
+      const signatureExtentionArray = formValues.SignaturePhoto.name.split(".");
+
+      const signatureExtention =
+        signatureExtentionArray[signatureExtentionArray.length - 1];
+
+      const signatureImageSize = formValues.SignaturePhoto.size;
+
+      console.log("This is the signature extentiton", signatureExtention);
+      if (!validExtensions.includes(signatureExtention)) {
+        setError("The Signature image is not valid");
+        return;
+      }
+      if (signatureImageSize > 5000000) {
+        setError("Signature Image size too large");
+        return;
+      }
+    }
+
+    if (formValues.backgroundImage) {
+      const backgroundExtentionArray =
+        formValues.backgroundImage.name.split(".");
+
+      const backgroundExtention =
+        backgroundExtentionArray[backgroundExtentionArray.length - 1];
+
+      const backgroundImageSize = formValues.backgroundImage.size;
+
+      console.log("This is the background extentiton", backgroundExtention);
+      if (
+        !validExtensions.includes(backgroundExtention) &&
+        formValues.backgroundImage
+      ) {
+        setError("The profile image is not valid");
+        return;
+      }
+      if (backgroundImageSize > 5000000 && formValues.backgroundImage) {
+        setError("Profile Image size too large");
+        return;
+      }
+    }
+    // if (!formValues.backgroundImage) {
+    //   formValues.backgroundImage = blueFill;
+    // }
+    // if (!formValues.SignaturePhoto) {
+    //   formValues.SignaturePhoto = blueFill;
+    // }
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {
@@ -352,6 +416,7 @@ export default function SignUp() {
             </div>
           </button>
         </div>
+        {loading && <p className="signup--loading-text"> Loading...</p>}
         {errorMessage && <p className="signup--error-text">{errorMessage}</p>}
 
         <p className="sign-log-text">

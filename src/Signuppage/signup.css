@@ -292,6 +292,11 @@ p {
   margin-top: 5px;
   font-family: Inter;
 }
+.signup--loading-text {
+  color: white;
+  margin-top: 5px;
+  font-family: Inter;
+}
 @media ((min-width: 1225px) and (max-width:1350px)) {
   .signature-label-s {
     font-size: 12px;
