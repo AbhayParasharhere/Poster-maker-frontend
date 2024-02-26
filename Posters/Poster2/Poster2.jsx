@@ -1,6 +1,11 @@
 import React from "react";
 import posterBackground from "../../src/assets/images/Poster/poster2picture.png";
-import { useLoaderData } from "react-router-dom";
+import {
+  useLoaderData,
+  redirect,
+  useLocation,
+  useSearchParams,
+} from "react-router-dom";
 import Cookies from "js-cookie";
 import getData from "../../src/apis/getData";
 
@@ -21,6 +26,10 @@ export async function loader() {
 export default function Poster2() {
   try {
     const loaderData = useLoaderData();
+    const location = useLocation();
+    const search = location.state?.search || "";
+    const [searchParams, setSearchParams] = useSearchParams();
+    setSearchParams(search);
     return (
       <div className="main-poster-container--2">
         <div className="poster-image-container--2">
