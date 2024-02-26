@@ -7,7 +7,7 @@ export default function SideBar() {
   const previewPosterData = [
     {
       img: "/sidebarPoster5.png",
-      pageLink: "poster5",
+      pageLink: "/",
     } 
     // {
     //     img: "/SidebarP9.png",
