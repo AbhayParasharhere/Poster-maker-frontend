@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Vector from "../assets/images/Vector.png";
 import uploadIcon from "../assets/images/uploadicon.png";
 import blueFill from "../assets/images/blue_fill.png";
@@ -230,6 +230,29 @@ export default function SignUp() {
     }
   };
 
+  const [urlImage, setUrlImage] = useState(null); 
+  const [loading_BG, setLoading_BG] = useState(true); 
+
+    useEffect(() => {
+        const imageSrc = formValues.backgroundImage;
+
+        const loadImage = async () => {
+            try {
+                const blob = await imglyRemoveBackground(imageSrc);
+                const urlImage = URL.createObjectURL(blob);
+                console.log("Blob - ", blob);
+                setUrlImage(urlImage);
+                setLoading_BG(false); 
+                console.log("URL inside - ", urlImage);
+            } catch (error) {
+                console.error("Error loading image:", error);
+                setLoading_BG(false); 
+            }
+        };
+
+        loadImage();
+    }, [formValues.backgroundImage]);
+
   function submitForm(formValues) {
     const validExtensions = ["png", "jpg", "jpeg"];
 
@@ -304,6 +327,8 @@ export default function SignUp() {
     // if (!formValues.SignaturePhoto) {
     //   formValues.SignaturePhoto = blueFill;
     // }
+    
+
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {
