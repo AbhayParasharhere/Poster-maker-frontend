@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Vector from "../assets/images/Vector.png";
 import uploadIcon from "../assets/images/uploadicon.png";
 import blueFill from "../assets/images/blue_fill.png";
@@ -13,6 +13,7 @@ import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
 import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
+import imglyRemoveBackground from "@imgly/background-removal";
 import Cookies from "js-cookie";
 
 export function loader() {
@@ -182,6 +183,24 @@ export default function SignUp() {
     }
   }
 
+  let removeBGFile;
+
+  const imageSrc = formValues.backgroundImage;
+
+  const RemoveBackground = async () => {
+    try {
+      setLoading(true);
+      const blob = await imglyRemoveBackground(imageSrc);
+      removeBGFile = new File([blob], "new_image.jpg", { type: "image/jpeg" });
+      console.log(removeBGFile);
+    } catch (error) {
+      console.error("Error loading image:", error);
+    }
+    finally {
+      setLoading(false);
+    }
+  };
+
   const fetchData = async () => {
     try {
       let backgroundSuccess = false;
@@ -208,7 +227,7 @@ export default function SignUp() {
         console.log("Got token");
         backgroundSuccess = await postBackgroundImage(
           tokenResponse.token,
-          formValues.backgroundImage
+          removeBGFile
         );
         signatureSuccess = await postSignatureImage(
           tokenResponse.token,
@@ -230,7 +249,7 @@ export default function SignUp() {
     }
   };
 
-  function submitForm(formValues) {
+  async function submitForm(formValues) {
     const validExtensions = ["png", "jpg", "jpeg"];
 
     if (
@@ -304,6 +323,8 @@ export default function SignUp() {
     // if (!formValues.SignaturePhoto) {
     //   formValues.SignaturePhoto = blueFill;
     // }
+    await RemoveBackground();
+
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {
