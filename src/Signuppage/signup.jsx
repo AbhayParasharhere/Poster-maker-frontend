@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Vector from "../assets/images/Vector.png";
 import uploadIcon from "../assets/images/uploadicon.png";
 import blueFill from "../assets/images/blue_fill.png";
@@ -13,6 +13,7 @@ import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
 import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
+import imglyRemoveBackground from "@imgly/background-removal";
 import Cookies from "js-cookie";
 
 export function loader() {
@@ -182,6 +183,53 @@ export default function SignUp() {
     }
   }
 
+  const blobToImage = (blob) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const url = URL.createObjectURL(blob);
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = reject;
+            img.src = url;
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+
+  let blob;
+  let BGimage = new Image();
+  const [urlImage, setUrlImage] = useState(null); 
+  const [loading_BG, setLoading_BG] = useState(true); 
+
+    
+        const imageSrc = formValues.backgroundImage;
+
+        const loadImage = async () => {
+            try {
+                blob = await imglyRemoveBackground(imageSrc);
+                const urlImage = URL.createObjectURL(blob);
+                BGimage = await blobToImage(blob);
+                const fileInputRef = useRef(null);
+
+        
+                const fileInput = fileInputRef.current;
+               
+                fileInput.value = BGimage;
+                console.log("Blob - ", blob);
+                // formValues.backgroundImage = blob;
+                setUrlImage(urlImage);
+                setLoading_BG(false); 
+                console.log("URL inside - ", urlImage);
+            } catch (error) {
+                console.error("Error loading image:", error);
+                setLoading_BG(false); 
+            }
+        };
+
+
+    
+
   const fetchData = async () => {
     try {
       let backgroundSuccess = false;
@@ -206,9 +254,10 @@ export default function SignUp() {
       // Once you have the token, use it to make authenticated API requests
       if (tokenResponse) {
         console.log("Got token");
+        console.log("BLOB print", blob);
         backgroundSuccess = await postBackgroundImage(
           tokenResponse.token,
-          formValues.backgroundImage
+          BGimage
         );
         signatureSuccess = await postSignatureImage(
           tokenResponse.token,
@@ -230,30 +279,9 @@ export default function SignUp() {
     }
   };
 
-  const [urlImage, setUrlImage] = useState(null); 
-  const [loading_BG, setLoading_BG] = useState(true); 
 
-    useEffect(() => {
-        const imageSrc = formValues.backgroundImage;
 
-        const loadImage = async () => {
-            try {
-                const blob = await imglyRemoveBackground(imageSrc);
-                const urlImage = URL.createObjectURL(blob);
-                console.log("Blob - ", blob);
-                setUrlImage(urlImage);
-                setLoading_BG(false); 
-                console.log("URL inside - ", urlImage);
-            } catch (error) {
-                console.error("Error loading image:", error);
-                setLoading_BG(false); 
-            }
-        };
-
-        loadImage();
-    }, [formValues.backgroundImage]);
-
-  function submitForm(formValues) {
+  async function submitForm(formValues) {
     const validExtensions = ["png", "jpg", "jpeg"];
 
     if (
@@ -327,8 +355,9 @@ export default function SignUp() {
     // if (!formValues.SignaturePhoto) {
     //   formValues.SignaturePhoto = blueFill;
     // }
-    
-
+    await loadImage();
+    console.log("Blob after load - ", blob);
+    console.log("BG image", formValues.backgroundImage);
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {
