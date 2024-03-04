@@ -189,11 +189,15 @@ export default function SignUp() {
 
   const RemoveBackground = async () => {
     try {
+      setLoading(true);
       const blob = await imglyRemoveBackground(imageSrc);
       removeBGFile = new File([blob], "new_image.jpg", { type: "image/jpeg" });
       console.log(removeBGFile);
     } catch (error) {
       console.error("Error loading image:", error);
+    }
+    finally {
+      setLoading(false);
     }
   };
 
