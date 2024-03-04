@@ -199,6 +199,7 @@ export default function SignUp() {
 
   let blob;
   let BGimage = new Image();
+  let file;
   const [urlImage, setUrlImage] = useState(null); 
   const [loading_BG, setLoading_BG] = useState(true); 
 
@@ -207,15 +208,19 @@ export default function SignUp() {
 
         const loadImage = async () => {
             try {
+                console.log(imageSrc);
                 blob = await imglyRemoveBackground(imageSrc);
                 const urlImage = URL.createObjectURL(blob);
-                BGimage = await blobToImage(blob);
-                const fileInputRef = useRef(null);
+                // BGimage = await blobToImage(blob);
+                file = new File([blob], 'new_image.jpg', { type: 'image/jpeg' });
+                console.log("File output -", file);
+                console.log("Upload output -", formValues.backgroundImage);
+                // const fileInputRef = useRef(null);
 
         
-                const fileInput = fileInputRef.current;
+                // const fileInput = fileInputRef.current;
                
-                fileInput.value = BGimage;
+                // fileInput.value = BGimage;
                 console.log("Blob - ", blob);
                 // formValues.backgroundImage = blob;
                 setUrlImage(urlImage);
@@ -254,10 +259,10 @@ export default function SignUp() {
       // Once you have the token, use it to make authenticated API requests
       if (tokenResponse) {
         console.log("Got token");
-        console.log("BLOB print", blob);
+        console.log("file print", file);
         backgroundSuccess = await postBackgroundImage(
           tokenResponse.token,
-          BGimage
+          file
         );
         signatureSuccess = await postSignatureImage(
           tokenResponse.token,
@@ -462,6 +467,8 @@ export default function SignUp() {
               submitForm(formValues);
             }}
           >
+            
+
             <div className="button-inside-div-s">
               Get Started
               <div className="arrow-s">
@@ -469,6 +476,10 @@ export default function SignUp() {
               </div>
             </div>
           </button>
+          <button
+            
+            onClick={async () => loadImage()}
+              >Test</button>
         </div>
         {loading && <p className="signup--loading-text"> Loading...</p>}
         {errorMessage && <p className="signup--error-text">{errorMessage}</p>}
