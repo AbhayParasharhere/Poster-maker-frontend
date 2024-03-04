@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link, NavLink } from "react-router-dom";
 import logo from "/src/assets/images/posterMakerLogo.png";
 import profileImage from "./Ellipse.png";
 
@@ -43,7 +43,9 @@ export default function Header() {
         </div>
         <hr className="header--dropdown-linebreak" />
         <div className="header--dropdown-menu-container">
-          <p className="header--dropdown-menu-text">Change Details</p>
+          <NavLink className={"header--link"} to="/changedetail">
+            <p className="header--dropdown-menu-text">Change Details</p>
+          </NavLink>
           <hr className="header--dropdown-menu-linebreak" />
           <p className="header--dropdown-menu-text">Need Help?</p>
           <hr className="header--dropdown-menu-linebreak" />
