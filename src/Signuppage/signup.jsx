@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Vector from "../assets/images/Vector.png";
 import uploadIcon from "../assets/images/uploadicon.png";
 import blueFill from "../assets/images/blue_fill.png";
@@ -183,57 +183,19 @@ export default function SignUp() {
     }
   }
 
-  const blobToImage = (blob) => {
-    return new Promise((resolve, reject) => {
-        try {
-            const url = URL.createObjectURL(blob);
-            const img = new Image();
-            img.onload = () => resolve(img);
-            img.onerror = reject;
-            img.src = url;
-        } catch (error) {
-            reject(error);
-        }
-    });
-};
+  let removeBGFile;
 
-  let blob;
-  let BGimage = new Image();
-  let file;
-  const [urlImage, setUrlImage] = useState(null); 
-  const [loading_BG, setLoading_BG] = useState(true); 
+  const imageSrc = formValues.backgroundImage;
 
-    
-        const imageSrc = formValues.backgroundImage;
-
-        const loadImage = async () => {
-            try {
-                console.log(imageSrc);
-                blob = await imglyRemoveBackground(imageSrc);
-                const urlImage = URL.createObjectURL(blob);
-                // BGimage = await blobToImage(blob);
-                file = new File([blob], 'new_image.jpg', { type: 'image/jpeg' });
-                console.log("File output -", file);
-                console.log("Upload output -", formValues.backgroundImage);
-                // const fileInputRef = useRef(null);
-
-        
-                // const fileInput = fileInputRef.current;
-               
-                // fileInput.value = BGimage;
-                console.log("Blob - ", blob);
-                // formValues.backgroundImage = blob;
-                setUrlImage(urlImage);
-                setLoading_BG(false); 
-                console.log("URL inside - ", urlImage);
-            } catch (error) {
-                console.error("Error loading image:", error);
-                setLoading_BG(false); 
-            }
-        };
-
-
-    
+  const RemoveBackground = async () => {
+    try {
+      const blob = await imglyRemoveBackground(imageSrc);
+      removeBGFile = new File([blob], "new_image.jpg", { type: "image/jpeg" });
+      console.log(removeBGFile);
+    } catch (error) {
+      console.error("Error loading image:", error);
+    }
+  };
 
   const fetchData = async () => {
     try {
@@ -259,10 +221,9 @@ export default function SignUp() {
       // Once you have the token, use it to make authenticated API requests
       if (tokenResponse) {
         console.log("Got token");
-        console.log("file print", file);
         backgroundSuccess = await postBackgroundImage(
           tokenResponse.token,
-          file
+          removeBGFile
         );
         signatureSuccess = await postSignatureImage(
           tokenResponse.token,
@@ -283,8 +244,6 @@ export default function SignUp() {
       setLoading(false);
     }
   };
-
-
 
   async function submitForm(formValues) {
     const validExtensions = ["png", "jpg", "jpeg"];
@@ -360,9 +319,8 @@ export default function SignUp() {
     // if (!formValues.SignaturePhoto) {
     //   formValues.SignaturePhoto = blueFill;
     // }
-    await loadImage();
-    console.log("Blob after load - ", blob);
-    console.log("BG image", formValues.backgroundImage);
+    await RemoveBackground();
+
     fetchData(); // Call the fetchData function
   }
   const renderForm = staticFormData.map((item, index) => {
@@ -467,8 +425,6 @@ export default function SignUp() {
               submitForm(formValues);
             }}
           >
-            
-
             <div className="button-inside-div-s">
               Get Started
               <div className="arrow-s">
@@ -476,10 +432,6 @@ export default function SignUp() {
               </div>
             </div>
           </button>
-          <button
-            
-            onClick={async () => loadImage()}
-              >Test</button>
         </div>
         {loading && <p className="signup--loading-text"> Loading...</p>}
         {errorMessage && <p className="signup--error-text">{errorMessage}</p>}
