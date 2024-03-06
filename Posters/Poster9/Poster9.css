@@ -1,6 +1,6 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 /* .containerPoster9 {
@@ -11,175 +11,173 @@
 } */
 
 .maincontainerPoster9 {
-    width: 100%;
-    height: 100%;
-    background-image: url('/bg9Poster9.jpeg');
-    background-size: cover;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-image: url("/bg9Poster9.jpeg");
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .text1P9 {
-    color: #FFF;
-    font-family: Plus Jakarta Sans;
-    font-size: 29.375em;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-} 
+  color: #fff;
+  font-family: Plus Jakarta Sans;
+  font-size: 29.375em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 
 .text2P9 {
-    color: #FFF;
-    font-family: Plus Jakarta Sans;
-    font-size: 29.375em;
-    margin-left: 0.55em;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-} 
+  color: #fff;
+  font-family: Plus Jakarta Sans;
+  font-size: 29.375em;
+  margin-left: 0.55em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 
 .imgP9 {
-    position: absolute;
-    top: 0;
-    left: 7em;
-    height: 55em;
-    /* width: 60em; */
+  position: absolute;
+  top: 0;
+  left: 7em;
+  height: 55em;
+  /* width: 60em; */
 }
 
 .text1Poster9 {
-    display: flex;
-    /* align-items: center; */
-    /* margin-top: 5em; */
-    padding-top: 5em;
-    padding-left: 5em;
+  display: flex;
+  /* align-items: center; */
+  /* margin-top: 5em; */
+  padding-top: 5em;
+  padding-left: 5em;
 }
 
 .text2Poster9 {
-    font-family: Inter;
-    font-size: 5.25em;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.25rem;
-    align-self: center;
-    background: linear-gradient(180deg, #EEEFF3 0%, #032390 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    translate: 0 -1em; 
-
+  font-family: Inter;
+  font-size: 5.25em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.25rem;
+  align-self: center;
+  background: linear-gradient(180deg, #eeeff3 0%, #032390 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  translate: 0 -1em;
 }
 .text3Poster9 {
-    margin-top: 22em;
-    display: flex;
-    align-items: center;
-    gap: 2em;
+  margin-top: 22em;
+  display: flex;
+  align-items: center;
+  gap: 2em;
 }
 .text4Poster9 {
-    display: flex;
-    align-items: center;
-    gap: 9em;
+  display: flex;
+  align-items: center;
+  gap: 9em;
 }
 
 .text3P9 {
-color: #06278E;
-font-family: Inter;
-font-size: 3.125em;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-margin-left: 1em;
+  color: #06278e;
+  font-family: Inter;
+  font-size: 3.125em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 1em;
 }
 
 .text4P9 {
-    width: 15em;
-    height: 3em;
-    flex-shrink: 0;
-    border-radius: 0.9375em;
-    background: linear-gradient(180deg, #083AF1 0%, #07238D 100%);
-    padding-left: 1em;
+  width: 15em;
+  height: 3em;
+  flex-shrink: 0;
+  border-radius: 0.9375em;
+  background: linear-gradient(180deg, #083af1 0%, #07238d 100%);
+  padding-left: 1em;
 }
 .text5P9 {
-    color: #FFF;
-    font-family: Inter;
-    font-size: 2.6375em;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: #fff;
+  font-family: Inter;
+  font-size: 2.6375em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 .text6P99 {
-    color: #000;
-    font-family: Inspiration;
-    font-size: 1.5em;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.135em;
-    margin-left: 2em;
+  color: #000;
+  font-family: Inspiration;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.135em;
+  margin-left: 2em;
 }
 .text7P9 {
-    color: #000;
-    font-family: Inter;
-    font-size: 1em;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: #000;
+  font-family: Inter;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .empP9 {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 30em;
-    width: 30em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 30em;
+  max-height: 30em;
+  width: auto;
+  height: auto;
+  /* height: 30em;
+  width: 30em; */
+  /* aspect-ratio: 1/1; */
 }
 
 @container changeRes (width: 1080px) {
-    .maincontainerPoster9 {
-        font-size: 90%;
-    }
-
+  .maincontainerPoster9 {
+    font-size: 90%;
+  }
 }
 
 @container changeRes (width: 300px) {
-    .maincontainerPoster9 {
-        font-size: 25%;
-
-    }
-    .text5P9 {
-        font-size: 2em;
-    }
-    .text6P99 {
-        font-size: 7px;
-        margin-left: 2em;
-    }
-    .text7P9 {
-        font-size: 4px;
-    }
-    .text4Poster9 {
-        gap: 6em;
-    }
-
+  .maincontainerPoster9 {
+    font-size: 25%;
+  }
+  .text5P9 {
+    font-size: 2em;
+  }
+  .text6P99 {
+    font-size: 7px;
+    margin-left: 2em;
+  }
+  .text7P9 {
+    font-size: 4px;
+  }
+  .text4Poster9 {
+    gap: 6em;
+  }
 }
 
 @container changeRes (width: 350px) {
-    .maincontainerPoster9 {
-        font-size: 29.5%;
-
-    }
-    .text5P9 {
-        font-size: 2em;
-    }
-    .text6P99 {
-        font-size: 8.1px;
-        margin-left: 2em;
-    }
-    .text7P9 {
-        font-size: 5px;
-    }
-    .text4Poster9 {
-        gap: 6em;
-    }
-
+  .maincontainerPoster9 {
+    font-size: 29.5%;
+  }
+  .text5P9 {
+    font-size: 2em;
+  }
+  .text6P99 {
+    font-size: 8.1px;
+    margin-left: 2em;
+  }
+  .text7P9 {
+    font-size: 5px;
+  }
+  .text4Poster9 {
+    gap: 6em;
+  }
 }
-
