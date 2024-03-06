@@ -17,7 +17,7 @@ export default function Poster5() {
   <div className="Poster-5-container--7">
     <div className="Poster5--main-container">
         <div className="lleft-container">
-            <p className="text-1--7">DID YOU KNOW</p>
+            <p className="text-1--7">DO YOU KNOW</p>
             <p className="text-2--7">WHY YOU BUY</p>
             <p className="text-3--7">LIFE</p>
             <p className="text-4--7">INSURANCE <span className="text-q--7">?</span></p>
