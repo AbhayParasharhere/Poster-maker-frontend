@@ -139,7 +139,7 @@
     line-height: normal;
     position: absolute;
     bottom: 2.6em;
-    left: 2.4em;
+    left: 2.6em;
 }
 
 .phone {
@@ -151,13 +151,15 @@
     line-height: normal;
     position: absolute;
     bottom: 1em;
-    left: 1.8em;
+    left: 2em;
 }
 
 .img--7 {
-    width: 36em;
-    height: 40em;
+    max-width: 40em;
+    max-height: 40em;
     position: absolute;
+    width: auto;
+    height: auto;
     bottom: 7em;
     right: 0;
 }
@@ -206,7 +208,7 @@
         left: 2em;
     }
     .img--7 {
-        width: 40em;
+        
     }
    
 
@@ -241,7 +243,8 @@
         left: 2.2em;
     }
     .img--7 {
-        width: 40em;
+        
+        
     }
     .des--7 {
         font-size: 7px;
@@ -267,7 +270,9 @@
         left: 2.2em;
     }
     .img--7 {
-        width: 39em;
+        max-width: 39em;
+        width: auto;
+        height: auto;
     }
     .des--7 {
         font-size: 8px;
