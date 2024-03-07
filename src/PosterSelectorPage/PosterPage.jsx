@@ -131,7 +131,7 @@ export default function PosterPage() {
     toJpeg(ref.current, { cacheBust: true, })
       .then((dataUrl) => {
         const link = document.createElement('a')
-        link.download = 'my-image-name.svg'
+        link.download = 'my-image-name.jpeg'
         link.href = dataUrl
         link.click()
       })
