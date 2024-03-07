@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
+import { saveAs } from 'file-saver';
 import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import Header from "./PosterPageComponents/Header/Header";
@@ -128,16 +129,15 @@ export default function PosterPage() {
       return
     }
 
-    toSvg(ref.current, { cacheBust: true, })
-      .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = 'my-image-name.svg'
-        link.href = dataUrl
-        link.click()
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+htmlToImage.toBlob(document.getElementById('poster-download'), { width: 1080, height: 1080 , canvasWidth: 1080, canvasHeight: 1080})
+    .then(function (blob) {
+      if (window.saveAs) {
+        window.saveAs(blob, 'my-node.png');
+      } else {
+      FileSaver.saveAs(blob, 'my-node.png');
+    }
+    });
+     
   }, [ref])
 
   return (
