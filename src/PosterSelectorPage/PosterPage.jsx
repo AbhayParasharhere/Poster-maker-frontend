@@ -128,10 +128,10 @@ export default function PosterPage() {
       return
     }
 
-    toJpeg(ref.current, { cacheBust: true, })
+    toSvg(ref.current, { cacheBust: true, })
       .then((dataUrl) => {
         const link = document.createElement('a')
-        link.download = 'my-image-name.jpeg'
+        link.download = 'my-image-name.svg'
         link.href = dataUrl
         link.click()
       })
@@ -141,7 +141,7 @@ export default function PosterPage() {
   }, [ref])
 
   return (
-    <div ref={ref} className="poster-display--main-container">
+    <div className="poster-display--main-container">
       <Header />
       <div className="poster-display--main-body-container">
         <SideBar />
@@ -159,6 +159,7 @@ export default function PosterPage() {
           </div>
           <div className="poster--display">
             <div
+              ref={ref}
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
