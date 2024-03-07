@@ -128,10 +128,10 @@ export default function PosterPage() {
       return
     }
 
-    toPng(ref.current, { cacheBust: true, })
+    toSvg(ref.current, { cacheBust: true, })
       .then((dataUrl) => {
         const link = document.createElement('a')
-        link.download = 'my-image-name.png'
+        link.download = 'my-image-name.svg'
         link.href = dataUrl
         link.click()
       })
