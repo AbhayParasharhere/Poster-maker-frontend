@@ -25,13 +25,13 @@ export default function Poster9() {
       </div>
       <div class="text2Poster9">HAPPY NEW YEAR</div>
       <div class="text3Poster9">
-        <p class="text3P9">{loaderData.textData.name}</p>
+        <p class="text3P9">{loaderData?.textData?.name}</p>
         <div class="text4P9">
-          <p class="text5P9">{loaderData.textData.contact_number}</p>
+          <p class="text5P9">{loaderData?.textData?.contact_number}</p>
         </div>
       </div>
       <div class="text4Poster9">
-        <p class="text6P99">{loaderData.textData.designation}</p>
+        <p class="text6P99">{loaderData?.textData?.designation}</p>
         <p class="text7P9">WWW.PUNJABINSURANCE.CA</p>
       </div>
       <img

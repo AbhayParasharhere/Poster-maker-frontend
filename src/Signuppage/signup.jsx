@@ -402,19 +402,21 @@ export default function SignUp() {
               onChange={handleChange}
             />
           </div>
-          <button
-            className="get-started-button-s"
-            onClick={() => {
-              submitForm(formValues);
-            }}
-          >
-            <div className="button-inside-div-s">
-              Get Started
-              <div className="arrow-s">
-                <img className="arrow-image-s" src={Vector} />
+          <div>
+            <button
+              className="get-started-button-s"
+              onClick={() => {
+                submitForm(formValues);
+              }}
+            >
+              <div className="button-inside-div-s">
+                Get Started
+                <div className="arrow-s">
+                  <img className="arrow-image-s" src={Vector} />
+                </div>
               </div>
-            </div>
-          </button>
+            </button>
+          </div>
         </div>
         {loading && <p className="signup--loading-text"> Loading...</p>}
         {errorMessage && <p className="signup--error-text">{errorMessage}</p>}

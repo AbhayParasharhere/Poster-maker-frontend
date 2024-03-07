@@ -2,8 +2,20 @@ import React from "react";
 import "./detail.css";
 import uploadIcon from "../assets/images/uploadicon.png";
 import { Link } from "react-router-dom";
+import vector from "../assets/images/Vector.png";
+import patchData from "../apis/patchData";
+import Cookies from "js-cookie";
+import postBackgroundImage from "../apis/postBackgroundImage";
 
 export default function DetailPage() {
+  const [detailFormValues, setDetailFormValues] = React.useState(() => ({
+    name: "",
+    newPassword: "",
+    designation: "",
+    employeeID: "",
+    contactNumber: "",
+    backgroundImage: "",
+  }));
   const formInputData = [
     {
       name: "name",
@@ -18,24 +30,57 @@ export default function DetailPage() {
       labelText: "New Password",
     },
     {
-      name: "confirmPassword",
-      placeholder: "Confirm new password",
+      name: "designation",
+      placeholder: "Confirm new designation",
       type: "text",
-      labelText: "Confirm Password",
+      labelText: "Designation",
     },
     {
-      name: "employeeID",
-      placeholder: "Enter Employee ID",
+      name: "contactNumber",
+      placeholder: "Enter contact number",
       type: "text",
-      labelText: "Employee ID",
+      labelText: "Contact",
     },
   ];
+
+  function handleChange(event) {
+    console.log(
+      "name:",
+      event.target.value,
+      "previous",
+      detailFormValues.backgroundImage
+    );
+    setDetailFormValues((prevValues) => {
+      return {
+        ...prevValues,
+        [event.target.name]:
+          event.target.type === "file"
+            ? event.target.files[0]
+            : event.target.value,
+      };
+    });
+  }
+
+  async function submitForm() {
+    try {
+      const token = Cookies.get("token");
+      await patchData(detailFormValues, token);
+      if (detailFormValues.backgroundImage !== "") {
+        await postBackgroundImage(token, detailFormValues.backgroundImage);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const formInput = formInputData.map((item, index) => {
     return (
       <div className="detail--label-input-container">
         <p className="detail--input-label">{item.labelText}</p>
         <input
           className="detail--text-input"
+          name={item.name}
+          onChange={handleChange}
           type={item.type}
           placeholder={item.placeholder}
         />
@@ -66,9 +111,14 @@ export default function DetailPage() {
               </label>
               <input
                 id="detail--person-photo"
+                type="file"
                 className="detail--image-input"
+                onChange={handleChange}
               />
             </div>
+            <button className="detail--submit-button" onClick={submitForm}>
+              Save details
+            </button>
           </div>
         </div>
       </div>
