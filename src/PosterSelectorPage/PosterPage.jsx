@@ -124,21 +124,29 @@ export default function PosterPage() {
 
   const ref = useRef(null)
 
-  const onButtonClick = useCallback(() => {
-    if (ref.current === null) {
-      return
-    }
+  const handleSaveAsPNG = () => {
+    toSvg(ref.current, { cacheBust: true })
+      .then((svgDataUrl) => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
 
-htmlToImage.toBlob(document.getElementById('poster-download'), { width: 1080, height: 1080 , canvasWidth: 1080, canvasHeight: 1080})
-    .then(function (blob) {
-      if (window.saveAs) {
-        window.saveAs(blob, 'my-node.png');
-      } else {
-      FileSaver.saveAs(blob, 'my-node.png');
-    }
-    });
-     
-  }, [ref])
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+
+          canvas.toBlob((blob) => {
+            saveAs(blob, 'my-image-name.png');
+          });
+        };
+
+        img.src = svgDataUrl;
+      })
+      .catch((error) => {
+        console.error('Error converting SVG to PNG:', error);
+      });
+  };
 
   return (
     <div className="poster-display--main-container">
@@ -152,7 +160,7 @@ htmlToImage.toBlob(document.getElementById('poster-download'), { width: 1080, he
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button className="download-button" onClick={onButtonClick}>
+              <button className="download-button" onClick={handleSaveAsPNG}>
                 Download
               </button>
             </div>
