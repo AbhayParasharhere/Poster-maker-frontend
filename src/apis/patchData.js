@@ -17,14 +17,18 @@ export default async function patchData(formValues, token) {
     filteredDataNoEmptyString
   );
 
-  const token = `Token ${token}`;
+  const userToken = `Token ${token}`;
+  if (Object.keys(filteredDataNoEmptyString).length === 0) {
+    console.log("The filtered data is empty");
+    return -1;
+  }
   try {
     let url = "https://beautyresort.in/api/user/me/";
     const response = await fetch(url, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        Authorization: userToken,
       },
       body: JSON.stringify(filteredDataNoEmptyString),
     });

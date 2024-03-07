@@ -8,6 +8,8 @@ import Cookies from "js-cookie";
 import postBackgroundImage from "../apis/postBackgroundImage";
 
 export default function DetailPage() {
+  const [detailError, setDetailError] = React.useState("");
+  const [successMessage, setSuccessMessage] = React.useState("");
   const [detailFormValues, setDetailFormValues] = React.useState(() => ({
     name: "",
     newPassword: "",
@@ -63,13 +65,45 @@ export default function DetailPage() {
 
   async function submitForm() {
     try {
+      const validExtensions = ["png", "jpg", "jpeg"];
       const token = Cookies.get("token");
-      await patchData(detailFormValues, token);
+      const changeStatus = await patchData(detailFormValues, token);
+      if (changeStatus === -1) {
+        setSuccessMessage("");
+      } else if (changeStatus === 200) {
+        setSuccessMessage("Successfully changed details");
+      }
       if (detailFormValues.backgroundImage !== "") {
-        await postBackgroundImage(token, detailFormValues.backgroundImage);
+        const backgroundExtentionArray =
+          detailFormValues.backgroundImage.name.split(".");
+
+        const backgroundExtention =
+          backgroundExtentionArray[backgroundExtentionArray.length - 1];
+
+        const backgroundImageSize = detailFormValues.backgroundImage.size;
+
+        console.log("This is the background extentiton", backgroundExtention);
+        if (
+          !validExtensions.includes(backgroundExtention) &&
+          detailFormValues.backgroundImage
+        ) {
+          setDetailError("The image is not valid");
+          return;
+        } else if (
+          backgroundImageSize > 5000000 &&
+          detailFormValues.backgroundImage
+        ) {
+          setDetailError("Image size too large");
+          return;
+        } else {
+          await postBackgroundImage(token, detailFormValues.backgroundImage);
+          setDetailError(false);
+          setSuccessMessage("Successfully changed Details");
+        }
       }
     } catch (error) {
-      console.log(error);
+      setDetailError(error);
+      setSuccessMessage(false);
     }
   }
 
@@ -112,6 +146,7 @@ export default function DetailPage() {
               <input
                 id="detail--person-photo"
                 type="file"
+                name="backgroundImage"
                 className="detail--image-input"
                 onChange={handleChange}
               />
@@ -119,6 +154,10 @@ export default function DetailPage() {
             <button className="detail--submit-button" onClick={submitForm}>
               Save details
             </button>
+            {detailError && <p className="signup--error-text">{detailError}</p>}
+            {successMessage && (
+              <p className="signup--loading-text">{successMessage}</p>
+            )}
           </div>
         </div>
       </div>
