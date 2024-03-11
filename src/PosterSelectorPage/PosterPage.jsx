@@ -90,63 +90,39 @@ export default function PosterPage() {
 
   let cloneId = 0; // Initialize a unique identifier for each clone
 
-  // const downloadImage = () => {
-  //   const target = document.getElementById("poster-download");
-  //   const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-  //   const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  const downloadImage = () => {
+    const target = document.getElementById("poster-download");
+    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
 
-  //   // Create an invisible clone of the target element
-  //   const clone = target.cloneNode(true);
-  //   clone.style.width = downloadWidth;
-  //   clone.style.height = downloadHeight;
-  //   clone.style.position = "absolute";
-  //   clone.style.left = "-9999px";
-  //   clone.style.top = "-9999px";
+    // Create an invisible clone of the target element
+    const clone = target.cloneNode(true);
+    clone.style.width = downloadWidth;
+    clone.style.height = downloadHeight;
+    clone.style.position = "absolute";
+    clone.style.left = "-9999px";
+    clone.style.top = "-9999px";
 
-  //   document.body.appendChild(clone); // Add the clone to the document temporarily
+    document.body.appendChild(clone); // Add the clone to the document temporarily
 
-  //   domtoimage
-  //     .toPng(clone)
-  //     .then((dataUrl) => {
-  //       var anchor = document.createElement("a");
-  //       anchor.setAttribute("href", dataUrl);
-  //       anchor.setAttribute("download", "my-image.png");
-  //       anchor.click();
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error capturing the image: ", error);
-  //     })
-  //     .finally(() => {
-  //       document.body.removeChild(clone); // Remove the clone from the document
-  //       setDownload(false);
-  //     });
-  // };
-
-  const ref = useRef(null)
-
-  const handleSaveAsPNG = () => {
-    toSvg(ref.current, { cacheBust: true })
-      .then((svgDataUrl) => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        const img = new Image();
-
-        img.onload = function () {
-          canvas.width = img.width;
-          canvas.height = img.height;
-          ctx.drawImage(img, 0, 0);
-
-          canvas.toBlob((blob) => {
-            saveAs(blob, 'my-image-name.png');
-          });
-        };
-
-        img.src = svgDataUrl;
+    domtoimage
+      .toPng(clone)
+      .then((dataUrl) => {
+        var anchor = document.createElement("a");
+        anchor.setAttribute("href", dataUrl);
+        anchor.setAttribute("download", "my-image.png");
+        anchor.click();
       })
       .catch((error) => {
-        console.error('Error converting SVG to PNG:', error);
+        console.error("Error capturing the image: ", error);
+      })
+      .finally(() => {
+        document.body.removeChild(clone); // Remove the clone from the document
+        setDownload(false);
       });
   };
+
+  
 
   return (
     <div className="poster-display--main-container">
@@ -160,14 +136,14 @@ export default function PosterPage() {
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button className="download-button" onClick={handleSaveAsPNG}>
+              <button className="download-button" onClick={downloadImage}>
                 Download
               </button>
             </div>
           </div>
           <div className="poster--display">
             <div
-              ref={ref}
+        
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
