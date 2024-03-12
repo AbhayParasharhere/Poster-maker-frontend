@@ -89,23 +89,47 @@ export default function PosterPage() {
   }
 
   const ref = useRef(null);
+  const [pngDataUrl, setPngDataUrl] = useState(null);
+ 
 
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
       return
     }
 
-    toSvg(ref.current, { cacheBust: true, })
+    toSvg(ref.current, { cacheBust: true })
       .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = 'my-image-name.svg'
-        link.href = dataUrl
-        link.click()
+        // Create a new Image object
+        const img = new Image();
+
+        img.onload = () => {
+          // Once the Image is loaded, draw it onto a canvas
+          const canvas = document.createElement('canvas');
+          const scaleFactor = 2; // Scale factor for higher resolution
+          const width = img.width * scaleFactor;
+          const height = img.height * scaleFactor;
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.scale(scaleFactor, scaleFactor);
+          ctx.drawImage(img, 0, 0);
+
+          // Convert canvas to PNG data URL
+          const pngUrl = canvas.toDataURL('image/png');
+          setPngDataUrl(pngUrl); // Set PNG data URL state
+          
+          // Optionally, you can save the PNG file
+          saveAs(pngUrl, 'my-image-name.png');
+        };
+
+        // Set the Image source to the SVG data URL
+        img.src = dataUrl;
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }, [ref])
+        console.log(err);
+      });
+  }, []);
+
 
   
 
@@ -136,6 +160,13 @@ export default function PosterPage() {
             >
               <Outlet />
             </div>
+            {pngDataUrl && (
+        <div>
+          <img src={pngDataUrl} alt="Converted PNG" />
+          {/* Optionally, display the PNG image */}
+        </div>
+        )}
+        {console.log("image - ", pngDataUrl)}
           </div>
 
           <div className="poster--size-select-container">
