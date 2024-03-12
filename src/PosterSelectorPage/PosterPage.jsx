@@ -88,6 +88,8 @@ export default function PosterPage() {
     });
   }
 
+  const ref = useRef(null);
+
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
       return
