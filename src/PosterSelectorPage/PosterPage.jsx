@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
-import { saveAs } from "file-saver";
-import * as htmlToImage from "html-to-image";
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
+import { saveAs } from 'file-saver';
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
@@ -88,48 +88,33 @@ export default function PosterPage() {
     });
   }
 
-  let cloneId = 0; // Initialize a unique identifier for each clone
+  const ref = useRef(null);
+  const [pngDataUrl, setPngDataUrl] = useState(null);
 
-  const downloadImage = () => {
-    const target = document.getElementById("poster-download");
-    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
 
-    // Create an invisible clone of the target element
-    const clone = target.cloneNode(true);
-    clone.style.width = downloadWidth;
-    clone.style.height = downloadHeight;
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px";
-    clone.style.top = "-9999px";
-
-    document.body.appendChild(clone); // Add the clone to the document temporarily
-
-    domtoimage
-      .toPng(clone)
-      .then((dataUrl1) => {
-    domtoimage
-        .toPng(clone)
-        .then((dataUrl2) => {    
-    domtoimage
-      .toPng(clone)
-      .then((dataUrl) => {
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
-        anchor.click();
-      })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
-      })
-      .finally(() => {
-        document.body.removeChild(clone); // Remove the clone from the document
-        setDownload(false);
-      });
-      }
-
-        )}
-      )}
+    toPng(ref.current).then((dataUrl1) => {
+      toPng(ref.current).then(
+        (dataUrl2) => {
+          toPng(ref.current)
+            .then((dataUrl) => {
+              const link = document.createElement("a");
+              link.download = "my-image-name.png";
+              link.href = dataUrl;
+              console.log("Dataurl", dataUrl);
+              link.click();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        },
+        [ref]
+      );
+    });
+  });
 
   return (
     <div className="poster-display--main-container">
@@ -143,21 +128,28 @@ export default function PosterPage() {
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button className="download-button" onClick={downloadImage}>
+              <button className="download-button" onClick={onButtonClick}>
                 Download
               </button>
             </div>
           </div>
           <div className="poster--display">
             <div
+        
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
-              
+              ref={ref}
             >
               <Outlet />
             </div>
-            
+            {pngDataUrl && (
+              <div>
+                <img src={pngDataUrl} alt="Converted PNG" />
+                {/* Optionally, display the PNG image */}
+              </div>
+            )}
+            {console.log("image - ", pngDataUrl)}
           </div>
 
           <div className="poster--size-select-container">
@@ -232,3 +224,4 @@ export default function PosterPage() {
     </div>
   );
 }
+
