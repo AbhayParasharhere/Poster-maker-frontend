@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
-import { saveAs } from 'file-saver';
-import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import { saveAs } from "file-saver";
+import * as htmlToImage from "html-to-image";
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
 import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
@@ -90,27 +90,31 @@ export default function PosterPage() {
 
   const ref = useRef(null);
   const [pngDataUrl, setPngDataUrl] = useState(null);
- 
 
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
-      return
+      return;
     }
 
-    toPng(ref.current, { cacheBust: true, })
-      .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = 'my-image-name.png'
-        link.href = dataUrl
-        console.log("Dataurl", dataUrl);
-        link.click()
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [ref])
-
-  
+    toPng(ref.current).then((dataUrl1) => {
+      toPng(ref.current).then(
+        (dataUrl2) => {
+          toPng(ref.current)
+            .then((dataUrl) => {
+              const link = document.createElement("a");
+              link.download = "my-image-name.png";
+              link.href = dataUrl;
+              console.log("Dataurl", dataUrl);
+              link.click();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        },
+        [ref]
+      );
+    });
+  });
 
   return (
     <div className="poster-display--main-container">
@@ -131,7 +135,6 @@ export default function PosterPage() {
           </div>
           <div className="poster--display">
             <div
-        
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
@@ -140,12 +143,12 @@ export default function PosterPage() {
               <Outlet />
             </div>
             {pngDataUrl && (
-        <div>
-          <img src={pngDataUrl} alt="Converted PNG" />
-          {/* Optionally, display the PNG image */}
-        </div>
-        )}
-        {console.log("image - ", pngDataUrl)}
+              <div>
+                <img src={pngDataUrl} alt="Converted PNG" />
+                {/* Optionally, display the PNG image */}
+              </div>
+            )}
+            {console.log("image - ", pngDataUrl)}
           </div>
 
           <div className="poster--size-select-container">
@@ -220,4 +223,3 @@ export default function PosterPage() {
     </div>
   );
 }
-
