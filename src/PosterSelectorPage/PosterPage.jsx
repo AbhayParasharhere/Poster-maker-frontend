@@ -122,7 +122,7 @@ export default function PosterPage() {
           setTimeout(() => {
             // Save the PNG file
             saveAs(pngUrl, 'my-image-name.png');
-          }, 7000);
+          }, 20000);
         };
 
         // Set the Image source to the SVG data URL
