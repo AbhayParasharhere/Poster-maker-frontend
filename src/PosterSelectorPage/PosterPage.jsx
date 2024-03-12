@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
+import { saveAs } from 'file-saver';
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
@@ -85,39 +88,26 @@ export default function PosterPage() {
     });
   }
 
-  let cloneId = 0; // Initialize a unique identifier for each clone
+  const ref = useRef(null);
 
-  const downloadImage = () => {
-    const target = document.getElementById("poster-download");
-    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
-    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return
+    }
 
-    // Create an invisible clone of the target element
-    const clone = target.cloneNode(true);
-    clone.style.width = downloadWidth;
-    clone.style.height = downloadHeight;
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px";
-    clone.style.top = "-9999px";
-
-    document.body.appendChild(clone); // Add the clone to the document temporarily
-
-    domtoimage
-      .toPng(clone)
+    toSvg(ref.current, { cacheBust: true, })
       .then((dataUrl) => {
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
-        anchor.click();
+        const link = document.createElement('a')
+        link.download = 'my-image-name.svg'
+        link.href = dataUrl
+        link.click()
       })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
+      .catch((err) => {
+        console.log(err)
       })
-      .finally(() => {
-        document.body.removeChild(clone); // Remove the clone from the document
-        setDownload(false);
-      });
-  };
+  }, [ref])
+
+  
 
   return (
     <div className="poster-display--main-container">
@@ -131,16 +121,18 @@ export default function PosterPage() {
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button className="download-button" onClick={downloadImage}>
+              <button className="download-button" onClick={onButtonClick}>
                 Download
               </button>
             </div>
           </div>
           <div className="poster--display">
             <div
+        
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
+              ref={ref}
             >
               <Outlet />
             </div>
@@ -218,3 +210,4 @@ export default function PosterPage() {
     </div>
   );
 }
+
