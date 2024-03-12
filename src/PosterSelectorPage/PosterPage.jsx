@@ -105,7 +105,7 @@ export default function PosterPage() {
         img.onload = () => {
           // Once the Image is loaded, draw it onto a canvas
           const canvas = document.createElement('canvas');
-          const scaleFactor = 2; // Scale factor for higher resolution
+          const scaleFactor = 1; // Scale factor for higher resolution
           const width = img.width * scaleFactor;
           const height = img.height * scaleFactor;
           canvas.width = width;
@@ -119,7 +119,10 @@ export default function PosterPage() {
           setPngDataUrl(pngUrl); // Set PNG data URL state
           
           // Optionally, you can save the PNG file
-          saveAs(pngUrl, 'my-image-name.png');
+          setTimeout(() => {
+            // Save the PNG file
+            saveAs(pngUrl, 'my-image-name.png');
+          }, 4000);
         };
 
         // Set the Image source to the SVG data URL
