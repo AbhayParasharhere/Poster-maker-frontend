@@ -97,8 +97,8 @@ export default function PosterPage() {
     }
 
     toPng(ref.current).then((dataUrl1) => {
-      toPng(ref.current).then(
-        (dataUrl2) => {
+      // toPng(ref.current).then(
+      //   (dataUrl2) => {
           toPng(ref.current)
             .then((dataUrl) => {
               const link = document.createElement("a");
@@ -114,7 +114,7 @@ export default function PosterPage() {
         [ref]
       );
     });
-  });
+  // });
 
   return (
     <div className="poster-display--main-container">
