@@ -97,42 +97,18 @@ export default function PosterPage() {
       return
     }
 
-    toSvg(ref.current, { cacheBust: true })
+    toPng(ref.current, { cacheBust: true, })
       .then((dataUrl) => {
-        // Create a new Image object
-        const img = new Image();
-
-        img.onload = () => {
-          // Once the Image is loaded, draw it onto a canvas
-          const canvas = document.createElement('canvas');
-          const scaleFactor = 1; // Scale factor for higher resolution
-          const width = img.width * scaleFactor;
-          const height = img.height * scaleFactor;
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.scale(scaleFactor, scaleFactor);
-          ctx.drawImage(img, 0, 0);
-
-          // Convert canvas to PNG data URL
-          const pngUrl = canvas.toDataURL('image/png');
-          setPngDataUrl(pngUrl); // Set PNG data URL state
-          
-          // Optionally, you can save the PNG file
-          setTimeout(() => {
-            // Save the PNG file
-            saveAs(pngUrl, 'my-image-name.png');
-          }, 20000);
-        };
-
-        // Set the Image source to the SVG data URL
-        img.src = dataUrl;
+        const link = document.createElement('a')
+        link.download = 'my-image-name.png'
+        link.href = dataUrl
+        console.log("Dataurl", dataUrl);
+        link.click()
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
+        console.log(err)
+      })
+  }, [ref])
 
   
 
