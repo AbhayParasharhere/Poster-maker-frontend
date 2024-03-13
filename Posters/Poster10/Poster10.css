@@ -239,21 +239,28 @@ align-self: center;
     width: 25px;
     height: 25px;
     }
+    .divLohriP10 {
+        translate: 0 -142em;   
+    }
+    .footerP10 {
+        /* margin-top: 2em; */
+        translate: 0 -120.2em;
+    }
     .dholP10 {
-        width: 180px;
-        height: 180px;
+        width: 80em;
+        height: 80em;
     }
     .circleP10 {
-        width: 190px;
-        height: 190px;
-        translate: 0 -192px;
+        width: 80em;
+        height: 80em;
+        translate: 0 -80.5em;
     }
     .greenP10 {
     /* width: 40em; 
     height: 40em;  */
-    width: 220px;
-    height: 220px;
-    translate: 0 -395px;
+    width: 60em;
+    height: 60em;
+    translate: 0 -155em;
 }
 @supports not (translate: 0 -397px;)
 {
@@ -275,7 +282,7 @@ align-self: center;
 }
 
 .divLohriP10 {
-    translate: 0 -515px;
+    translate: 0 -185em;
 }
 .textP10
 {
@@ -288,8 +295,8 @@ align-self: center;
     font-size: 16px;
 }
 .empP10 {
-    width: 90px;
-    height: 90px;
+    width: 40em;
+    height: 40em;
 }
 
 }
