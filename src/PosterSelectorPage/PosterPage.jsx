@@ -88,24 +88,39 @@ export default function PosterPage() {
     });
   }
 
-  const ref = useRef(null);
+  let cloneId = 0; // Initialize a unique identifier for each clone
 
-  const onButtonClick = useCallback(() => {
-    if (ref.current === null) {
-      return
-    }
+  const downloadImage = () => {
+    const target = document.getElementById("poster-download");
+    const downloadWidth = `${downloadSize[selectSize]["width"]}px`;
+    const downloadHeight = `${downloadSize[selectSize]["height"]}px`;
 
-    toSvg(ref.current, { cacheBust: true, })
+    // Create an invisible clone of the target element
+    const clone = target.cloneNode(true);
+    clone.style.width = downloadWidth;
+    clone.style.height = downloadHeight;
+    clone.style.position = "absolute";
+    clone.style.left = "-9999px";
+    clone.style.top = "-9999px";
+
+    document.body.appendChild(clone); // Add the clone to the document temporarily
+
+    domtoimage
+      .toPng(clone)
       .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = 'my-image-name.svg'
-        link.href = dataUrl
-        link.click()
+        var anchor = document.createElement("a");
+        anchor.setAttribute("href", dataUrl);
+        anchor.setAttribute("download", "my-image.png");
+        anchor.click();
       })
-      .catch((err) => {
-        console.log(err)
+      .catch((error) => {
+        console.error("Error capturing the image: ", error);
       })
-  }, [ref])
+      .finally(() => {
+        document.body.removeChild(clone); // Remove the clone from the document
+        setDownload(false);
+      });
+  };
 
   
 
@@ -121,7 +136,7 @@ export default function PosterPage() {
               {sizePixles[selectSize]}
             </div>
             <div className="main-button-container">
-              <button className="download-button" onClick={onButtonClick}>
+              <button className="download-button" onClick={downloadImage}>
                 Download
               </button>
             </div>
@@ -132,7 +147,7 @@ export default function PosterPage() {
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
-              ref={ref}
+              
             >
               <Outlet />
             </div>
