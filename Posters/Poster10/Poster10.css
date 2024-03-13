@@ -246,6 +246,13 @@ align-self: center;
         /* margin-top: 2em; */
         translate: 0 -120.2em;
     }
+    .divLohriP10 {
+        translate: 0 -142em;   
+    }
+    .footerP10 {
+        /* margin-top: 2em; */
+        translate: 0 -120.2em;
+    }
     .dholP10 {
         width: 80em;
         height: 80em;
@@ -262,23 +269,9 @@ align-self: center;
     height: 60em;
     translate: 0 -155em;
 }
-@supports not (translate: 0 -397px;)
-{
-    .footerP10 {
-    translate: 0 -407px;
-    }
-}
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -397px;
-    /* position: absolute; */
-    /* bottom: 0; */
-}
-@supports not (translate: 0 -397px)
-{
-    .footerP10 {
-    translate: 0 -407px;
-    }
+    translate: 0 -138.5em;
 }
 
 .divLohriP10 {
