@@ -96,26 +96,25 @@ export default function PosterPage() {
       return;
     }
 
-    toPng(ref.current).then((dataUrl1) => {
-      toPng(ref.current).then(
-        (dataUrl2) => {
-          toPng(ref.current)
-            .then((dataUrl) => {
-              const link = document.createElement("a");
-              link.download = "my-image-name.png";
-              link.href = dataUrl;
-              console.log("Dataurl", dataUrl);
-              link.click();
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        },
-        [ref]
-      );
-    });
-  });
+    
+    const svgContent = ref.current.innerHTML;
+    const tempElem = document.createElement('div');
+    tempElem.innerHTML = svgContent;
 
+    // Use html2canvas to convert the HTML element to a canvas
+    html2canvas(tempElem, { scale: 2 , allowTaint: true , useCORS: true})
+      .then((canvas) => {
+        // Convert the canvas to a data URL
+        const pngUrl = canvas.toDataURL('image/png');
+        setPngDataUrl(pngUrl); // Set PNG data URL state
+        
+        // Save the PNG file
+        saveAs(pngUrl, 'my-image-name.png');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className="poster-display--main-container">
       <Header />
