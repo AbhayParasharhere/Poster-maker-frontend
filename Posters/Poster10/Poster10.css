@@ -271,9 +271,9 @@ align-self: center;
 }
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -138.5em;
+    transform: translateY(-73px);
+    /* -webkit-transform: translateY(-73px); */
 }
-
 .divLohriP10 {
     translate: 0 -185em;
 }
