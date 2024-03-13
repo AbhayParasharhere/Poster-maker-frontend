@@ -8,6 +8,7 @@ import "./PosterDisplay.css";
 import { Outlet, redirect } from "react-router-dom";
 import Cookies from "js-cookie";
 import domtoimage from "dom-to-image-more";
+import html2canvas from 'html2canvas';
 import instagramIcon from "./selectorPageImages/instagramIcon.png";
 import facebookIcon from "./selectorPageImages/facebookIcon.png";
 import linkedinIcon from "./selectorPageImages/linkedinIcon.png";
@@ -97,12 +98,12 @@ export default function PosterPage() {
     }
 
     
-    const svgContent = ref.current.innerHTML;
-    const tempElem = document.createElement('div');
-    tempElem.innerHTML = svgContent;
+   
+    
+    
 
     // Use html2canvas to convert the HTML element to a canvas
-    html2canvas(tempElem, { scale: 2 , allowTaint: true , useCORS: true})
+    html2canvas(ref.current, { scale: 2 , allowTaint: true , useCORS: true})
       .then((canvas) => {
         // Convert the canvas to a data URL
         const pngUrl = canvas.toDataURL('image/png');
