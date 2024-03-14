@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
+import { saveAs } from 'file-saver';
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
@@ -119,6 +122,8 @@ export default function PosterPage() {
       });
   };
 
+  
+
   return (
     <div className="poster-display--main-container">
       <Header />
@@ -138,9 +143,11 @@ export default function PosterPage() {
           </div>
           <div className="poster--display">
             <div
+        
               className="poster"
               style={sizeStyles[selectSize]}
               id="poster-download"
+              
             >
               <Outlet />
             </div>

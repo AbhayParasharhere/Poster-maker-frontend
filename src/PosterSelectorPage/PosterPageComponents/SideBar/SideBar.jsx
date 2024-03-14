@@ -6,8 +6,13 @@ export default function SideBar() {
   const [searchParams, setSearchParams] = useSearchParams();
   const previewPosterData = [
     {
-      img: "/sidebarPoster10.png",
+      img: "/SidebarP11.png",
       pageLink: `/?${searchParams}`,
+      festival: "holi",
+    },
+    {
+      img: "/sidebarPoster10.png",
+      pageLink: `poster10?${searchParams}`,
       festival: "lohri",
     },
     {
@@ -21,34 +26,35 @@ export default function SideBar() {
       pageLink: `poster2?${searchParams}`,
       festival: "holi",
     },
-    // {
-    //   img: "/sidebarPoster3.png",
-    //   pageLink: "poster3",
-    // },
-    // {
-    //   img: "/sidebarPoster4.png",
-    //   pageLink: "poster4",
-    // },
-    // {
-    //     img: "/sidebarPoster5.png",
-    //     pageLink: "poster5",
-    // },
-    // {
-    //     img: "/sidebarPoster6.png",
-    //     pageLink: "poster6",
-    // },
-    // {
-    //     img: "/sidebarPoster7.png",
-    //     pageLink: "poster7",
-    // },
-    // {
-    //     img: "/sidebarPoster8.png",
-    //     pageLink: "poster8",
-    // },
-    // {
-    //     img: "/sidebarPoster1.png",
-    //     pageLink: "",
-    // }
+  
+    {
+      img: "/sidebarPoster3.png",
+      pageLink: `poster3?${searchParams}`,
+    },
+    {
+      img: "/sidebarPoster4.png",
+      pageLink: `poster4?${searchParams}`,
+    },
+    {
+        img: "/sidebarPoster5.png",
+        pageLink: `poster5?${searchParams}`,
+    },
+    {
+        img: "/sidebarPoster6.png",
+        pageLink: `poster6?${searchParams}`,
+    },
+    {
+        img: "/sidebarPoster7.png",
+        pageLink: `poster7?${searchParams}`,
+    },
+    {
+        img: "/sidebarPoster8.png",
+        pageLink: `poster8?${searchParams}`,
+    },
+    {
+        img: "/sidebarPoster1.png",
+        pageLink: `poster1?${searchParams}`,
+    }
   ];
 
   const filterParams = searchParams.get("filter");
