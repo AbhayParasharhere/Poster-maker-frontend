@@ -38,10 +38,10 @@ export default function Poster2() {
           <div className="contact-info-container--2">
             <p className="contact-tagline--2">CONTACT INSURANCE ADVISOR</p>
             <p className="contact-info--2" id="name">
-              {loaderData.textData.name}
+              {loaderData?.textData?.name}
             </p>
             <p className="contact-info--2">
-              {loaderData.textData.contact_number}
+              {loaderData?.textData?.contact_number}
             </p>
           </div>
         </div>

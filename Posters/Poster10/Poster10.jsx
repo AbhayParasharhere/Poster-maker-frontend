@@ -10620,8 +10620,8 @@ export default function Poster10() {
           </p>
         </div>
         <div class="footerP10">
-          <p class="nameP10">{loaderData.textData.name}</p>
-          <p class="phoneP10">{loaderData.textData.contact_number}</p>
+          <p class="nameP10">{loaderData?.textData?.name}</p>
+          <p class="phoneP10">{loaderData?.textData?.contact_number}</p>
         </div>
       </div>
     );

@@ -23,6 +23,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import DetailPage from "./DetailChangePage/detail";
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -42,6 +43,7 @@ export default function App() {
         </Route>
         <Route element={<Login />} path="/login" />
         <Route element={<SignUp />} path="/signup" />
+        <Route element={<DetailPage />} path="/changedetail" />
       </Route>
     )
   );
