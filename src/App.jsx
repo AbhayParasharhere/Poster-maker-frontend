@@ -39,7 +39,7 @@ export default function App() {
           <Route path="poster8" element={<Poster8 />} loader={poster8Loader} />
            */}
          
-           <Route index element={<RRSP />} loader={RRSPLoader} />
+           <Route path="RRSP" element={<RRSP />} loader={RRSPLoader} />
           <Route path="poster2" element={<Poster2 />} loader={poster2Loader} />
           <Route path="poster9" element={<Poster9 />} loader={poster9Loader} />
           <Route index element={<Poster10 />} loader={poster10Loader} />
