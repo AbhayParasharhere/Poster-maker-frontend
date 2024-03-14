@@ -22,6 +22,7 @@
 .text1P9 {
   color: #fff;
   font-family: Plus Jakarta Sans;
+  
   font-size: 29.375em;
   font-style: normal;
   font-weight: 700;
@@ -31,6 +32,7 @@
 .text2P9 {
   color: #fff;
   font-family: Plus Jakarta Sans;
+  src: url(PlusJakartaSans-VariableFont_wght.ttf);
   font-size: 29.375em;
   margin-left: 0.55em;
   font-style: normal;
@@ -56,6 +58,7 @@
 
 .text2Poster9 {
   font-family: Inter;
+  src: url(Inter-VariableFont_slnt,wght.ttf);
   font-size: 5.25em;
   font-style: normal;
   font-weight: 400;
@@ -83,6 +86,7 @@
 .text3P9 {
   color: #06278e;
   font-family: Inter;
+  src: url(Inter-VariableFont_slnt,wght.ttf);
   font-size: 3.125em;
   font-style: normal;
   font-weight: 700;
@@ -101,6 +105,7 @@
 .text5P9 {
   color: #fff;
   font-family: Inter;
+  src: url(Inter-VariableFont_slnt,wght.ttf);
   font-size: 2.6375em;
   font-style: normal;
   font-weight: 700;
@@ -109,6 +114,7 @@
 .text6P99 {
   color: #000;
   font-family: Inspiration;
+  src: url(Inspiration-Regular.ttf);
   font-size: 1.5em;
   font-style: normal;
   font-weight: 400;
@@ -119,6 +125,7 @@
 .text7P9 {
   color: #000;
   font-family: Inter;
+  src: url(Inter-VariableFont_slnt,wght.ttf);
   font-size: 1em;
   font-style: normal;
   font-weight: 600;

@@ -3,6 +3,7 @@ import Header from "./PosterPageComponents/Header/Header";
 import SideBar from "./PosterPageComponents/SideBar/SideBar";
 import "./PosterDisplay.css";
 import { Outlet, redirect } from "react-router-dom";
+import html2canvas from "html2canvas";
 import Cookies from "js-cookie";
 import domtoimage from "dom-to-image-more";
 import instagramIcon from "./selectorPageImages/instagramIcon.png";
@@ -101,23 +102,23 @@ export default function PosterPage() {
     clone.style.top = "-9999px";
 
     document.body.appendChild(clone); // Add the clone to the document temporarily
-
-    domtoimage
-      .toPng(clone)
-      .then((dataUrl) => {
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", dataUrl);
-        anchor.setAttribute("download", "my-image.png");
-        anchor.click();
-      })
-      .catch((error) => {
-        console.error("Error capturing the image: ", error);
-      })
-      .finally(() => {
-        document.body.removeChild(clone); // Remove the clone from the document
-        setDownload(false);
-      });
-  };
+      
+    html2canvas(clone, { allowTaint: true , useCORS: true})
+    .then((canvas) => {
+      const dataUrl = canvas.toDataURL();
+      var anchor = document.createElement("a");
+      anchor.setAttribute("href", dataUrl);
+      anchor.setAttribute("download", "my-image.png");
+      anchor.click();
+    })
+    .catch((error) => {
+      console.error("Error capturing the image: ", error);
+    })
+    .finally(() => {
+      document.body.removeChild(clone); // Remove the clone from the document
+      setDownload(false);
+    });
+};
 
   return (
     <div className="poster-display--main-container">
