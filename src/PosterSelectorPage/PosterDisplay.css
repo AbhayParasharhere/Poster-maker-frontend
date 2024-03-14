@@ -52,7 +52,7 @@ body {
 }
 .download-button {
   background-color: #161a25;
-  border: none;
+  border: solid 1px #161a25;
   padding: 10px 15px;
   border-radius: 10px;
   font-family: Inter;
@@ -62,6 +62,14 @@ body {
   letter-spacing: 0.04em;
   text-align: left;
 }
+.download-button:hover {
+  background-color: transparent;
+  scale: 1.1;
+}
+.download-button:active {
+  scale: 1;
+}
+
 .poster--display {
   display: flex;
   align-items: center;

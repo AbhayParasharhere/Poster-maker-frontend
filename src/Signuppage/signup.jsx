@@ -118,14 +118,14 @@ export default function SignUp() {
       placeholder: "Enter ID",
       value: formValues.employeeID,
     },
-    {
-      mandatory: false,
-      name: "SignaturePhoto",
-      topText: "Signature Photo",
-      placeholder: "Upload Signature Photo",
-      image: true,
-      value: formValues.SignaturePhoto,
-    },
+    // {
+    //   mandatory: false,
+    //   name: "SignaturePhoto",
+    //   topText: "Signature Photo",
+    //   placeholder: "Upload Signature Photo",
+    //   image: true,
+    //   value: formValues.SignaturePhoto,
+    // },
   ];
   const [errorMessage, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -185,7 +185,7 @@ export default function SignUp() {
   const fetchData = async () => {
     try {
       let backgroundSuccess = false;
-      let signatureSuccess = false;
+      // let signatureSuccess = false;
       setLoading(true);
       setError(false);
       let tokenResponse;
@@ -210,11 +210,11 @@ export default function SignUp() {
           tokenResponse.token,
           formValues.backgroundImage
         );
-        signatureSuccess = await postSignatureImage(
-          tokenResponse.token,
-          formValues.SignaturePhoto
-        );
-        if (backgroundSuccess === 200 && signatureSuccess === 200) {
+        // signatureSuccess = await postSignatureImage(
+        //   tokenResponse.token,
+        //   formValues.SignaturePhoto
+        // );
+        if (backgroundSuccess === 200) {
           console.log("navigating");
           Cookies.set("token", tokenResponse.token, {
             expires: 7,
@@ -257,24 +257,24 @@ export default function SignUp() {
       return;
     }
 
-    if (formValues.SignaturePhoto) {
-      const signatureExtentionArray = formValues.SignaturePhoto.name.split(".");
+    // if (formValues.SignaturePhoto) {
+    //   const signatureExtentionArray = formValues.SignaturePhoto.name.split(".");
 
-      const signatureExtention =
-        signatureExtentionArray[signatureExtentionArray.length - 1];
+    //   const signatureExtention =
+    //     signatureExtentionArray[signatureExtentionArray.length - 1];
 
-      const signatureImageSize = formValues.SignaturePhoto.size;
+    //   const signatureImageSize = formValues.SignaturePhoto.size;
 
-      console.log("This is the signature extentiton", signatureExtention);
-      if (!validExtensions.includes(signatureExtention)) {
-        setError("The Signature image is not valid");
-        return;
-      }
-      if (signatureImageSize > 5000000) {
-        setError("Signature Image size too large");
-        return;
-      }
-    }
+    //   console.log("This is the signature extentiton", signatureExtention);
+    //   if (!validExtensions.includes(signatureExtention)) {
+    //     setError("The Signature image is not valid");
+    //     return;
+    //   }
+    //   if (signatureImageSize > 5000000) {
+    //     setError("Signature Image size too large");
+    //     return;
+    //   }
+    // }
 
     if (formValues.backgroundImage) {
       const backgroundExtentionArray =

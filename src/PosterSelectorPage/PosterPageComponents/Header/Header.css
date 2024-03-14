@@ -31,6 +31,12 @@ p {
   border: none;
   cursor: pointer;
 }
+.log-out-button:hover {
+  color: grey;
+}
+.log-out-button:active {
+  scale: 0.9;
+}
 .header--dropdown {
   position: absolute;
   height: 80vh;
@@ -86,6 +92,12 @@ p {
   border: none;
   text-align: left;
   color: white;
+}
+.header--dropdown-menu-text:active {
+  scale: 0.9;
+}
+.header--dropdown-menu-text:hover {
+  color: grey;
 }
 .header--dropdown-menu-linebreak {
   border: 1px solid #555555;
