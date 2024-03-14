@@ -108,7 +108,7 @@ export default function PosterPage() {
       const dataUrl = canvas.toDataURL();
       var anchor = document.createElement("a");
       anchor.setAttribute("href", dataUrl);
-      anchor.setAttribute("download", "my-image.png");
+      anchor.setAttribute("download", "my-image-" + new Date().getTime() + ".png");
       anchor.click();
     })
     .catch((error) => {
