@@ -17,6 +17,7 @@ import Poster9, { loader as poster9Loader } from "../Posters/Poster9/Poster9";
 import Poster10, {
   loader as poster10Loader,
 } from "../Posters/Poster10/Poster10";
+import RRSP, { loader as RRSPLoader } from "../Posters/RRSP/RRSP";
 import {
   Route,
   createBrowserRouter,
@@ -37,6 +38,8 @@ export default function App() {
           <Route path="poster7" element={<Poster7 />} loader={poster7Loader} />
           <Route path="poster8" element={<Poster8 />} loader={poster8Loader} />
            */}
+         
+           <Route index element={<RRSP />} loader={RRSPLoader} />
           <Route path="poster2" element={<Poster2 />} loader={poster2Loader} />
           <Route path="poster9" element={<Poster9 />} loader={poster9Loader} />
           <Route index element={<Poster10 />} loader={poster10Loader} />

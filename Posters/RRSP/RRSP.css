@@ -1,0 +1,285 @@
+
+
+
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+
+.mainP11
+{
+    background-color: #9C1D52;
+    width: 100%;
+    height: 100%;
+    
+    position: relative;
+}
+.logo
+{
+    width: 25em;
+    height: 25em;
+}
+.leftimage
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.leftcircle
+{
+    background-color:  white;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    
+    /* align-items: center; */
+    /* gap: 0.2em; */
+}
+.innercircle 
+{
+    background-color:  #9C1D52;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    translate: -6em 16em;
+    align-self: center;
+   
+}
+.emp
+{
+    width: 33em;
+    height: 38em;
+    
+    /* position: absolute; 
+    left: 0; 
+    bottom: 0;  */
+    /* width: auto;
+    height: auto; */
+    z-index: 1;
+}
+.content
+{
+    margin-top: 2em;
+    display: flex;
+    
+    flex-direction: column;
+    /* margin-left: 2em; */
+
+}
+.text1P11 
+{
+    background-color: black;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    /* position: absolute; */
+    /* right: 0; */
+    
+    width: 35em;
+    height: 4em;
+    
+}
+
+.tick 
+{
+    width: 0.8em;
+    height: 0.8em;
+    /* margin-top: 30px; */
+   
+}
+.ptext1P11 
+{
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    /* margin-top: 0.8em; */
+    text-transform: uppercase;
+    font-family: Francois One;
+    src: url(FrancoisOne-Regular.ttf);
+    font-weight: 400;
+    line-height: 2em;
+    
+}
+.text2P11
+{
+    color: #464143;
+    
+    font-family: Francois One;
+    src: url(FrancoisOne-Regular.ttf);
+    font-size: 3.2em;
+    font-weight: 400;
+    
+    letter-spacing: 0em;
+   
+ 
+
+    
+}
+.stext2P11 
+{
+    /* display: inline-block; */
+   color: #9C1D52;
+   font-weight: 700;
+    
+}
+.ptext2P11
+{
+    margin-left: 1.1em;
+}
+.name
+{
+    color: #9C1D52;
+    font-size: 3.5em;
+    font-family: Francois One;
+    src: url(FrancoisOne-Regular.ttf);
+    
+    font-weight: 400;
+  
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+
+}
+.designation 
+{
+    margin-left: 5em;
+    /* text-align: center; */
+}
+.number
+{
+    background-color: #941950;
+    
+  
+    border-radius: 1em;
+    width: 20em;
+    height: 4em;
+}
+.pnumber
+{
+    color: white;
+    font-size: 2.5em;
+    font-weight: 400;
+    line-height: 1.5em;
+    text-align: center;
+}
+.website 
+{
+    text-transform: uppercase;
+    margin-left: 3em;
+}
+
+@container changeRes (width: 1200px) {
+    .mainP11  {
+        font-size: 105%;
+    }
+    .emp
+    {
+        width: 36em;
+        height: 40em;
+    }
+    .text1P11 
+    {
+        width: 36em;
+    }
+
+}
+
+@container changeRes (width: 350px) {
+    .mainP11 {
+        font-size: 30%;
+    }
+    .emp
+    {
+        width: 30em;
+        height: 35em;
+    }
+    /* .emp
+    {
+        max-width: 50em;
+        max-height: 50em;
+    } */
+    .leftcircle
+    {
+        gap: 27px;
+    }
+  
+    .text2P11
+    {
+    /* width: 60%;
+    height: 9%; */
+    font-size: 16px;
+    }
+    .designation 
+    {
+        margin-left: 2em;
+        font-size: 6px;
+    }
+    .website 
+    {
+        margin-left: 0;
+        font-size: 6px;
+    }
+    .innercircle 
+    {
+        display: none;
+    }
+    .text1P11 
+    {
+ 
+    
+    width: 37.5em;
+  
+    
+    }
+}
+
+@container changeRes (width: 300px) {
+    .mainP11 {
+        font-size: 25%;
+    }
+    .emp
+    {
+        width: 30em;
+        height: 35em;
+    }
+    /* .emp
+    {
+        max-width: 50em;
+        max-height: 50em;
+    } */
+    .leftcircle
+    {
+        gap: 27px;
+    }
+  
+    .text2P11
+    {
+    /* width: 60%;
+    height: 9%; */
+    font-size: 14px;
+    }
+    .designation 
+    {
+        margin-left: 2em;
+        font-size: 6px;
+    }
+    .website 
+    {
+        margin-left: 0;
+        font-size: 6px;
+    }
+    .innercircle 
+    {
+        display: none;
+    }
+    .text1P11 
+    {
+ 
+    
+    width: 38.4em;
+  
+    
+    }
+
+}
