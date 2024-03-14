@@ -21,6 +21,12 @@ export default function SideBar() {
       pageLink: `poster2?${searchParams}`,
       festival: "holi",
     },
+    {
+      img: "/sidebarP11.png",
+      pageLink: `RRSP?${searchParams}`,
+      festival: "holi",
+    },
+    
     // {
     //   img: "/sidebarPoster3.png",
     //   pageLink: "poster3",
