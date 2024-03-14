@@ -3,22 +3,22 @@ import "./SideBar.css";
 import templateIcon from "./images/templatesIcon.png";
 import { NavLink, useSearchParams, Link } from "react-router-dom";
 export default function SideBar() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const previewPosterData = [
     {
       img: "/sidebarPoster10.png",
-      pageLink: "/",
+      pageLink: `/?${searchParams}`,
       festival: "lohri",
-
     },
     {
       img: "/SidebarP9.png",
-      pageLink: "poster9",
+      pageLink: `poster9?${searchParams}`,
       festival: "diwali",
     },
 
     {
       img: "/sidebarPoster2.png",
-      pageLink: "poster2",
+      pageLink: `poster2?${searchParams}`,
       festival: "holi",
     },
     // {
@@ -50,7 +50,6 @@ export default function SideBar() {
     //     pageLink: "",
     // }
   ];
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const filterParams = searchParams.get("filter");
 

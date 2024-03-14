@@ -14,14 +14,12 @@ export async function loader() {
 export default function Poster9() {
   const loaderData = useLoaderData();
   return (
-    /* <div class="containerPoster9"> */
-
-    <div class="maincontainerPoster9">
-      <div class="text1Poster9">
-        <p class="text1P9">2</p>
-        <img src={imgP9} class="imgP9" />
-        <p class="text2P9">2</p>
-        <p class="text1P9">4</p>
+    <div className="maincontainerPoster9">
+      <div className="text1Poster9">
+        <p className="text1P9">2</p>
+        <img src={imgP9} className="imgP9" />
+        <p className="text2P9">2</p>
+        <p className="text1P9">4</p>
       </div>
       <div class="text2Poster9">HAPPY NEW YEAR</div>
       <div class="text3Poster9">
@@ -36,7 +34,7 @@ export default function Poster9() {
       </div>
       <img
         src={loaderData?.personImage?.background_image || imgP9}
-        class="empP9"
+        className="aspectFix empP9"
       />
     </div>
   );

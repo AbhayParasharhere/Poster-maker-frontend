@@ -16,6 +16,7 @@ export async function loader() {
 }
 export default function Poster2() {
   const loaderData = useLoaderData();
+
   return (
     <div className="main-poster-container--2">
       <div className="poster-image-container--2">

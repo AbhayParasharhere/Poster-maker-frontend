@@ -4,7 +4,12 @@ import logoP10 from "../../src/assets/images/Poster/logoP10.png";
 import DholP10 from "../../src/assets/images/Poster/DholP10.png";
 import circleP10 from "../../src/assets/images/Poster/circleP10.png";
 import greenP10 from "../../src/assets/images/Poster/greenP10.png";
-import { useLoaderData, redirect } from "react-router-dom";
+import {
+  useLoaderData,
+  redirect,
+  useLocation,
+  useSearchParams,
+} from "react-router-dom";
 import Cookies from "js-cookie";
 export async function loader() {
   try {
@@ -21,6 +26,7 @@ export async function loader() {
 export default function Poster10() {
   try {
     const loaderData = useLoaderData();
+
     return (
       // <div class="containerPoster10">
       <div class="maincontainerPoster10">
