@@ -1,17 +1,10 @@
 
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tangerine:wght@400;700&display=swap'); */
-
 * 
 {
     margin: 0;
     padding: 0;
 }
-/* .containerPoster10 
-{
-    container-type: inline-size;
-    container-name: changeRes;
-    
-} */
+
 .maincontainerPoster10 
 {
     width: 100%;
@@ -21,12 +14,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
+    position: relative;
 }
 .logoP10 
 {
-    width: 10em;
-    height: 10em;
+    width: 60px;
+    height: 60px;
 }
 .imgPoster10 
 {
@@ -44,7 +37,7 @@
 }
 .contentContainerPoster10 
 {
-    padding-top: 2em;
+    padding-top: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +47,7 @@
 .CnamePoster10 {
     color: #FFF;
     font-family: Constantia;
-    font-size: 3.2em;
+    font-size: 48px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -64,7 +57,7 @@
 {
     color: #A54CD7;
     font-family: Constantia;
-    font-size: 1.7em;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -94,6 +87,7 @@
 {
     color: #DC2E1A;
     font-family: Inter;
+    src: url(Inter-VariableFont_slnt,wght.ttf);
     font-size: 1.5em;
     font-style: normal;
     font-weight: 300;
@@ -105,12 +99,13 @@
 {
     color: rgba(255, 40, 3, 0.80);
     font-family: 'Tangerine';
-    font-size: 4.5em;
+    src: url(Tangerine-Regular.ttf);
+    font-size: 5em;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 0.05em;
-    /* align-self: center; */
+    align-self: center;
 }
 
 .textP10
@@ -133,7 +128,9 @@
 }
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -134.6em;
+    /* translate: 0 -133.8em; */
+    position: absolute;
+    bottom: 0;
     background: #FFAA02;
     width: 100%;
     z-index: 0;
@@ -148,6 +145,7 @@
 
 color: #FFF;
 font-family: Inter;
+src: url(Inter-VariableFont_slnt,wght.ttf);
 font-size: 2.2em;
 font-style: normal;
 font-weight: 700;
@@ -158,6 +156,7 @@ line-height: normal;
 {
 color: #FFF;
 font-family: Inter;
+src: url(Inter-VariableFont_slnt,wght.ttf);
 font-size: 1.5em;
 font-style: normal;
 font-weight: 800;
@@ -174,8 +173,66 @@ align-self: center;
     }
     .footerP10 {
         /* margin-top: 2em; */
-        translate: 0 -122.5em;
+        translate: 0 -120.2em;
     }
+
+}
+@container changeRes (width: 680px) {
+    .maincontainerPoster10  {
+        font-size: 45%;
+    }
+    .CnamePoster10 {
+        font-size: 4em;
+    }
+    .websiteP10 {
+        font-size: 2em;
+    }
+
+    .divLohriP10 {
+        translate: 0 -142em;   
+    }
+    .footerP10 {
+        /* margin-top: 2em; */
+        translate: 0 -120.2em;
+    }
+    .dholP10 {
+        width: 80em;
+        height: 80em;
+    }
+    .circleP10 {
+        width: 80em;
+        height: 80em;
+        translate: 0 -80.5em;
+    }
+    .greenP10 {
+    /* width: 40em; 
+    height: 40em;  */
+    width: 60em;
+    height: 60em;
+    translate: 0 -155em;
+}
+.footerP10 {
+    /* margin-top: 2em; */
+    translate: 0 -164em;
+}
+.divLohriP10 {
+    translate: 0 -185em;
+}
+.textP10
+{
+    font-size: 16px;
+}
+.happyP10 {
+    font-size: 18px;
+}
+.LohriP10 {
+    font-size: 48px;
+}
+.empP10 {
+    width: 30em;
+    height: 30em;
+}
+
 
 }
 @container changeRes (width: 350px) {
@@ -207,7 +264,7 @@ align-self: center;
 }
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -149em;
+    translate: 0 -148em;
 }
 .divLohriP10 {
     translate: 0 -185em;
@@ -233,35 +290,28 @@ align-self: center;
     .maincontainerPoster10  {
         font-size: 15%;
     }
-    .divLohriP10 {
-        translate: 0 -142em;   
-    }
-    .footerP10 {
-        /* margin-top: 2em; */
-        translate: 0 -120.2em;
-    }
     .dholP10 {
-        width: 80em;
-        height: 80em;
+        width: 180px;
+        height: 180px;
     }
     .circleP10 {
-        width: 80em;
-        height: 80em;
-        translate: 0 -80.5em;
+        width: 190px;
+        height: 190px;
+        translate: 0 -192px;
     }
     .greenP10 {
     /* width: 40em; 
     height: 40em;  */
-    width: 60em;
-    height: 60em;
-    translate: 0 -155em;
+    width: 220px;
+    height: 220px;
+    translate: 0 -395px;
 }
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -138.5em;
+    translate: 0 -392.5px;
 }
 .divLohriP10 {
-    translate: 0 -185em;
+    translate: 0 -515px;
 }
 .textP10
 {
@@ -274,8 +324,8 @@ align-self: center;
     font-size: 16px;
 }
 .empP10 {
-    width: 40em;
-    height: 40em;
+    width: 90px;
+    height: 90px;
 }
 
 }
