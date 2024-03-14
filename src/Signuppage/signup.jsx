@@ -391,7 +391,7 @@ export default function SignUp() {
           </p>
           <input
             className="name-input-s"
-            placeholder="Enter Full Name"
+            placeholder="Enter Full Name (IN CAPITAL)"
             name="name"
             onChange={handleChange}
             value={formValues.name}
