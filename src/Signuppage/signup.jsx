@@ -115,7 +115,7 @@ export default function SignUp() {
       mandatory: false,
       type: "text",
       name: "employeeID",
-      topText: "Employee ID",
+      topText: "Employee ID (Optional)",
       placeholder: "Enter ID",
       value: formValues.employeeID,
     },
