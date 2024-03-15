@@ -1,10 +1,17 @@
 
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tangerine:wght@400;700&display=swap'); */
+
 * 
 {
     margin: 0;
     padding: 0;
 }
-
+/* .containerPoster10 
+{
+    container-type: inline-size;
+    container-name: changeRes;
+    
+} */
 .maincontainerPoster10 
 {
     width: 100%;
@@ -14,12 +21,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: absolute;
 }
 .logoP10 
 {
-    width: 60px;
-    height: 60px;
+    width: 10em;
+    height: 10em;
 }
 .imgPoster10 
 {
@@ -37,7 +44,7 @@
 }
 .contentContainerPoster10 
 {
-    padding-top: 32px;
+    padding-top: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +54,7 @@
 .CnamePoster10 {
     color: #FFF;
     font-family: Constantia;
-    font-size: 48px;
+    font-size: 3.2em;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -57,7 +64,7 @@
 {
     color: #A54CD7;
     font-family: Constantia;
-    font-size: 16px;
+    font-size: 1.7em;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -87,7 +94,6 @@
 {
     color: #DC2E1A;
     font-family: Inter;
-    src: url(Inter-VariableFont_slnt,wght.ttf);
     font-size: 1.5em;
     font-style: normal;
     font-weight: 300;
@@ -99,13 +105,12 @@
 {
     color: rgba(255, 40, 3, 0.80);
     font-family: 'Tangerine';
-    src: url(Tangerine-Regular.ttf);
-    font-size: 5em;
+    font-size: 4.5em;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 0.05em;
-    align-self: center;
+    /* align-self: center; */
 }
 
 .textP10
@@ -128,9 +133,7 @@
 }
 .footerP10 {
     /* margin-top: 2em; */
-    /* translate: 0 -133.8em; */
-    position: absolute;
-    bottom: 0;
+    translate: 0 -134.6em;
     background: #FFAA02;
     width: 100%;
     z-index: 0;
@@ -145,7 +148,6 @@
 
 color: #FFF;
 font-family: Inter;
-src: url(Inter-VariableFont_slnt,wght.ttf);
 font-size: 2.2em;
 font-style: normal;
 font-weight: 700;
@@ -156,7 +158,6 @@ line-height: normal;
 {
 color: #FFF;
 font-family: Inter;
-src: url(Inter-VariableFont_slnt,wght.ttf);
 font-size: 1.5em;
 font-style: normal;
 font-weight: 800;
@@ -173,66 +174,8 @@ align-self: center;
     }
     .footerP10 {
         /* margin-top: 2em; */
-        translate: 0 -120.2em;
+        translate: 0 -122.5em;
     }
-
-}
-@container changeRes (width: 680px) {
-    .maincontainerPoster10  {
-        font-size: 45%;
-    }
-    .CnamePoster10 {
-        font-size: 4em;
-    }
-    .websiteP10 {
-        font-size: 2em;
-    }
-
-    .divLohriP10 {
-        translate: 0 -142em;   
-    }
-    .footerP10 {
-        /* margin-top: 2em; */
-        translate: 0 -120.2em;
-    }
-    .dholP10 {
-        width: 80em;
-        height: 80em;
-    }
-    .circleP10 {
-        width: 80em;
-        height: 80em;
-        translate: 0 -80.5em;
-    }
-    .greenP10 {
-    /* width: 40em; 
-    height: 40em;  */
-    width: 60em;
-    height: 60em;
-    translate: 0 -155em;
-}
-.footerP10 {
-    /* margin-top: 2em; */
-    translate: 0 -164em;
-}
-.divLohriP10 {
-    translate: 0 -185em;
-}
-.textP10
-{
-    font-size: 16px;
-}
-.happyP10 {
-    font-size: 18px;
-}
-.LohriP10 {
-    font-size: 48px;
-}
-.empP10 {
-    width: 30em;
-    height: 30em;
-}
-
 
 }
 @container changeRes (width: 350px) {
@@ -334,6 +277,7 @@ align-self: center;
     width: 40em;
     height: 40em;
 }
+
 }
 
 
