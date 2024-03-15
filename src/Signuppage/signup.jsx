@@ -81,7 +81,7 @@ export default function SignUp() {
       mandatory: true,
       type: "password",
       name: "password",
-      topText: "Password",
+      topText: "Password (Atleast 9 characters long)",
       placeholder: "Pasword",
       value: formValues.password,
       changeColor: passwordInputColorToggle,
@@ -99,7 +99,7 @@ export default function SignUp() {
       mandatory: true,
       type: "text",
       name: "contactNumber",
-      topText: "Contact Number",
+      topText: "Contact Number (Ten characters only)",
       placeholder: "Enter Contact No.",
       value: formValues.contactNumber,
     },
@@ -115,7 +115,7 @@ export default function SignUp() {
       mandatory: false,
       type: "text",
       name: "employeeID",
-      topText: "Employee ID",
+      topText: "Employee ID (Optional)",
       placeholder: "Enter ID",
       value: formValues.employeeID,
     },
@@ -391,7 +391,7 @@ export default function SignUp() {
           </p>
           <input
             className="name-input-s"
-            placeholder="Enter Full Name"
+            placeholder="Enter Full Name (IN CAPITAL)"
             name="name"
             onChange={handleChange}
             value={formValues.name}
