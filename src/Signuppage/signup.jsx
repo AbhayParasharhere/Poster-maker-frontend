@@ -13,7 +13,7 @@ import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
 import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
-import imglyRemoveBackground from "@imgly/background-removal";
+import RemoveBackground from '../Module/RemoveBG';
 import Cookies from "js-cookie";
 
 export function loader() {
@@ -184,22 +184,12 @@ export default function SignUp() {
   }
 
   let removeBGFile;
-
-  const imageSrc = formValues.backgroundImage;
-
-  const RemoveBackground = async () => {
-    try {
-      setLoading(true);
-      const blob = await imglyRemoveBackground(imageSrc);
-      removeBGFile = new File([blob], "new_image.jpg", { type: "image/jpeg" });
-      console.log(removeBGFile);
-    } catch (error) {
-      console.error("Error loading image:", error);
-    }
-    finally {
-      setLoading(false);
-    }
+  const handleRemoveBackground = async () => {
+    setLoading(true);
+    removeBGFile = await RemoveBackground(formValues);
+    setLoading(false);
   };
+  
 
   const fetchData = async () => {
     try {
@@ -323,7 +313,7 @@ export default function SignUp() {
     // if (!formValues.SignaturePhoto) {
     //   formValues.SignaturePhoto = blueFill;
     // }
-    await RemoveBackground();
+    await handleRemoveBackground();
 
     fetchData(); // Call the fetchData function
   }
