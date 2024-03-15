@@ -264,7 +264,7 @@ align-self: center;
 }
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -148em;
+    translate: 0 -149em;
 }
 .divLohriP10 {
     translate: 0 -185em;
@@ -290,28 +290,35 @@ align-self: center;
     .maincontainerPoster10  {
         font-size: 15%;
     }
+    .divLohriP10 {
+        translate: 0 -142em;   
+    }
+    .footerP10 {
+        /* margin-top: 2em; */
+        translate: 0 -120.2em;
+    }
     .dholP10 {
-        width: 180px;
-        height: 180px;
+        width: 80em;
+        height: 80em;
     }
     .circleP10 {
-        width: 190px;
-        height: 190px;
-        translate: 0 -192px;
+        width: 80em;
+        height: 80em;
+        translate: 0 -80.5em;
     }
     .greenP10 {
     /* width: 40em; 
     height: 40em;  */
-    width: 220px;
-    height: 220px;
-    translate: 0 -395px;
+    width: 60em;
+    height: 60em;
+    translate: 0 -155em;
 }
 .footerP10 {
     /* margin-top: 2em; */
-    translate: 0 -392.5px;
+    translate: 0 -138.5em;
 }
 .divLohriP10 {
-    translate: 0 -515px;
+    translate: 0 -185em;
 }
 .textP10
 {
@@ -324,10 +331,9 @@ align-self: center;
     font-size: 16px;
 }
 .empP10 {
-    width: 90px;
-    height: 90px;
+    width: 40em;
+    height: 40em;
 }
-
 }
 
 
