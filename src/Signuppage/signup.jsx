@@ -82,7 +82,7 @@ export default function SignUp() {
       type: "password",
       name: "password",
       topText: "Password",
-      placeholder: "Password (Atleast 9 characters long)",
+      placeholder: "Atleast 9 characters long",
       value: formValues.password,
       changeColor: passwordInputColorToggle,
     },
@@ -100,7 +100,7 @@ export default function SignUp() {
       type: "text",
       name: "contactNumber",
       topText: "Contact Number",
-      placeholder: "Enter Contact No. (Ten characters only)",
+      placeholder: "Ten characters only",
       value: formValues.contactNumber,
     },
     {

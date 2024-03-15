@@ -43,7 +43,7 @@ for (let i = 0; i < contactNumber.length; i++) {
                     <div class="text2P11"><img class="tick "src={tick} /><span class="stext2P11"> Travel </span> Insurance</div>
                     <div class="text2P11"><img class="tick "src={tick} /><span class="stext2P11"> RESP, RRSP </span> & TFSA</div>
                     <div class="text2P11"><img class="tick "src={tick} /><span class="stext2P11"> Health</span> & Dental Plans</div>
-                    <div class="name">{loaderData.textData.name}</div>
+                    <div class="nameP11">{loaderData.textData.name}</div>
                     <div class="designation">{loaderData.textData.designation}</div>
                     <div class="number"><p class="pnumber">{formattedContactNumber}</p>
                     </div>
