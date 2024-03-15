@@ -6,12 +6,16 @@ import vector from "../assets/images/Vector.png";
 import patchData from "../apis/patchData";
 import Cookies from "js-cookie";
 import postBackgroundImage from "../apis/postBackgroundImage";
+import {TailSpin} from "react-loader-spinner";
 import RemoveBackground from '../Module/RemoveBG';
 
 export default function DetailPage() {
   const [detailError, setDetailError] = React.useState("");
   const [successMessage, setSuccessMessage] = React.useState("");
   const [loading, setLoading] = React.useState(false);
+  const [changePhotoInputColor, setChangePhotoInputColor] =
+    React.useState(false);
+  // const [button, setButton] = React.useState("Save details");
   const [detailFormValues, setDetailFormValues] = React.useState(() => ({
     name: "",
     newPassword: "",
@@ -70,7 +74,17 @@ export default function DetailPage() {
             ? event.target.files[0]
             : event.target.value,
       };
+      
     });
+    changeInputBorder(event);
+  }
+  function changeInputBorder(event) {
+    const value = event.target.value;
+     if (event.target.name === "backgroundImage") {
+      value !== ""
+        ? setChangePhotoInputColor(true)
+        : setChangePhotoInputColor(false);
+    }
   }
 
   async function submitForm() {
@@ -107,6 +121,7 @@ export default function DetailPage() {
           return;
         } else {
           setLoading(true);
+          
           await handleRemoveBackground();
           await postBackgroundImage(token, removeBGFile);
           setLoading(false);
@@ -151,7 +166,11 @@ export default function DetailPage() {
               <p className="detail--input-label">Photo</p>
               <label
                 htmlFor="detail--person-photo"
-                className="detail--image-input-label"
+                className={
+                  changePhotoInputColor
+                    ? "detail--image-input-label--green"
+                    : "detail--image-input-label"
+                }
               >
                 <img src={uploadIcon} className="detail--upload-icon" /> Upload
                 new photo
@@ -165,8 +184,11 @@ export default function DetailPage() {
               />
             </div>
             <button className="detail--submit-button" onClick={submitForm}>
-              Save details
+            {loading ? ('Loading...') : ('Save details')}
             </button>
+            <div className="detail--page-loader">
+            {loading ? (<TailSpin/>) : ('')}
+            </div>
             {detailError && <p className="signup--error-text">{detailError}</p>}
             {successMessage && (
               <p className="signup--loading-text">{successMessage}</p>
