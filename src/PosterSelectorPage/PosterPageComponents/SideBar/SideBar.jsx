@@ -15,6 +15,10 @@ export default function SideBar() {
       pageLink: `RRSP?${searchParams}`,
       festival: "holi",
     },
+    {
+      img: "/sidebarPoster5.png",
+      pageLink: "poster5",
+    },
     // {
     //   img: "/SidebarP9.png",
     //   pageLink: `poster9?${searchParams}`,
@@ -37,10 +41,7 @@ export default function SideBar() {
       img: "/sidebarPoster4.png",
       pageLink: "poster4",
     },
-    {
-        img: "/sidebarPoster5.png",
-        pageLink: "poster5",
-    },
+  
     {
         img: "/sidebarPoster6.png",
         pageLink: "poster6",
