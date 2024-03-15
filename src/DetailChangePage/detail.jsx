@@ -6,10 +6,12 @@ import vector from "../assets/images/Vector.png";
 import patchData from "../apis/patchData";
 import Cookies from "js-cookie";
 import postBackgroundImage from "../apis/postBackgroundImage";
+import RemoveBackground from '../Module/RemoveBG';
 
 export default function DetailPage() {
   const [detailError, setDetailError] = React.useState("");
   const [successMessage, setSuccessMessage] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const [detailFormValues, setDetailFormValues] = React.useState(() => ({
     name: "",
     newPassword: "",
@@ -44,13 +46,21 @@ export default function DetailPage() {
       labelText: "Contact",
     },
   ];
+  let removeBGFile;
+  const handleRemoveBackground = async () => {
+    
+    removeBGFile = await RemoveBackground(detailFormValues);
+    
+  };
+
+  // handleRemoveBackground();
 
   function handleChange(event) {
     console.log(
       "name:",
       event.target.value,
       "previous",
-      detailFormValues.backgroundImage
+      removeBGFile
     );
     setDetailFormValues((prevValues) => {
       return {
@@ -96,7 +106,10 @@ export default function DetailPage() {
           setDetailError("Image size too large");
           return;
         } else {
-          await postBackgroundImage(token, detailFormValues.backgroundImage);
+          setLoading(true);
+          await handleRemoveBackground();
+          await postBackgroundImage(token, removeBGFile);
+          setLoading(false);
           setDetailError(false);
           setSuccessMessage("Successfully changed Details");
         }
