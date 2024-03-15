@@ -17,7 +17,8 @@ export default function SideBar() {
     },
     {
       img: "/sidebarPoster5.png",
-      pageLink: "poster5",
+      pageLink: `poster5?${searchParams}`,
+      festival: "holi",
     },
     // {
     //   img: "/SidebarP9.png",
@@ -39,20 +40,24 @@ export default function SideBar() {
     },
     {
       img: "/sidebarPoster4.png",
-      pageLink: "poster4",
+      pageLink: `poster4?${searchParams}`,
+      festival: "holi",
     },
   
     {
         img: "/sidebarPoster6.png",
-        pageLink: "poster6",
+        pageLink: `poster6?${searchParams}`,
+        festival: "holi",
     },
     {
         img: "/sidebarPoster7.png",
         pageLink: "poster7",
+        festival: "holi",
     },
     {
         img: "/sidebarPoster8.png",
-        pageLink: "poster8",
+        pageLink: `poster8?${searchParams}`,
+        festival: "holi",
     },
     // {
     //     img: "/sidebarPoster1.png",
