@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Style+Script&display=swap');
 
 * {
     margin: 0;
@@ -28,6 +26,7 @@
 .text-1--6--Poster--6 {
     color: #000;
     font-family: Style Script;
+    src: url('StyleScript-Regular.ttf');
     font-size: 5em;
     font-style: normal;
     font-weight: 400;
@@ -42,6 +41,7 @@
     color: #7F4E52;
     text-align: center;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 3em;
     font-style: normal;
     font-weight: 400;
@@ -53,6 +53,7 @@
 .text-2--6--Poster--6{
     color: #B08581;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 3em;
     font-style: normal;
     font-weight: 400;
@@ -72,6 +73,7 @@
 .div-1-text-1--6--Poster--6{
     color: #000;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 2em;
     font-style: normal;
     font-weight: 800;
@@ -81,6 +83,7 @@
 .div-1-text-2--6--Poster--6{
     color: #000;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 1.5em;
     font-style: normal;
     font-weight: 400;
@@ -91,6 +94,7 @@
 .div-2-text-1--6--Poster--6{
     color: #000;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 2em;
     font-style: normal;
     font-weight: 800;
@@ -99,6 +103,7 @@
 .div-2-text-2--6--Poster--6{
     color: #000;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 1.25em;
     font-style: normal;
     font-weight: 400;
