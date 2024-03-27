@@ -34,6 +34,7 @@
 .text-1--7 {
     color: #F4BB04;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 2.5em;
     font-style: normal;
     font-weight: 800;
@@ -43,6 +44,7 @@
 .text-2--7 {
     color: #FDB404;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 2.5em;
     font-style: normal;
     font-weight: 400;
@@ -52,6 +54,7 @@
 .text-3--7 {
     color: #FFF;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 9em;
     font-style: normal;
     font-weight: 800;
@@ -62,6 +65,7 @@
 .text-4--7 {
     color: #FCB703;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 3.75em;
     font-style: normal;
     font-weight: 700;
@@ -72,6 +76,7 @@
 .text-q--7 {
     color: #FFF;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -79,6 +84,7 @@
 .text-5--7 {
     color: #FBB504;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 2.5em;
     font-style: normal;
     font-weight: 700;
@@ -88,6 +94,7 @@
 .text-q {
     color: #FFF;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -97,6 +104,7 @@
 .text-6--7 {
     color: #F7B705;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 1.5875em;
     font-style: normal;
     font-weight: 400;
@@ -114,6 +122,7 @@
 .p-text--7 {
     color: #12484A;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 1.5875em;
     font-style: normal;
     font-weight: 800;
@@ -124,6 +133,7 @@
 .text-8--7 {
     color: #FFF;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 2.3125em;
     font-style: normal;
     font-weight: 800;
@@ -133,6 +143,7 @@
 .more-info--7 {
     color: #000;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 1.5625em;
     font-style: normal;
     font-weight: 400;
@@ -145,6 +156,7 @@
 .phone {
     color: #000;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 2em;
     font-style: normal;
     font-weight: 700;
@@ -166,6 +178,7 @@
 .name--7 {
     color: #FFF;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 3.125em;
     font-style: normal;
     font-weight: 800;
@@ -178,6 +191,7 @@
 .des--7 {
     color: #FDB602;
     font-family: Inter;
+    src: url('Inter-VariableFont_slnt,wght.ttf');
     font-size: 1.5625em;
     font-style: normal;
     font-weight: 400;

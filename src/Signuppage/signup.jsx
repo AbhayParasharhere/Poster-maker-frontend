@@ -13,6 +13,7 @@ import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
 import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
+import {TailSpin} from "react-loader-spinner";
 import RemoveBackground from '../Module/RemoveBG';
 import Cookies from "js-cookie";
 
@@ -82,7 +83,7 @@ export default function SignUp() {
       type: "password",
       name: "password",
       topText: "Password",
-      placeholder: "Password (Atleast 9 characters long)",
+      placeholder: "Atleast 9 characters long",
       value: formValues.password,
       changeColor: passwordInputColorToggle,
     },
@@ -100,7 +101,7 @@ export default function SignUp() {
       type: "text",
       name: "contactNumber",
       topText: "Contact Number",
-      placeholder: "Enter Contact No. (Ten characters only)",
+      placeholder: "Ten characters only",
       value: formValues.contactNumber,
     },
     {
@@ -429,7 +430,8 @@ export default function SignUp() {
             </button>
           </div>
         </div>
-        {loading && <p className="signup--loading-text"> Loading...</p>}
+        {loading ? (<TailSpin/>) : ('')}
+        {/* {loading && <p className="signup--loading-text"> Loading...</p>} */}
         {errorMessage && <p className="signup--error-text">{errorMessage}</p>}
 
         <p className="sign-log-text">
