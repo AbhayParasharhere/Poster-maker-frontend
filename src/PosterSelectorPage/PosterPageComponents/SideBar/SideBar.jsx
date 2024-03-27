@@ -12,7 +12,7 @@ export default function SideBar() {
     // },
     {
       img: "/sidebarP11.png",
-      pageLink: `RRSP?${searchParams}`,
+      pageLink: `/?${searchParams}`,
       festival: "holi",
     },
     {
@@ -38,22 +38,22 @@ export default function SideBar() {
       pageLink: `poster3?${searchParams}`,
       festival: "holi",
     },
-    {
-      img: "/sidebarPoster4.png",
-      pageLink: `poster4?${searchParams}`,
-      festival: "holi",
-    },
+    // {
+    //   img: "/sidebarPoster4.png",
+    //   pageLink: `poster4?${searchParams}`,
+    //   festival: "holi",
+    // },
   
-    {
-        img: "/sidebarPoster6.png",
-        pageLink: `poster6?${searchParams}`,
-        festival: "holi",
-    },
-    {
-        img: "/sidebarPoster7.png",
-        pageLink: "poster7",
-        festival: "holi",
-    },
+    // {
+    //     img: "/sidebarPoster6.png",
+    //     pageLink: `poster6?${searchParams}`,
+    //     festival: "holi",
+    // },
+    // {
+    //     img: "/sidebarPoster7.png",
+    //     pageLink: "poster7",
+    //     festival: "holi",
+    // },
     {
         img: "/sidebarPoster8.png",
         pageLink: `poster8?${searchParams}`,
