@@ -13,6 +13,7 @@ import postSignatureImage from "../apis/postSignatureImage";
 import postData from "../apis/postData";
 import "./signup.css";
 import { Navigate, Link, useNavigate } from "react-router-dom";
+import {TailSpin} from "react-loader-spinner";
 import RemoveBackground from '../Module/RemoveBG';
 import Cookies from "js-cookie";
 
@@ -429,7 +430,8 @@ export default function SignUp() {
             </button>
           </div>
         </div>
-        {loading && <p className="signup--loading-text"> Loading...</p>}
+        {loading ? (<TailSpin/>) : ('')}
+        {/* {loading && <p className="signup--loading-text"> Loading...</p>} */}
         {errorMessage && <p className="signup--error-text">{errorMessage}</p>}
 
         <p className="sign-log-text">
